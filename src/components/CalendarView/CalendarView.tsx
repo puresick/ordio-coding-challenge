@@ -86,37 +86,44 @@ function CalendarView() {
   return (
     <DndProvider>
       <section className={classes.block}>
-        {WEEKDAYS.map((day) => (
-          <h2 key={day}>
-            {day}
-            {datesByWeekday[day] && (
-              <span className={classes.date}>
-                {datesByWeekday[day].toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                })}
-              </span>
-            )}
-          </h2>
-        ))}
+        <div className={classes.weekdays}>
+          {WEEKDAYS.map((day) => (
+            <h2 key={day}>
+              {day}
+              {datesByWeekday[day] && (
+                <span className={classes.date}>
+                  {datesByWeekday[day].toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </span>
+              )}
+            </h2>
+          ))}
+        </div>
         <div className={classes.shifts}>
           {departments.map((dept: string) => (
             <div key={dept} className={classes.department}>
-              {WEEKDAYS.map((day) => (
-                <div key={day} className={classes.dayColumn}>
-                  {shiftsByDepartmentAndDay[dept]?.[day]?.map((shift: Shift) => (
-                    <DraggableShiftCard key={shift.id} shift={shift}>
-                      <ShiftEditDialog
-                        shift={shift}
-                        employees={employees}
-                        departments={departments}
-                      >
-                        <ShiftCard shift={shift} />
-                      </ShiftEditDialog>
-                    </DraggableShiftCard>
-                  ))}
-                </div>
-              ))}
+              <h3 className={classes.departmentHeader}>{dept}</h3>
+              <div className={classes.departmentShifts}>
+                {WEEKDAYS.map((day) => (
+                  <div key={day} className={classes.dayColumn}>
+                    {shiftsByDepartmentAndDay[dept]?.[day]?.map(
+                      (shift: Shift) => (
+                        <DraggableShiftCard key={shift.id} shift={shift}>
+                          <ShiftEditDialog
+                            shift={shift}
+                            employees={employees}
+                            departments={departments}
+                          >
+                            <ShiftCard shift={shift} />
+                          </ShiftEditDialog>
+                        </DraggableShiftCard>
+                      ),
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
