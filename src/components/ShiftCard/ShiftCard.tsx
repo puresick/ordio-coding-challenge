@@ -32,7 +32,7 @@ export const ShiftCard = forwardRef<HTMLDivElement, ShiftCardProps>(
     return (
       <Card
         ref={ref}
-        className={cn("cursor-pointer", isUnassigned && classes.unassigned, className)}
+        className={cn(isUnassigned && classes.unassigned, className)}
         {...props}
       >
         <CardHeader>

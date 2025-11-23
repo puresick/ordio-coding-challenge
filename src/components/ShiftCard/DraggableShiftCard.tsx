@@ -41,7 +41,7 @@ export function DraggableShiftCard({
         setDraggableRef(node);
         setDroppableRef(node);
       }}
-      className={cn({
+      className={cn(classes.block, {
         [classes.isOver]: isOver && !isDragging,
         [classes.isDragging]: isDragging,
       })}

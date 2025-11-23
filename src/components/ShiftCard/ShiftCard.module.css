@@ -1,3 +1,13 @@
+.block {
+  &:focus-visible {
+    outline: none;
+
+    & > * {
+      outline: 3px solid color-mix(in oklab, var(--ring) 50%, transparent);
+    }
+  }
+}
+
 .isOver {
   z-index: 8000;
 }
