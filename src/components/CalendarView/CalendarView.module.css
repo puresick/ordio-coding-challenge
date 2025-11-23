@@ -54,6 +54,7 @@
 .department {
   display: grid;
   grid-template-columns: subgrid;
+  grid-template-rows: calc(var(--token-base-scale) * 10) 1fr;
 
   grid-column: 1 / -1;
 }
