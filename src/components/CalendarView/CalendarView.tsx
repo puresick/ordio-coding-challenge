@@ -31,10 +31,10 @@ function CalendarView() {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
-  // Get sorted department names for display
-  const departmentNames = [
-    ...new Set(shifts.map((s) => s.branch_working_area.working_area.name)),
-  ].toSorted((a, b) => a.localeCompare(b));
+  // Get sorted department names for display (from departments, not shifts)
+  const departmentNames = departments
+    .map((d) => d.working_area.name)
+    .toSorted((a, b) => a.localeCompare(b));
 
   const shiftsByDepartmentAndDay = shifts.reduce<
     Record<string, Record<string, Shift[]>>
