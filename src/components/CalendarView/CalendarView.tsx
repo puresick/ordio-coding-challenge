@@ -3,6 +3,7 @@ import type { Shift, Employee } from "@/context/ShiftsContext";
 import { ShiftEditDialog } from "@/components/ShiftEditDialog";
 import { ShiftCard, DraggableShiftCard } from "@/components/ShiftCard";
 import { DndProvider } from "@/components/DndProvider";
+import { EmptyState } from "@/components/EmptyState";
 import classes from "./CalendarView.module.css";
 
 const WEEKDAYS = [
@@ -23,8 +24,9 @@ function getWeekdayFromDateString(dateString: string): string {
 }
 
 function CalendarView() {
-  const { shifts, loading, error } = useShifts();
+  const { shifts, loading, error, initialized } = useShifts();
 
+  if (!initialized) return <EmptyState />;
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 

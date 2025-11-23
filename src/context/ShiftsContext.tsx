@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 import type { ReactNode } from 'react'
 
 // Types based on shifts.json structure
@@ -72,6 +72,9 @@ interface ShiftsContextValue {
   shifts: Shift[]
   loading: boolean
   error: string | null
+  initialized: boolean
+  loadShifts: () => void
+  initializeEmpty: () => void
   updateShift: (shiftId: string, updates: Partial<Shift>) => void
   assignEmployee: (shiftId: string, employee: Employee) => void
   unassignEmployee: (shiftId: string) => void
@@ -95,10 +98,13 @@ interface ShiftsProviderProps {
 
 export function ShiftsProvider({ children }: ShiftsProviderProps) {
   const [shifts, setShifts] = useState<Shift[]>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [initialized, setInitialized] = useState(false)
 
-  useEffect(() => {
+  const loadShifts = () => {
+    setLoading(true)
+    setError(null)
     fetch('/shifts.json')
       .then((response) => {
         if (!response.ok) {
@@ -109,12 +115,18 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
       .then((data: Shift[]) => {
         setShifts(data)
         setLoading(false)
+        setInitialized(true)
       })
       .catch((err) => {
         setError(err instanceof Error ? err.message : 'Unknown error')
         setLoading(false)
       })
-  }, [])
+  }
+
+  const initializeEmpty = () => {
+    setShifts([])
+    setInitialized(true)
+  }
 
   const updateShift = (shiftId: string, updates: Partial<Shift>) => {
     setShifts((prev) =>
@@ -211,7 +223,7 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
 
   return (
     <ShiftsContext.Provider
-      value={{ shifts, loading, error, updateShift, assignEmployee, unassignEmployee, swapShifts, moveShiftTo }}
+      value={{ shifts, loading, error, initialized, loadShifts, initializeEmpty, updateShift, assignEmployee, unassignEmployee, swapShifts, moveShiftTo }}
     >
       {children}
     </ShiftsContext.Provider>
