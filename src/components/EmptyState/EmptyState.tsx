@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { CalendarDays, Upload, FileSpreadsheet, Wand2, Check, ChevronsUpDown } from "lucide-react";
+import {
+  CalendarDays,
+  Upload,
+  FileSpreadsheet,
+  Wand2,
+  Check,
+  ChevronsUpDown,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -34,7 +41,11 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { useShifts } from "@/context/ShiftsContext";
-import type { BranchWorkingArea, Employee, Shift } from "@/context/ShiftsContext";
+import type {
+  BranchWorkingArea,
+  Employee,
+  Shift,
+} from "@/context/ShiftsContext";
 
 const WEEKDAYS = [
   { id: "monday", label: "Mon" },
@@ -65,7 +76,8 @@ export function EmptyState() {
   // Department and employees selection state
   const [departments, setDepartments] = useState<BranchWorkingArea[]>([]);
   const [availableEmployees, setAvailableEmployees] = useState<Employee[]>([]);
-  const [selectedDepartment, setSelectedDepartment] = useState<BranchWorkingArea | null>(null);
+  const [selectedDepartment, setSelectedDepartment] =
+    useState<BranchWorkingArea | null>(null);
   const [departmentOpen, setDepartmentOpen] = useState(false);
   const [loadingDepartments, setLoadingDepartments] = useState(false);
 
@@ -79,9 +91,14 @@ export function EmptyState() {
           // Extract unique departments
           const uniqueDepartments = [
             ...new Map(
-              data.map((s) => [s.branch_working_area.id, s.branch_working_area])
+              data.map((s) => [
+                s.branch_working_area.id,
+                s.branch_working_area,
+              ]),
             ).values(),
-          ].toSorted((a, b) => a.working_area.name.localeCompare(b.working_area.name));
+          ].toSorted((a, b) =>
+            a.working_area.name.localeCompare(b.working_area.name),
+          );
           setDepartments(uniqueDepartments);
           if (uniqueDepartments.length > 0) {
             setSelectedDepartment(uniqueDepartments[0]);
@@ -93,7 +110,7 @@ export function EmptyState() {
               data
                 .flatMap((s) => s.candidates.map((c) => c.employee))
                 .filter((e) => e?.username)
-                .map((e) => [e.id, e])
+                .map((e) => [e.id, e]),
             ).values(),
           ].toSorted((a, b) => a.username.localeCompare(b.username));
           setAvailableEmployees(uniqueEmployees);
@@ -104,9 +121,7 @@ export function EmptyState() {
 
   const toggleDay = (dayId: string) => {
     setSelectedDays((prev) =>
-      prev.includes(dayId)
-        ? prev.filter((d) => d !== dayId)
-        : [...prev, dayId]
+      prev.includes(dayId) ? prev.filter((d) => d !== dayId) : [...prev, dayId],
     );
   };
 
@@ -118,7 +133,6 @@ export function EmptyState() {
       shiftLengthHours,
       selectedDays,
       department: selectedDepartment,
-      employees: availableEmployees,
     });
     setWizardOpen(false);
   };
@@ -220,7 +234,8 @@ export function EmptyState() {
                   >
                     {loadingDepartments
                       ? "Loading..."
-                      : selectedDepartment?.working_area.name ?? "Select department..."}
+                      : (selectedDepartment?.working_area.name ??
+                        "Select department...")}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
@@ -244,7 +259,7 @@ export function EmptyState() {
                                 "mr-2 h-4 w-4",
                                 selectedDepartment?.id === dept.id
                                   ? "opacity-100"
-                                  : "opacity-0"
+                                  : "opacity-0",
                               )}
                             />
                             {dept.working_area.name}
