@@ -1,8 +1,13 @@
-import { useState } from "react";
-import { Check, ChevronsUpDown, Plus } from "lucide-react";
+import { useState, useMemo } from "react";
+import { Check, ChevronsUpDown, Plus, AlertTriangle } from "lucide-react";
 import { useShifts } from "@/context/ShiftsContext";
-import type { Shift, Employee, BranchWorkingArea } from "@/context/ShiftsContext";
+import type {
+  Shift,
+  Employee,
+  BranchWorkingArea,
+} from "@/context/ShiftsContext";
 import { cn } from "@/lib/utils";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -72,12 +77,23 @@ export function ShiftEditDialog({
   defaultDepartment,
   children,
 }: ShiftEditDialogProps) {
-  const { shifts, referenceDate, tags, assignEmployee, unassignEmployee, updateShift, updateShiftTags, addShift } = useShifts();
+  const {
+    shifts,
+    referenceDate,
+    tags,
+    assignEmployee,
+    unassignEmployee,
+    updateShift,
+    updateShiftTags,
+    addShift,
+  } = useShifts();
 
   const isAddMode = !shift;
   const currentEmployee = shift?.candidates[0]?.employee;
   const currentDepartment = shift?.branch_working_area;
-  const currentDay = shift ? getWeekdayFromDateString(shift.start_tz) : (defaultDay ?? "monday");
+  const currentDay = shift
+    ? getWeekdayFromDateString(shift.start_tz)
+    : (defaultDay ?? "monday");
   const isUnassigned = !currentEmployee?.username;
 
   const [open, setOpen] = useState(false);
@@ -89,26 +105,49 @@ export function ShiftEditDialog({
 
   const [departmentOpen, setDepartmentOpen] = useState(false);
   const [selectedDepartment, setSelectedDepartment] =
-    useState<BranchWorkingArea | null>(currentDepartment ?? defaultDepartment ?? null);
+    useState<BranchWorkingArea | null>(
+      currentDepartment ?? defaultDepartment ?? null,
+    );
 
   const [dayOpen, setDayOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState<string>(currentDay);
 
   const [startTime, setStartTime] = useState(
-    shift ? formatTimeForInput(shift.start_tz) : "09:00"
+    shift ? formatTimeForInput(shift.start_tz) : "09:00",
   );
   const [endTime, setEndTime] = useState(
-    shift ? formatTimeForInput(shift.end_tz) : "17:00"
+    shift ? formatTimeForInput(shift.end_tz) : "17:00",
   );
 
   const [tagsOpen, setTagsOpen] = useState(false);
   const [selectedTags, setSelectedTags] = useState<string[]>(
-    shift?.shift_tags?.map((st) => st.tag.id) ?? []
+    shift?.shift_tags?.map((st) => st.tag.id) ?? [],
   );
+
+  // Check if selected times violate underage work restrictions (before 06:00 or after 20:00)
+  const isUnderageRestrictedTime = useMemo(() => {
+    const [startHour] = startTime.split(":").map(Number);
+    const [endHour] = endTime.split(":").map(Number);
+    return startHour < 6 || endHour > 20;
+  }, [startTime, endTime]);
+
+  // Filter employees: exclude underage employees when time restrictions apply
+  const { availableEmployees, excludedUnderageEmployees } = useMemo(() => {
+    const underage = employees.filter((e) => e.is_underage);
+    const available = isUnderageRestrictedTime
+      ? employees.filter((e) => !e.is_underage)
+      : employees;
+    const excluded = isUnderageRestrictedTime ? underage : [];
+    return {
+      availableEmployees: available,
+      excludedUnderageEmployees: excluded,
+    };
+  }, [employees, isUnderageRestrictedTime]);
 
   // Calculate date for selected day based on existing shifts or referenceDate
   const getDateForDay = (day: string): Date => {
-    const refDateString = shifts.length > 0 ? shifts[0].start_tz : referenceDate;
+    const refDateString =
+      shifts.length > 0 ? shifts[0].start_tz : referenceDate;
 
     if (refDateString) {
       const refDate = new Date(refDateString);
@@ -209,7 +248,8 @@ export function ShiftEditDialog({
   };
 
   const getDialogDescription = () => {
-    if (isAddMode) return "Create a new shift. Leave employee empty for an unassigned shift.";
+    if (isAddMode)
+      return "Create a new shift. Leave employee empty for an unassigned shift.";
     if (isUnassigned) return "Select an employee to assign to this shift.";
     return "Update the shift details below. Click save when you're done.";
   };
@@ -250,7 +290,8 @@ export function ShiftEditDialog({
                       aria-expanded={departmentOpen}
                       className="justify-between"
                     >
-                      {selectedDepartment?.working_area.name || "Select department..."}
+                      {selectedDepartment?.working_area.name ||
+                        "Select department..."}
                       <ChevronsUpDown className="opacity-50" />
                     </Button>
                   </PopoverTrigger>
@@ -261,7 +302,11 @@ export function ShiftEditDialog({
                         <CommandEmpty>No department found.</CommandEmpty>
                         <CommandGroup>
                           {departments
-                            .toSorted((a, b) => a.working_area.name.localeCompare(b.working_area.name))
+                            .toSorted((a, b) =>
+                              a.working_area.name.localeCompare(
+                                b.working_area.name,
+                              ),
+                            )
                             .map((dept) => (
                               <CommandItem
                                 key={dept.id}
@@ -323,7 +368,9 @@ export function ShiftEditDialog({
                               <Check
                                 className={cn(
                                   "ml-auto",
-                                  selectedDay === day ? "opacity-100" : "opacity-0",
+                                  selectedDay === day
+                                    ? "opacity-100"
+                                    : "opacity-0",
                                 )}
                               />
                             </CommandItem>
@@ -338,7 +385,9 @@ export function ShiftEditDialog({
               {/* Time Inputs */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="grid gap-2">
-                  <Label htmlFor="start-time">Start Time {isAddMode && "*"}</Label>
+                  <Label htmlFor="start-time">
+                    Start Time {isAddMode && "*"}
+                  </Label>
                   <Input
                     id="start-time"
                     type="time"
@@ -371,8 +420,11 @@ export function ShiftEditDialog({
                   className="justify-between"
                 >
                   {selectedEmployee
-                    ? employees.find((e) => e.id === selectedEmployee)?.username
-                    : isAddMode ? "Unassigned" : "Select employee..."}
+                    ? availableEmployees.find((e) => e.id === selectedEmployee)
+                        ?.username
+                    : isAddMode
+                      ? "Unassigned"
+                      : "Select employee..."}
                   <ChevronsUpDown className="opacity-50" />
                 </Button>
               </PopoverTrigger>
@@ -394,13 +446,17 @@ export function ShiftEditDialog({
                           <Check
                             className={cn(
                               "ml-auto",
-                              selectedEmployee === "" ? "opacity-100" : "opacity-0",
+                              selectedEmployee === ""
+                                ? "opacity-100"
+                                : "opacity-0",
                             )}
                           />
                         </CommandItem>
                       )}
-                      {employees
-                        .toSorted((a, b) => a.username.localeCompare(b.username))
+                      {availableEmployees
+                        .toSorted((a, b) =>
+                          a.username.localeCompare(b.username),
+                        )
                         .map((employee) => (
                           <CommandItem
                             key={employee.id}
@@ -426,6 +482,19 @@ export function ShiftEditDialog({
                 </Command>
               </PopoverContent>
             </Popover>
+
+            {/* Alert for excluded underage employees */}
+            {excludedUnderageEmployees.length > 0 && (
+              <Alert variant="destructive">
+                <AlertTriangle />
+                <AlertTitle>Jugendarbeitsschutzgesetz</AlertTitle>
+                <AlertDescription>
+                  {excludedUnderageEmployees.map((e) => e.username).join(", ")}{" "}
+                  {excludedUnderageEmployees.length === 1 ? "is" : "are"}{" "}
+                  underage and cannot work outside 06:00–20:00.
+                </AlertDescription>
+              </Alert>
+            )}
           </div>
 
           {/* Tags Multi-Select Combobox */}
@@ -460,7 +529,7 @@ export function ShiftEditDialog({
                               setSelectedTags((prev) =>
                                 prev.includes(tag.id)
                                   ? prev.filter((id) => id !== tag.id)
-                                  : [...prev, tag.id]
+                                  : [...prev, tag.id],
                               );
                             }}
                           >
@@ -486,14 +555,21 @@ export function ShiftEditDialog({
 
         <DialogFooter>
           {!isAddMode && !isUnassigned && (
-            <Button variant="destructive" className="mr-auto" onClick={handleUnassign}>
+            <Button
+              variant="destructive"
+              className="mr-auto"
+              onClick={handleUnassign}
+            >
               Unassign
             </Button>
           )}
           <DialogClose asChild>
             <Button variant="outline">Cancel</Button>
           </DialogClose>
-          <Button onClick={handleSave} disabled={isAddMode && !selectedDepartment}>
+          <Button
+            onClick={handleSave}
+            disabled={isAddMode && !selectedDepartment}
+          >
             {getSubmitLabel()}
           </Button>
         </DialogFooter>

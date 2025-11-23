@@ -30,11 +30,13 @@ export interface Employee {
   phone: string | null;
   company: unknown;
   username: string;
+  is_underage?: boolean;
 }
 
 export interface Candidate {
   id: string;
   employee: Employee;
+  is_underage?: boolean;
 }
 
 export interface TemplateConfig {
@@ -148,11 +150,16 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
   const [initialized, setInitialized] = useState(false);
 
   const extractMetadataFromShifts = (data: Shift[]) => {
-    // Extract unique employees from shifts
+    // Extract unique employees from shifts, including is_underage from candidate
     const uniqueEmployees = [
       ...new Map(
         data
-          .flatMap((s) => s.candidates.map((c) => c.employee))
+          .flatMap((s) =>
+            s.candidates.map((c) => ({
+              ...c.employee,
+              is_underage: c.is_underage,
+            })),
+          )
           .filter((e) => e?.username)
           .map((e) => [e.id, e]),
       ).values(),
