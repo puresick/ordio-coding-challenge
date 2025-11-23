@@ -23,12 +23,13 @@ function getWeekdayFromDateString(dateString: string): string {
 }
 
 function CalendarView() {
-  const { shifts, employees, loading, error } = useShifts();
+  const { shifts, employees, departments, referenceDate, loading, error } = useShifts();
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
-  const departments = [
+  // Get sorted department names for display
+  const departmentNames = [
     ...new Set(shifts.map((s) => s.branch_working_area.working_area.name)),
   ].toSorted((a, b) => a.localeCompare(b));
 
@@ -61,18 +62,20 @@ function CalendarView() {
     }
   }
 
-  // Extract date for each weekday from shifts, inferring missing dates
+  // Extract date for each weekday from shifts or referenceDate
   const datesByWeekday: Record<string, Date> = {};
 
-  // First, get any date from shifts to use as reference
-  if (shifts.length > 0) {
-    const referenceDate = new Date(shifts[0].start_tz);
-    const dayOfWeek = referenceDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
+  // Use shifts[0] if available, otherwise fall back to referenceDate from context
+  const refDateString = shifts.length > 0 ? shifts[0].start_tz : referenceDate;
+
+  if (refDateString) {
+    const refDate = new Date(refDateString);
+    const dayOfWeek = refDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
 
     // Calculate Monday of this week
-    const monday = new Date(referenceDate);
+    const monday = new Date(refDate);
     const daysFromMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
-    monday.setDate(referenceDate.getDate() + daysFromMonday);
+    monday.setDate(refDate.getDate() + daysFromMonday);
     monday.setHours(0, 0, 0, 0);
 
     // Generate dates for all weekdays
@@ -102,13 +105,13 @@ function CalendarView() {
           ))}
         </div>
         <div className={classes.shifts}>
-          {departments.map((dept: string) => (
-            <div key={dept} className={classes.department}>
-              <h3 className={classes.departmentHeader}>{dept}</h3>
+          {departmentNames.map((deptName: string) => (
+            <div key={deptName} className={classes.department}>
+              <h3 className={classes.departmentHeader}>{deptName}</h3>
               <div className={classes.departmentShifts}>
                 {WEEKDAYS.map((day) => (
                   <div key={day} className={classes.dayColumn}>
-                    {shiftsByDepartmentAndDay[dept]?.[day]?.map(
+                    {shiftsByDepartmentAndDay[deptName]?.[day]?.map(
                       (shift: Shift) => (
                         <DraggableShiftCard key={shift.id} shift={shift}>
                           <ShiftEditDialog

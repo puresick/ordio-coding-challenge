@@ -45,6 +45,14 @@ export interface TemplateConfig {
   employees: Employee[]
 }
 
+export interface AddShiftConfig {
+  department: BranchWorkingArea
+  date: Date
+  startTime: string // HH:MM format
+  endTime: string // HH:MM format
+  employee?: Employee
+}
+
 export interface TimeFrame {
   gte: string
   lte: string
@@ -79,12 +87,15 @@ export interface Shift {
 interface ShiftsContextValue {
   shifts: Shift[]
   employees: Employee[]
+  departments: BranchWorkingArea[]
+  referenceDate: string | null
   loading: boolean
   error: string | null
   initialized: boolean
   loadShifts: () => void
-  initializeEmpty: () => void
+  initializeEmpty: () => Promise<void>
   generateTemplate: (config: TemplateConfig) => void
+  addShift: (config: AddShiftConfig) => void
   updateShift: (shiftId: string, updates: Partial<Shift>) => void
   assignEmployee: (shiftId: string, employee: Employee) => void
   unassignEmployee: (shiftId: string) => void
@@ -109,9 +120,35 @@ interface ShiftsProviderProps {
 export function ShiftsProvider({ children }: ShiftsProviderProps) {
   const [shifts, setShifts] = useState<Shift[]>([])
   const [employees, setEmployees] = useState<Employee[]>([])
+  const [departments, setDepartments] = useState<BranchWorkingArea[]>([])
+  const [referenceDate, setReferenceDate] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [initialized, setInitialized] = useState(false)
+
+  const extractMetadataFromShifts = (data: Shift[]) => {
+    // Extract unique employees from shifts
+    const uniqueEmployees = [
+      ...new Map(
+        data
+          .flatMap((s) => s.candidates.map((c) => c.employee))
+          .filter((e) => e?.username)
+          .map((e) => [e.id, e])
+      ).values(),
+    ]
+
+    // Extract unique departments from shifts
+    const uniqueDepartments = [
+      ...new Map(
+        data.map((s) => [s.branch_working_area.id, s.branch_working_area])
+      ).values(),
+    ]
+
+    // Get reference date from first shift
+    const refDate = data.length > 0 ? data[0].start_tz : null
+
+    return { uniqueEmployees, uniqueDepartments, refDate }
+  }
 
   const loadShifts = () => {
     setLoading(true)
@@ -124,17 +161,11 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
         return response.json()
       })
       .then((data: Shift[]) => {
+        const { uniqueEmployees, uniqueDepartments, refDate } = extractMetadataFromShifts(data)
         setShifts(data)
-        // Extract unique employees from shifts
-        const uniqueEmployees = [
-          ...new Map(
-            data
-              .flatMap((s) => s.candidates.map((c) => c.employee))
-              .filter((e) => e?.username)
-              .map((e) => [e.id, e])
-          ).values(),
-        ]
         setEmployees(uniqueEmployees)
+        setDepartments(uniqueDepartments)
+        setReferenceDate(refDate)
         setLoading(false)
         setInitialized(true)
       })
@@ -144,9 +175,27 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
       })
   }
 
-  const initializeEmpty = () => {
-    setShifts([])
-    setInitialized(true)
+  const initializeEmpty = async () => {
+    setLoading(true)
+    setError(null)
+    try {
+      const response = await fetch('/shifts.json')
+      if (!response.ok) {
+        throw new Error(`Failed to fetch shifts: ${response.status}`)
+      }
+      const data: Shift[] = await response.json()
+      const { uniqueEmployees, uniqueDepartments, refDate } = extractMetadataFromShifts(data)
+
+      setShifts([]) // Empty shifts
+      setEmployees(uniqueEmployees)
+      setDepartments(uniqueDepartments)
+      setReferenceDate(refDate)
+      setLoading(false)
+      setInitialized(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error')
+      setLoading(false)
+    }
   }
 
   const generateTemplate = (config: TemplateConfig) => {
@@ -233,6 +282,57 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
     setShifts(newShifts)
     setEmployees(configEmployees)
     setInitialized(true)
+  }
+
+  const addShift = (config: AddShiftConfig) => {
+    const { department, date, startTime, endTime, employee } = config
+
+    const [startHour, startMin] = startTime.split(':').map(Number)
+    const [endHour, endMin] = endTime.split(':').map(Number)
+
+    const startDate = new Date(date)
+    startDate.setHours(startHour, startMin, 0, 0)
+
+    const endDate = new Date(date)
+    endDate.setHours(endHour, endMin, 0, 0)
+
+    const formatDate = (d: Date) => d.toUTCString().replace('GMT', '+0100')
+
+    const workingTimeMinutes = (endHour * 60 + endMin) - (startHour * 60 + startMin)
+
+    const candidates: Candidate[] = employee
+      ? [{ id: crypto.randomUUID(), employee }]
+      : []
+
+    const newShift: Shift = {
+      id: crypto.randomUUID(),
+      type: 'shift',
+      start_tz: formatDate(startDate),
+      end_tz: formatDate(endDate),
+      working_time_in_minutes: workingTimeMinutes,
+      time_frame: {
+        gte: formatDate(startDate),
+        lte: formatDate(endDate),
+      },
+      timezone: 'Europe/Berlin',
+      employee_count: 1,
+      note: '',
+      automatically_accept: false,
+      canditature_system: false,
+      pause: '00:00',
+      pause_paid: false,
+      auto_break_rule: true,
+      status: true,
+      publish: true,
+      branch_working_area: department,
+      company_cost_centre: null,
+      company_event: null,
+      multi_checks: null,
+      multi_check: null,
+      candidates,
+    }
+
+    setShifts((prev) => [...prev, newShift])
   }
 
   const updateShift = (shiftId: string, updates: Partial<Shift>) => {
@@ -330,7 +430,7 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
 
   return (
     <ShiftsContext.Provider
-      value={{ shifts, employees, loading, error, initialized, loadShifts, initializeEmpty, generateTemplate, updateShift, assignEmployee, unassignEmployee, swapShifts, moveShiftTo }}
+      value={{ shifts, employees, departments, referenceDate, loading, error, initialized, loadShifts, initializeEmpty, generateTemplate, addShift, updateShift, assignEmployee, unassignEmployee, swapShifts, moveShiftTo }}
     >
       {children}
     </ShiftsContext.Provider>
