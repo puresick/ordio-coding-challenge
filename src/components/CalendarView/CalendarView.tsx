@@ -152,7 +152,7 @@ function CalendarView() {
                         defaultDepartment={departmentForDay}
                       >
                         <Button className={classes.addShift}>
-                          <Plus className="h-4 w-4" />
+                          <Plus />
                           Add Shift
                         </Button>
                       </ShiftEditDialog>

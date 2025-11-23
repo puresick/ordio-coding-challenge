@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Check, ChevronsUpDown, Plus, AlertTriangle } from "lucide-react";
 import { useShifts } from "@/context/ShiftsContext";
 import type {
@@ -144,6 +144,18 @@ export function ShiftEditDialog({
     };
   }, [employees, isUnderageRestrictedTime]);
 
+  // Reset form to initial values when dialog opens
+  useEffect(() => {
+    if (open) {
+      setSelectedEmployee(currentEmployee?.id ?? "");
+      setSelectedDepartment(currentDepartment ?? defaultDepartment ?? null);
+      setSelectedDay(currentDay);
+      setStartTime(shift ? formatTimeForInput(shift.start_tz) : "09:00");
+      setEndTime(shift ? formatTimeForInput(shift.end_tz) : "17:00");
+      setSelectedTags(shift?.shift_tags?.map((st) => st.tag.id) ?? []);
+    }
+  }, [open]);
+
   // Calculate date for selected day based on existing shifts or referenceDate
   const getDateForDay = (day: string): Date => {
     const refDateString =
@@ -265,7 +277,7 @@ export function ShiftEditDialog({
       <DialogTrigger asChild>
         {children ?? (
           <Button>
-            <Plus className="h-4 w-4" />
+            <Plus />
             Add Shift
           </Button>
         )}
