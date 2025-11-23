@@ -1,22 +1,11 @@
 import './App.css'
-import { Button } from './components/ui/button'
-import { ShiftsProvider, useShifts } from './context/ShiftsContext'
-
-function AppContent() {
-  const { shifts, loading, error } = useShifts()
-
-  console.log('Shifts data:', shifts)
-
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>Error: {error}</div>
-
-  return <Button>Test</Button>
-}
+import CalendarView from './components/CalendarView'
+import { ShiftsProvider } from './context/ShiftsContext'
 
 function App() {
   return (
     <ShiftsProvider>
-      <AppContent />
+			<CalendarView />
     </ShiftsProvider>
   )
 }
