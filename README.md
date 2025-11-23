@@ -82,6 +82,5 @@ The application includes business logic validation for shift assignments:
 Given more time, the following enhancements would be prioritized:
 
 - **Accessibility**: Comprehensive keyboard navigation, ARIA labels, and screen reader announcements for drag-and-drop operations
-- **Conflict Detection**: Visual warnings when shifts overlap or when an employee is double-booked
 - **Undo/Redo**: Action history with the ability to revert changes
 - **Mobile Responsiveness**: Optimized touch interactions and layout for smaller screens
