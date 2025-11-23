@@ -1,2 +1,18 @@
 .block {
+  display: flex;
+  gap: var(--token-base-scale);
+
+  & > * {
+    display: flex;
+    flex-grow: 1;
+    gap: var(--token-base-scale);
+  }
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
 }

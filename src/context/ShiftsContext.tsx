@@ -94,6 +94,7 @@ interface ShiftsContextValue {
   initialized: boolean
   loadShifts: () => void
   initializeEmpty: () => Promise<void>
+  purgeShifts: () => void
   generateTemplate: (config: TemplateConfig) => void
   addShift: (config: AddShiftConfig) => void
   updateShift: (shiftId: string, updates: Partial<Shift>) => void
@@ -196,6 +197,10 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
       setError(err instanceof Error ? err.message : 'Unknown error')
       setLoading(false)
     }
+  }
+
+  const purgeShifts = () => {
+    setShifts([])
   }
 
   const generateTemplate = (config: TemplateConfig) => {
@@ -430,7 +435,7 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
 
   return (
     <ShiftsContext.Provider
-      value={{ shifts, employees, departments, referenceDate, loading, error, initialized, loadShifts, initializeEmpty, generateTemplate, addShift, updateShift, assignEmployee, unassignEmployee, swapShifts, moveShiftTo }}
+      value={{ shifts, employees, departments, referenceDate, loading, error, initialized, loadShifts, initializeEmpty, purgeShifts, generateTemplate, addShift, updateShift, assignEmployee, unassignEmployee, swapShifts, moveShiftTo }}
     >
       {children}
     </ShiftsContext.Provider>
