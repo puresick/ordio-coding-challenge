@@ -23,7 +23,7 @@
   border-style: dashed;
   border-color: color-mix(in oklch, var(--color-primary) 50%, white);
   box-shadow: none;
-  color: var(--color-gray-600);
+  color: var(--unassigned-foreground);
 }
 
 .tags {
@@ -39,5 +39,6 @@
   background-color: var(--color-gray-100);
   padding: 0.125rem 0.5rem;
   font-size: 0.75rem;
+  font-weight: 600;
   color: var(--color-gray-600);
 }
