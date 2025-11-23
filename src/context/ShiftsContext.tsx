@@ -104,6 +104,7 @@ interface ShiftsContextValue {
   goToPreviousWeek: () => void;
   goToNextWeek: () => void;
   goToCurrentWeek: () => void;
+  goToDate: (date: Date) => void;
 }
 
 const ShiftsContext = createContext<ShiftsContextValue | null>(null);
@@ -475,6 +476,10 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
     setReferenceDate(new Date("2025-11-17").toISOString());
   };
 
+  const goToDate = (date: Date) => {
+    setReferenceDate(date.toISOString());
+  };
+
   return (
     <ShiftsContext.Provider
       value={{
@@ -498,6 +503,7 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
         goToPreviousWeek,
         goToNextWeek,
         goToCurrentWeek,
+        goToDate,
       }}
     >
       {children}
