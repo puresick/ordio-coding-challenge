@@ -69,7 +69,6 @@
   padding: calc(var(--token-base-scale) * 2);
   border-top: 1px solid var(--color-gray-300);
   background: transparent;
-  backdrop-filter: blur(8px);
 
   font-size: 0.875rem;
   font-weight: 600;
@@ -83,8 +82,8 @@
 }
 
 .dayColumn {
-  display: grid;
-  grid-auto-rows: auto;
+  display: flex;
+  flex-direction: column;
   gap: calc(var(--token-base-scale) * 2);
 
   & .addShift {

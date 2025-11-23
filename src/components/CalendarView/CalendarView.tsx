@@ -5,6 +5,7 @@ import { ShiftCard, DraggableShiftCard } from "@/components/ShiftCard";
 import { DndProvider } from "@/components/DndProvider";
 import classes from "./CalendarView.module.css";
 import { Button } from "../ui/button";
+import { Plus } from "lucide-react";
 
 const WEEKDAYS = [
   "monday",
@@ -113,7 +114,7 @@ function CalendarView() {
               <div className={classes.departmentShifts}>
                 {WEEKDAYS.map((day) => {
                   const departmentForDay = departments.find(
-                    (d) => d.working_area.name === deptName
+                    (d) => d.working_area.name === deptName,
                   );
                   return (
                     <div key={day} className={classes.dayColumn}>
@@ -136,7 +137,10 @@ function CalendarView() {
                         defaultDay={day}
                         defaultDepartment={departmentForDay}
                       >
-                        <Button className={classes.addShift}>Add Shift</Button>
+                        <Button className={classes.addShift}>
+                          <Plus className="h-4 w-4" />
+                          Add Shift
+                        </Button>
                       </ShiftEditDialog>
                     </div>
                   );
