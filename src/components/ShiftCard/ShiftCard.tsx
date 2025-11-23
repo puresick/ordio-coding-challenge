@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import type { Shift } from "@/context/ShiftsContext";
 import {
   Card,
@@ -7,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-interface ShiftCardProps {
+interface ShiftCardProps extends React.ComponentPropsWithoutRef<"div"> {
   shift: Shift;
 }
 
@@ -21,14 +22,17 @@ function formatTime(dateString: string): string {
   });
 }
 
-export function ShiftCard({ shift }: ShiftCardProps) {
-  const isUnassigned =
-    !shift.candidates[0] || !shift.candidates[0]?.employee.username;
+export const ShiftCard = forwardRef<HTMLDivElement, ShiftCardProps>(
+  ({ shift, className, ...props }, ref) => {
+    const isUnassigned =
+      !shift.candidates[0] || !shift.candidates[0]?.employee.username;
 
-  return (
-    <Card
-      className={`cursor-pointer ${isUnassigned ? "border-dashed shadow-none bg-gray-100" : ""}`}
-    >
+    return (
+      <Card
+        ref={ref}
+        className={`cursor-pointer ${isUnassigned ? "border-dashed shadow-none bg-gray-100" : ""} ${className ?? ""}`}
+        {...props}
+      >
       <CardHeader>
         <CardDescription>
           {new Date(shift.start_tz).toLocaleDateString()}
@@ -44,7 +48,10 @@ export function ShiftCard({ shift }: ShiftCardProps) {
         <p>{shift.branch_working_area.working_area.name}</p>
       </CardContent>
     </Card>
-  );
-}
+    );
+  },
+);
+
+ShiftCard.displayName = "ShiftCard";
 
 export default ShiftCard;

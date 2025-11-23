@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
+import { useShifts } from "@/context/ShiftsContext";
 import type { Shift, Employee } from "@/context/ShiftsContext";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -67,10 +68,14 @@ export function ShiftEditDialog({
   departments,
   children,
 }: ShiftEditDialogProps) {
+  const { assignEmployee, unassignEmployee, updateShift } = useShifts();
+
   const currentEmployee = shift.candidates[0]?.employee;
   const currentDepartment = shift.branch_working_area.working_area.name;
   const currentDay = getWeekdayFromDateString(shift.start_tz);
   const isUnassigned = !currentEmployee?.username;
+
+  const [open, setOpen] = useState(false);
 
   const [employeeOpen, setEmployeeOpen] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState<string>(
@@ -87,8 +92,45 @@ export function ShiftEditDialog({
   const [startTime, setStartTime] = useState(formatTimeForInput(shift.start_tz));
   const [endTime, setEndTime] = useState(formatTimeForInput(shift.end_tz));
 
+  const handleSave = () => {
+    const employee = employees.find((e) => e.id === selectedEmployee);
+
+    if (isUnassigned) {
+      if (employee) {
+        assignEmployee(shift.id, employee);
+      }
+    } else {
+      // Update employee if changed
+      if (employee && employee.id !== currentEmployee?.id) {
+        assignEmployee(shift.id, employee);
+      }
+
+      // Update times
+      const currentDate = new Date(shift.start_tz);
+      const [startHour, startMin] = startTime.split(":").map(Number);
+      const [endHour, endMin] = endTime.split(":").map(Number);
+
+      const newStartDate = new Date(currentDate);
+      newStartDate.setHours(startHour, startMin, 0, 0);
+
+      const newEndDate = new Date(currentDate);
+      newEndDate.setHours(endHour, endMin, 0, 0);
+
+      updateShift(shift.id, {
+        start_tz: newStartDate.toString(),
+        end_tz: newEndDate.toString(),
+      });
+    }
+    setOpen(false);
+  };
+
+  const handleUnassign = () => {
+    unassignEmployee(shift.id);
+    setOpen(false);
+  };
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -278,14 +320,14 @@ export function ShiftEditDialog({
 
         <DialogFooter>
           {!isUnassigned && (
-            <Button variant="destructive" className="mr-auto">
+            <Button variant="destructive" className="mr-auto" onClick={handleUnassign}>
               Unassign
             </Button>
           )}
           <DialogClose asChild>
             <Button variant="outline">Cancel</Button>
           </DialogClose>
-          <Button type="submit">
+          <Button onClick={handleSave}>
             {isUnassigned ? "Assign" : "Save changes"}
           </Button>
         </DialogFooter>

@@ -72,6 +72,9 @@ interface ShiftsContextValue {
   shifts: Shift[]
   loading: boolean
   error: string | null
+  updateShift: (shiftId: string, updates: Partial<Shift>) => void
+  assignEmployee: (shiftId: string, employee: Employee) => void
+  unassignEmployee: (shiftId: string) => void
 }
 
 const ShiftsContext = createContext<ShiftsContextValue | null>(null)
@@ -111,8 +114,49 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
       })
   }, [])
 
+  const updateShift = (shiftId: string, updates: Partial<Shift>) => {
+    setShifts((prev) =>
+      prev.map((shift) =>
+        shift.id === shiftId ? { ...shift, ...updates } : shift
+      )
+    )
+  }
+
+  const assignEmployee = (shiftId: string, employee: Employee) => {
+    setShifts((prev) =>
+      prev.map((shift) => {
+        if (shift.id !== shiftId) return shift
+
+        const newCandidate: Candidate = {
+          id: crypto.randomUUID(),
+          employee,
+        }
+
+        return {
+          ...shift,
+          candidates: [newCandidate, ...shift.candidates.slice(1)],
+        }
+      })
+    )
+  }
+
+  const unassignEmployee = (shiftId: string) => {
+    setShifts((prev) =>
+      prev.map((shift) => {
+        if (shift.id !== shiftId) return shift
+
+        return {
+          ...shift,
+          candidates: shift.candidates.slice(1),
+        }
+      })
+    )
+  }
+
   return (
-    <ShiftsContext.Provider value={{ shifts, loading, error }}>
+    <ShiftsContext.Provider
+      value={{ shifts, loading, error, updateShift, assignEmployee, unassignEmployee }}
+    >
       {children}
     </ShiftsContext.Provider>
   )
