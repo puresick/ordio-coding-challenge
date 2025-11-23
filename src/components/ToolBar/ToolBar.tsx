@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { CalendarDays, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
+import {
+  CalendarDays,
+  ChevronLeft,
+  ChevronRight,
+  MoreHorizontal,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
@@ -82,10 +87,18 @@ function ToolBar() {
               onSelect={setSelectedDate}
             />
             <div className="flex justify-end gap-2 p-3 border-t">
-              <Button variant="outline" size="sm" onClick={handleCalendarCancel}>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleCalendarCancel}
+              >
                 Cancel
               </Button>
-              <Button size="sm" onClick={handleCalendarConfirm} disabled={!selectedDate}>
+              <Button
+                size="sm"
+                onClick={handleCalendarConfirm}
+                disabled={!selectedDate}
+              >
                 Confirm
               </Button>
             </div>

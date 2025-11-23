@@ -81,10 +81,13 @@ export function GenerateTemplateDialog({
   // Fetch departments when wizard opens
   useEffect(() => {
     if (wizardOpen && departments.length === 0) {
-      setLoadingDepartments(true);
-      fetch("/shifts.json")
-        .then((res) => res.json())
-        .then((data: Shift[]) => {
+      let cancelled = false;
+      const fetchDepartments = async () => {
+        setLoadingDepartments(true);
+        try {
+          const res = await fetch("/shifts.json");
+          const data: Shift[] = await res.json();
+          if (cancelled) return;
           // Extract unique departments
           const uniqueDepartments = [
             ...new Map(
@@ -100,8 +103,14 @@ export function GenerateTemplateDialog({
           if (uniqueDepartments.length > 0) {
             setSelectedDepartment(uniqueDepartments[0]);
           }
-        })
-        .finally(() => setLoadingDepartments(false));
+        } finally {
+          if (!cancelled) setLoadingDepartments(false);
+        }
+      };
+      fetchDepartments();
+      return () => {
+        cancelled = true;
+      };
     }
   }, [wizardOpen, departments.length]);
 

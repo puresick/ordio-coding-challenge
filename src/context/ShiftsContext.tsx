@@ -127,6 +127,7 @@ interface ShiftsContextValue {
 
 const ShiftsContext = createContext<ShiftsContextValue | null>(null);
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useShifts() {
   const context = useContext(ShiftsContext);
   if (!context) {
