@@ -29,6 +29,7 @@ export interface Employee {
   employment: number
   phone: string | null
   company: unknown
+  username: string
 }
 
 export interface Candidate {

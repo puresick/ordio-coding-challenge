@@ -1,5 +1,12 @@
 import { useShifts } from "@/context/ShiftsContext";
 import type { Shift } from "@/context/ShiftsContext";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import classes from "./CalendarView.module.css";
 
 const WEEKDAYS = [
@@ -78,16 +85,36 @@ function CalendarView() {
           <div key={dept} className={classes.department}>
             {WEEKDAYS.map((day) => (
               <div key={day} className={classes.dayColumn}>
-                {shiftsByDepartmentAndDay[dept]?.[day]?.map((shift: Shift) => (
-                  <article key={shift.id}>
-                    <p>{new Date(shift.start_tz).toLocaleDateString()}</p>
-                    <p>{shift.candidates[0]?.employee.email ?? "Unassigned"}</p>
-                    <p>
-                      {formatTime(shift.start_tz)} - {formatTime(shift.end_tz)}
-                    </p>
-                    <p>{shift.branch_working_area.working_area.name}</p>
-                  </article>
-                ))}
+                {shiftsByDepartmentAndDay[dept]?.[day]?.map((shift: Shift) => {
+                  const isUnassigned =
+                    !shift.candidates[0] ||
+                    !shift.candidates[0]?.employee.username;
+
+                  return (
+                    <Card
+                      key={shift.id}
+                      className={isUnassigned ? "border-dashed shadow-none bg-gray-100" : ""}
+                    >
+                      <CardHeader>
+                        <CardDescription>
+                          {new Date(shift.start_tz).toLocaleDateString()}
+                        </CardDescription>
+                        <CardTitle className="line-clamp-2 min-h-[2lh]">
+                          {isUnassigned
+                            ? "Unassigned"
+                            : shift.candidates[0]?.employee.username}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p>
+                          {formatTime(shift.start_tz)} -{" "}
+                          {formatTime(shift.end_tz)}
+                        </p>
+                        <p>{shift.branch_working_area.working_area.name}</p>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
               </div>
             ))}
           </div>
