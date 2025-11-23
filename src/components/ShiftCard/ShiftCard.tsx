@@ -33,21 +33,18 @@ export const ShiftCard = forwardRef<HTMLDivElement, ShiftCardProps>(
         className={`cursor-pointer ${isUnassigned ? "border-dashed border-gray-500 shadow-none bg-gray-100" : ""} ${className ?? ""}`}
         {...props}
       >
-      <CardHeader>
-        <CardDescription>
-          {new Date(shift.start_tz).toLocaleDateString()}
-        </CardDescription>
-        <CardTitle className="line-clamp-2 min-h-[2lh]">
-          {isUnassigned ? "Unassigned" : shift.candidates[0]?.employee.username}
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p>
-          {formatTime(shift.start_tz)} - {formatTime(shift.end_tz)}
-        </p>
-        <p>{shift.branch_working_area.working_area.name}</p>
-      </CardContent>
-    </Card>
+        <CardHeader>
+          <CardDescription>
+            {formatTime(shift.start_tz)} - {formatTime(shift.end_tz)}
+          </CardDescription>
+          <CardTitle className="line-clamp-2 min-h-[2lh]">
+            {isUnassigned
+              ? "Unassigned"
+              : shift.candidates[0]?.employee.username}
+          </CardTitle>
+        </CardHeader>
+        <CardContent></CardContent>
+      </Card>
     );
   },
 );

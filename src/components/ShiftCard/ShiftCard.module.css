@@ -1,0 +1,16 @@
+.isOver {
+  outline-offset: 2px;
+
+  filter: brightness(0.8);
+
+  transform: translate(-20px, -80px) rotate(-10deg);
+  transition: transform 0.2s ease-out;
+
+  z-index: 8000;
+}
+
+.isDragging {
+  opacity: 0.8;
+
+  z-index: 9999;
+}

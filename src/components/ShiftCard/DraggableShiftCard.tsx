@@ -1,12 +1,17 @@
 import { useDraggable, useDroppable } from "@dnd-kit/core";
 import type { Shift } from "@/context/ShiftsContext";
+import classes from "./ShiftCard.module.css";
+import { cn } from "@/lib/utils";
 
 interface DraggableShiftCardProps {
   shift: Shift;
   children: React.ReactNode;
 }
 
-export function DraggableShiftCard({ shift, children }: DraggableShiftCardProps) {
+export function DraggableShiftCard({
+  shift,
+  children,
+}: DraggableShiftCardProps) {
   const {
     attributes,
     listeners,
@@ -22,10 +27,9 @@ export function DraggableShiftCard({ shift, children }: DraggableShiftCardProps)
   });
 
   const style = {
-    transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
-    opacity: isDragging ? 0.5 : 1,
-    outline: isOver ? "2px solid #3b82f6" : undefined,
-    outlineOffset: isOver ? "2px" : undefined,
+    transform: transform
+      ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
+      : undefined,
   };
 
   return (
@@ -34,6 +38,10 @@ export function DraggableShiftCard({ shift, children }: DraggableShiftCardProps)
         setDraggableRef(node);
         setDroppableRef(node);
       }}
+      className={cn({
+        [classes.isOver]: isOver && !isDragging,
+        [classes.isDragging]: isDragging,
+      })}
       style={style}
       {...listeners}
       {...attributes}
