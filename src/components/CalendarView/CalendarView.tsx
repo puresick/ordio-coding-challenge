@@ -3,6 +3,7 @@ import type { Shift } from "@/context/ShiftsContext";
 import { ShiftEditDialog } from "@/components/ShiftEditDialog";
 import { ShiftCard, DraggableShiftCard } from "@/components/ShiftCard";
 import { DndProvider } from "@/components/DndProvider";
+import { Spinner } from "@/components/ui/spinner";
 import classes from "./CalendarView.module.css";
 import { Button } from "../ui/button";
 import { Plus } from "lucide-react";
@@ -28,7 +29,12 @@ function CalendarView() {
   const { shifts, employees, departments, referenceDate, loading, error } =
     useShifts();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div className={classes.loading}>
+        <Spinner />
+      </div>
+    );
   if (error) return <div>Error: {error}</div>;
 
   // Get sorted department names for display (from departments, not shifts)
