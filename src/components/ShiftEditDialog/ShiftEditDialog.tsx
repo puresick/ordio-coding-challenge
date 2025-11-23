@@ -244,26 +244,28 @@ export function ShiftEditDialog({
                       <CommandList>
                         <CommandEmpty>No department found.</CommandEmpty>
                         <CommandGroup>
-                          {departments.map((dept) => (
-                            <CommandItem
-                              key={dept.id}
-                              value={dept.working_area.name}
-                              onSelect={() => {
-                                setSelectedDepartment(dept);
-                                setDepartmentOpen(false);
-                              }}
-                            >
-                              {dept.working_area.name}
-                              <Check
-                                className={cn(
-                                  "ml-auto",
-                                  selectedDepartment?.id === dept.id
-                                    ? "opacity-100"
-                                    : "opacity-0",
-                                )}
-                              />
-                            </CommandItem>
-                          ))}
+                          {departments
+                            .toSorted((a, b) => a.working_area.name.localeCompare(b.working_area.name))
+                            .map((dept) => (
+                              <CommandItem
+                                key={dept.id}
+                                value={dept.working_area.name}
+                                onSelect={() => {
+                                  setSelectedDepartment(dept);
+                                  setDepartmentOpen(false);
+                                }}
+                              >
+                                {dept.working_area.name}
+                                <Check
+                                  className={cn(
+                                    "ml-auto",
+                                    selectedDepartment?.id === dept.id
+                                      ? "opacity-100"
+                                      : "opacity-0",
+                                  )}
+                                />
+                              </CommandItem>
+                            ))}
                         </CommandGroup>
                       </CommandList>
                     </Command>
@@ -381,26 +383,28 @@ export function ShiftEditDialog({
                           />
                         </CommandItem>
                       )}
-                      {employees.map((employee) => (
-                        <CommandItem
-                          key={employee.id}
-                          value={employee.username}
-                          onSelect={() => {
-                            setSelectedEmployee(employee.id);
-                            setEmployeeOpen(false);
-                          }}
-                        >
-                          {employee.username}
-                          <Check
-                            className={cn(
-                              "ml-auto",
-                              selectedEmployee === employee.id
-                                ? "opacity-100"
-                                : "opacity-0",
-                            )}
-                          />
-                        </CommandItem>
-                      ))}
+                      {employees
+                        .toSorted((a, b) => a.username.localeCompare(b.username))
+                        .map((employee) => (
+                          <CommandItem
+                            key={employee.id}
+                            value={employee.username}
+                            onSelect={() => {
+                              setSelectedEmployee(employee.id);
+                              setEmployeeOpen(false);
+                            }}
+                          >
+                            {employee.username}
+                            <Check
+                              className={cn(
+                                "ml-auto",
+                                selectedEmployee === employee.id
+                                  ? "opacity-100"
+                                  : "opacity-0",
+                              )}
+                            />
+                          </CommandItem>
+                        ))}
                     </CommandGroup>
                   </CommandList>
                 </Command>
