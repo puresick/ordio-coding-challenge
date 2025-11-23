@@ -5,11 +5,16 @@
   border: 1px solid black;
 
   display: grid;
-  grid-template-columns: repeat(7, minmax(calc(var(--token-base-scale) * 50), 1fr));
+  grid-template-columns: repeat(
+    7,
+    minmax(calc(var(--token-base-scale) * 50), 1fr)
+  );
   grid-template-rows: calc(var(--token-base-scale) * 20) 1fr;
   gap: 0 calc(var(--token-base-scale) * 4);
 
   overflow: auto;
+
+  user-select: none;
 }
 
 .shifts {

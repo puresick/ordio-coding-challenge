@@ -1,7 +1,8 @@
 import { useShifts } from "@/context/ShiftsContext";
 import type { Shift, Employee } from "@/context/ShiftsContext";
 import { ShiftEditDialog } from "@/components/ShiftEditDialog";
-import { ShiftCard } from "@/components/ShiftCard";
+import { ShiftCard, DraggableShiftCard } from "@/components/ShiftCard";
+import { DndProvider } from "@/components/DndProvider";
 import classes from "./CalendarView.module.css";
 
 const WEEKDAYS = [
@@ -70,31 +71,34 @@ function CalendarView() {
   }
 
   return (
-    <section className={classes.block}>
-      {WEEKDAYS.map((day) => (
-        <h2 key={day}>{day}</h2>
-      ))}
-      <div className={classes.shifts}>
-        {departments.map((dept: string) => (
-          <div key={dept} className={classes.department}>
-            {WEEKDAYS.map((day) => (
-              <div key={day} className={classes.dayColumn}>
-                {shiftsByDepartmentAndDay[dept]?.[day]?.map((shift: Shift) => (
-                  <ShiftEditDialog
-                    key={shift.id}
-                    shift={shift}
-                    employees={employees}
-                    departments={departments}
-                  >
-                    <ShiftCard shift={shift} />
-                  </ShiftEditDialog>
-                ))}
-              </div>
-            ))}
-          </div>
+    <DndProvider>
+      <section className={classes.block}>
+        {WEEKDAYS.map((day) => (
+          <h2 key={day}>{day}</h2>
         ))}
-      </div>
-    </section>
+        <div className={classes.shifts}>
+          {departments.map((dept: string) => (
+            <div key={dept} className={classes.department}>
+              {WEEKDAYS.map((day) => (
+                <div key={day} className={classes.dayColumn}>
+                  {shiftsByDepartmentAndDay[dept]?.[day]?.map((shift: Shift) => (
+                    <DraggableShiftCard key={shift.id} shift={shift}>
+                      <ShiftEditDialog
+                        shift={shift}
+                        employees={employees}
+                        departments={departments}
+                      >
+                        <ShiftCard shift={shift} />
+                      </ShiftEditDialog>
+                    </DraggableShiftCard>
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+    </DndProvider>
   );
 }
 

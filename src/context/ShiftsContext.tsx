@@ -75,6 +75,8 @@ interface ShiftsContextValue {
   updateShift: (shiftId: string, updates: Partial<Shift>) => void
   assignEmployee: (shiftId: string, employee: Employee) => void
   unassignEmployee: (shiftId: string) => void
+  swapShifts: (shiftId1: string, shiftId2: string) => void
+  moveShiftTo: (sourceShiftId: string, targetShiftId: string) => void
 }
 
 const ShiftsContext = createContext<ShiftsContextValue | null>(null)
@@ -153,9 +155,63 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
     )
   }
 
+  const swapShifts = (shiftId1: string, shiftId2: string) => {
+    setShifts((prev) => {
+      const shift1 = prev.find((s) => s.id === shiftId1)
+      const shift2 = prev.find((s) => s.id === shiftId2)
+
+      if (!shift1 || !shift2) return prev
+
+      return prev.map((shift) => {
+        if (shift.id === shiftId1) {
+          // Swap only the employees, keep date/time/department
+          return {
+            ...shift,
+            candidates: shift2.candidates,
+          }
+        }
+        if (shift.id === shiftId2) {
+          // Swap only the employees, keep date/time/department
+          return {
+            ...shift,
+            candidates: shift1.candidates,
+          }
+        }
+        return shift
+      })
+    })
+  }
+
+  const moveShiftTo = (sourceShiftId: string, targetShiftId: string) => {
+    setShifts((prev) => {
+      const sourceShift = prev.find((s) => s.id === sourceShiftId)
+      const targetShift = prev.find((s) => s.id === targetShiftId)
+
+      if (!sourceShift || !targetShift) return prev
+
+      return prev.map((shift) => {
+        if (shift.id === sourceShiftId) {
+          // Source becomes unassigned but keeps its date/time/department
+          return {
+            ...shift,
+            candidates: [],
+          }
+        }
+        if (shift.id === targetShiftId) {
+          // Target gets source's employee but keeps its date/time/department
+          return {
+            ...shift,
+            candidates: sourceShift.candidates,
+          }
+        }
+        return shift
+      })
+    })
+  }
+
   return (
     <ShiftsContext.Provider
-      value={{ shifts, loading, error, updateShift, assignEmployee, unassignEmployee }}
+      value={{ shifts, loading, error, updateShift, assignEmployee, unassignEmployee, swapShifts, moveShiftTo }}
     >
       {children}
     </ShiftsContext.Provider>
