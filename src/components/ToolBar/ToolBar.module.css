@@ -1,4 +1,5 @@
 .block {
+  padding: calc(var(--token-base-scale) * 2);
   display: flex;
   gap: var(--token-base-scale);
 

@@ -3,14 +3,13 @@
   width: 100%;
 
   display: grid;
-  grid-template-columns: repeat(
-    7,
-    minmax(calc(var(--token-base-scale) * 50), auto)
-  );
+  grid-template-columns:
+    calc(var(--token-base-scale) * 8)
+    repeat(7, minmax(calc(var(--token-base-scale) * 50), auto));
   grid-template-rows: calc(var(--token-base-scale) * 20) auto;
   grid-template-areas:
-    "weekdays weekdays weekdays weekdays weekdays weekdays weekdays"
-    "shifts shifts shifts shifts shifts shifts shifts";
+    "weekdays weekdays weekdays weekdays weekdays weekdays weekdays weekdays"
+    "shifts shifts shifts shifts shifts shifts shifts shifts";
   gap: 0 calc(var(--token-base-scale) * 4);
 
   overflow: auto;
@@ -35,6 +34,15 @@
   display: grid;
   grid-template-columns: subgrid;
   grid-template-rows: auto;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  border-bottom: 1px solid var(--color-gray-300);
+
+  background: linear-gradient(to bottom, var(--background), transparent);
+  backdrop-filter: blur(10px);
 }
 
 .date {
@@ -43,6 +51,7 @@
 }
 
 .shifts {
+  padding-bottom: calc(var(--token-base-scale) * 8);
   display: grid;
   grid-template-columns: subgrid;
   grid-auto-rows: auto;
@@ -62,10 +71,6 @@
 .departmentHeader {
   grid-column: 1 / -1;
 
-  position: sticky;
-  top: 0;
-  z-index: 10;
-
   padding: calc(var(--token-base-scale) * 2);
   border-top: 1px solid var(--color-gray-300);
   background: transparent;
@@ -75,10 +80,16 @@
   color: var(--color-gray-600);
 }
 
+.department:first-child {
+  & .departmentHeader {
+    border-top: none;
+  }
+}
+
 .departmentShifts {
   display: grid;
   grid-template-columns: subgrid;
-  grid-column: 1 / -1;
+  grid-column: 2 / -1;
 }
 
 .dayColumn {

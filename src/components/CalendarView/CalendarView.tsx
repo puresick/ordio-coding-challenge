@@ -107,6 +107,7 @@ function CalendarView() {
     <DndProvider>
       <section className={classes.block}>
         <div className={classes.weekdays}>
+          <div></div>
           {WEEKDAYS.map((day) => (
             <h2 key={day}>
               {day}
