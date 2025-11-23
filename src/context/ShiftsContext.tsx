@@ -294,7 +294,12 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
       extractMetadataFromShifts(data);
     setDepartments(uniqueDepartments);
 
-    setShifts(newShifts);
+    setShifts((prev) => [
+      // Keep shifts from other departments
+      ...prev.filter((s) => s.branch_working_area.id !== department.id),
+      // Add new template shifts for selected department
+      ...newShifts,
+    ]);
     setEmployees(uniqueEmployees);
     setInitialized(true);
   };

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { useShifts } from "@/context/ShiftsContext";
 import { ShiftEditDialog } from "@/components/ShiftEditDialog";
+import { GenerateTemplateDialog } from "@/components/GenerateTemplateDialog";
 import classes from "./ToolBar.module.css";
 
 function ToolBar() {
@@ -45,6 +46,7 @@ function ToolBar() {
             </AlertDialogContent>
           </AlertDialog>
         )}
+        <GenerateTemplateDialog />
         <Button variant="outline" onClick={loadShifts}>
           Load Demo Data
         </Button>
