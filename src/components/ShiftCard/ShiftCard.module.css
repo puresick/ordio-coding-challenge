@@ -1,25 +1,28 @@
 .isOver {
-  outline-offset: 2px;
-
-  filter: brightness(0.8);
-
-  transform: translate(-20px, -80px) rotate(-10deg);
-  transition: transform 0.2s ease-out;
-
   z-index: 8000;
 }
 
-.isDragging {
-  opacity: 0.8;
+.isOver:not(:has(> .unassigned)) {
+  transition: transform 0.2s ease-out;
 
+  transform: translate(-20px, -80px) rotate(-10deg);
+}
+
+.isOver:has(> .unassigned) {
+  transition: transform 0.1s ease-in-out;
+
+  transform: scale(1.05);
+}
+
+.isDragging {
   z-index: 9999;
 }
 
 .unassigned {
+  border-width: 2px;
   border-style: dashed;
-  border-color: var(--color-gray-300);
+  border-color: color-mix(in oklch, var(--color-primary) 50%, white);
   box-shadow: none;
-  background-color: var(--color-gray-100);
   color: var(--color-gray-600);
 }
 
