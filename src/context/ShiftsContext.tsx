@@ -277,9 +277,7 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
         const endTime = new Date(shiftDate);
         endTime.setHours(shiftEndHour, 0, 0, 0);
 
-        const formatDate = (date: Date) => {
-          return date.toUTCString().replace("GMT", "+0100");
-        };
+        const formatDate = (date: Date) => date.toString();
 
         const shift: Shift = {
           id: crypto.randomUUID(),
@@ -346,7 +344,7 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
     const endDate = new Date(date);
     endDate.setHours(endHour, endMin, 0, 0);
 
-    const formatDate = (d: Date) => d.toUTCString().replace("GMT", "+0100");
+    const formatDate = (d: Date) => d.toString();
 
     const workingTimeMinutes =
       endHour * 60 + endMin - (startHour * 60 + startMin);
