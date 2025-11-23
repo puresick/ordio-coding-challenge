@@ -7,6 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import classes from "./ShiftCard.module.css";
 
 interface ShiftCardProps extends React.ComponentPropsWithoutRef<"div"> {
   shift: Shift;
@@ -30,7 +32,7 @@ export const ShiftCard = forwardRef<HTMLDivElement, ShiftCardProps>(
     return (
       <Card
         ref={ref}
-        className={`cursor-pointer ${isUnassigned ? "border-dashed border-gray-500 shadow-none bg-gray-100" : ""} ${className ?? ""}`}
+        className={cn("cursor-pointer", isUnassigned && classes.unassigned, className)}
         {...props}
       >
         <CardHeader>
