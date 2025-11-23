@@ -119,15 +119,12 @@ export function ShiftEditDialog({
       return date;
     }
 
-    // Default to next occurrence of the day
-    const today = new Date();
-    const currentDayOfWeek = today.getDay();
-    const targetDay = WEEKDAYS.indexOf(day) + 1;
-    const adjustedTarget = targetDay === 7 ? 0 : targetDay;
-    const daysUntil = (adjustedTarget - currentDayOfWeek + 7) % 7 || 7;
-    const date = new Date(today);
-    date.setDate(today.getDate() + daysUntil);
-    date.setHours(0, 0, 0, 0);
+    // Default to hardcoded demo week 17.11 - 23.11.2025
+    const monday = new Date("2025-11-17");
+    monday.setHours(0, 0, 0, 0);
+    const dayIndex = WEEKDAYS.indexOf(day);
+    const date = new Date(monday);
+    date.setDate(monday.getDate() + dayIndex);
     return date;
   };
 

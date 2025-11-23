@@ -222,12 +222,8 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
       saturday: 6,
     };
 
-    // Get next Monday as the base date
-    const today = new Date();
-    const dayOfWeek = today.getDay();
-    const daysUntilMonday = dayOfWeek === 0 ? 1 : 8 - dayOfWeek;
-    const nextMonday = new Date(today);
-    nextMonday.setDate(today.getDate() + daysUntilMonday);
+    // Hardcoded to week 17.11 - 23.11.2025 for demo purposes
+    const nextMonday = new Date("2025-11-17");
     nextMonday.setHours(0, 0, 0, 0);
 
     const newShifts: Shift[] = [];
@@ -305,6 +301,7 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
       ...newShifts,
     ]);
     setEmployees(uniqueEmployees);
+    setReferenceDate(nextMonday.toISOString());
     setInitialized(true);
   };
 
