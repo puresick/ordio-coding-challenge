@@ -1,0 +1,35 @@
+.block {
+  height: 100%;
+  width: 100%;
+
+  border: 1px solid black;
+
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: calc(var(--token-base-scale) * 20) 1fr;
+  gap: 0 calc(var(--token-base-scale) * 4);
+
+  overflow: auto;
+}
+
+.shifts {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-auto-rows: auto;
+  gap: calc(var(--token-base-scale) * 4) 0;
+
+  grid-column: 1 / 8;
+  grid-row: 2 / 3;
+}
+
+.department {
+  display: grid;
+  grid-template-columns: subgrid;
+
+  grid-column: 1 / -1;
+}
+
+.dayColumn {
+  display: flex;
+  flex-direction: column;
+}
