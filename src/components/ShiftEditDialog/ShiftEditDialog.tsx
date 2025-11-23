@@ -1,11 +1,8 @@
 import { useState, useMemo } from "react";
 import { Check, ChevronsUpDown, Plus, AlertTriangle } from "lucide-react";
 import { useShifts } from "@/context/ShiftsContext";
-import type {
-  Shift,
-  Employee,
-  BranchWorkingArea,
-} from "@/context/ShiftsContext";
+import type { Shift, BranchWorkingArea } from "@/context/ShiftsContext";
+import { WEEKDAYS, type Weekday } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -34,22 +31,11 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-
-const WEEKDAYS = [
-  "monday",
-  "tuesday",
-  "wednesday",
-  "thursday",
-  "friday",
-  "saturday",
-  "sunday",
-];
+import classes from "./ShiftEditDialog.module.css";
 
 interface ShiftEditDialogProps {
   shift?: Shift;
-  employees: Employee[];
-  departments: BranchWorkingArea[];
-  defaultDay?: string;
+  defaultDay?: Weekday;
   defaultDepartment?: BranchWorkingArea;
   children?: React.ReactNode;
 }
@@ -63,22 +49,22 @@ function formatTimeForInput(dateString: string): string {
   });
 }
 
-function getWeekdayFromDateString(dateString: string): string {
+function getWeekdayFromDateString(dateString: string): Weekday {
   const date = new Date(dateString);
   const weekday = date.toLocaleDateString("en-US", { weekday: "long" });
-  return weekday.toLowerCase();
+  return weekday.toLowerCase() as Weekday;
 }
 
 export function ShiftEditDialog({
   shift,
-  employees,
-  departments,
   defaultDay,
   defaultDepartment,
   children,
 }: ShiftEditDialogProps) {
   const {
     shifts,
+    employees,
+    departments,
     referenceDate,
     tags,
     assignEmployee,
@@ -110,7 +96,7 @@ export function ShiftEditDialog({
     );
 
   const [dayOpen, setDayOpen] = useState(false);
-  const [selectedDay, setSelectedDay] = useState<string>(currentDay);
+  const [selectedDay, setSelectedDay] = useState<Weekday>(currentDay);
 
   const [startTime, setStartTime] = useState(
     shift ? formatTimeForInput(shift.start_tz) : "09:00",
@@ -144,6 +130,30 @@ export function ShiftEditDialog({
     };
   }, [employees, isUnderageRestrictedTime]);
 
+  // Memoize sorted departments
+  const sortedDepartments = useMemo(
+    () =>
+      departments.toSorted((a, b) =>
+        a.working_area.name.localeCompare(b.working_area.name),
+      ),
+    [departments],
+  );
+
+  // Memoize sorted employees
+  const sortedAvailableEmployees = useMemo(
+    () => availableEmployees.toSorted((a, b) => a.username.localeCompare(b.username)),
+    [availableEmployees],
+  );
+
+  // Validate time range (end must be after start)
+  const isTimeRangeValid = useMemo(() => {
+    const [startHour, startMin] = startTime.split(":").map(Number);
+    const [endHour, endMin] = endTime.split(":").map(Number);
+    const startMinutes = startHour * 60 + startMin;
+    const endMinutes = endHour * 60 + endMin;
+    return endMinutes > startMinutes;
+  }, [startTime, endTime]);
+
   // Handle dialog open/close and reset form when opening
   const handleOpenChange = (newOpen: boolean) => {
     if (newOpen) {
@@ -158,7 +168,7 @@ export function ShiftEditDialog({
   };
 
   // Calculate date for selected day based on existing shifts or referenceDate
-  const getDateForDay = (day: string): Date => {
+  const getDateForDay = (day: Weekday): Date => {
     const refDateString =
       shifts.length > 0 ? shifts[0].start_tz : referenceDate;
 
@@ -283,17 +293,17 @@ export function ShiftEditDialog({
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className={classes.dialogContent}>
         <DialogHeader>
           <DialogTitle>{getDialogTitle()}</DialogTitle>
           <DialogDescription>{getDialogDescription()}</DialogDescription>
         </DialogHeader>
 
-        <div className="grid gap-4">
+        <div className={classes.formGrid}>
           {(isAddMode || !isUnassigned) && (
             <>
               {/* Department Combobox */}
-              <div className="grid gap-2">
+              <div className={classes.formRow}>
                 <Label>Department {isAddMode && "*"}</Label>
                 <Popover open={departmentOpen} onOpenChange={setDepartmentOpen}>
                   <PopoverTrigger asChild>
@@ -301,26 +311,20 @@ export function ShiftEditDialog({
                       variant="outline"
                       role="combobox"
                       aria-expanded={departmentOpen}
-                      className="justify-between"
+                      className={classes.comboboxTrigger}
                     >
                       {selectedDepartment?.working_area.name ||
                         "Select department..."}
-                      <ChevronsUpDown className="opacity-50" />
+                      <ChevronsUpDown className={classes.comboboxIcon} />
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="p-0">
+                  <PopoverContent className={classes.popoverContent}>
                     <Command>
                       <CommandInput placeholder="Search department..." />
                       <CommandList>
                         <CommandEmpty>No department found.</CommandEmpty>
                         <CommandGroup>
-                          {departments
-                            .toSorted((a, b) =>
-                              a.working_area.name.localeCompare(
-                                b.working_area.name,
-                              ),
-                            )
-                            .map((dept) => (
+                          {sortedDepartments.map((dept) => (
                               <CommandItem
                                 key={dept.id}
                                 value={dept.working_area.name}
@@ -332,10 +336,10 @@ export function ShiftEditDialog({
                                 {dept.working_area.name}
                                 <Check
                                   className={cn(
-                                    "ml-auto",
+                                    classes.checkIcon,
                                     selectedDepartment?.id === dept.id
-                                      ? "opacity-100"
-                                      : "opacity-0",
+                                      ? classes.checkIconVisible
+                                      : classes.checkIconHidden,
                                   )}
                                 />
                               </CommandItem>
@@ -348,7 +352,7 @@ export function ShiftEditDialog({
               </div>
 
               {/* Day Combobox */}
-              <div className="grid gap-2">
+              <div className={classes.formRow}>
                 <Label>Day {isAddMode && "*"}</Label>
                 <Popover open={dayOpen} onOpenChange={setDayOpen}>
                   <PopoverTrigger asChild>
@@ -356,13 +360,13 @@ export function ShiftEditDialog({
                       variant="outline"
                       role="combobox"
                       aria-expanded={dayOpen}
-                      className="justify-between capitalize"
+                      className={classes.comboboxTriggerCapitalize}
                     >
                       {selectedDay || "Select day..."}
-                      <ChevronsUpDown className="opacity-50" />
+                      <ChevronsUpDown className={classes.comboboxIcon} />
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="p-0">
+                  <PopoverContent className={classes.popoverContent}>
                     <Command>
                       <CommandInput placeholder="Search day..." />
                       <CommandList>
@@ -373,17 +377,17 @@ export function ShiftEditDialog({
                               key={day}
                               value={day}
                               onSelect={(value) => {
-                                setSelectedDay(value);
+                                setSelectedDay(value as Weekday);
                                 setDayOpen(false);
                               }}
                             >
-                              <span className="capitalize">{day}</span>
+                              <span className={classes.capitalize}>{day}</span>
                               <Check
                                 className={cn(
-                                  "ml-auto",
+                                  classes.checkIcon,
                                   selectedDay === day
-                                    ? "opacity-100"
-                                    : "opacity-0",
+                                    ? classes.checkIconVisible
+                                    : classes.checkIconHidden,
                                 )}
                               />
                             </CommandItem>
@@ -396,33 +400,40 @@ export function ShiftEditDialog({
               </div>
 
               {/* Time Inputs */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="grid gap-2">
-                  <Label htmlFor="start-time">
-                    Start Time {isAddMode && "*"}
-                  </Label>
-                  <Input
-                    id="start-time"
-                    type="time"
-                    value={startTime}
-                    onChange={(e) => setStartTime(e.target.value)}
-                  />
+              <div className={classes.formRow}>
+                <div className={classes.timeRow}>
+                  <div className={classes.formRow}>
+                    <Label htmlFor="start-time">
+                      Start Time {isAddMode && "*"}
+                    </Label>
+                    <Input
+                      id="start-time"
+                      type="time"
+                      value={startTime}
+                      onChange={(e) => setStartTime(e.target.value)}
+                    />
+                  </div>
+                  <div className={classes.formRow}>
+                    <Label htmlFor="end-time">End Time {isAddMode && "*"}</Label>
+                    <Input
+                      id="end-time"
+                      type="time"
+                      value={endTime}
+                      onChange={(e) => setEndTime(e.target.value)}
+                    />
+                  </div>
                 </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="end-time">End Time {isAddMode && "*"}</Label>
-                  <Input
-                    id="end-time"
-                    type="time"
-                    value={endTime}
-                    onChange={(e) => setEndTime(e.target.value)}
-                  />
-                </div>
+                {!isTimeRangeValid && (
+                  <p className={classes.errorText}>
+                    End time must be after start time.
+                  </p>
+                )}
               </div>
             </>
           )}
 
           {/* Employee Combobox */}
-          <div className="grid gap-2">
+          <div className={classes.formRow}>
             <Label>Employee {isAddMode && "(optional)"}</Label>
             <Popover open={employeeOpen} onOpenChange={setEmployeeOpen}>
               <PopoverTrigger asChild>
@@ -430,7 +441,7 @@ export function ShiftEditDialog({
                   variant="outline"
                   role="combobox"
                   aria-expanded={employeeOpen}
-                  className="justify-between"
+                  className={classes.comboboxTrigger}
                 >
                   {selectedEmployee
                     ? availableEmployees.find((e) => e.id === selectedEmployee)
@@ -438,10 +449,10 @@ export function ShiftEditDialog({
                     : isAddMode
                       ? "Unassigned"
                       : "Select employee..."}
-                  <ChevronsUpDown className="opacity-50" />
+                  <ChevronsUpDown className={classes.comboboxIcon} />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="p-0">
+              <PopoverContent className={classes.popoverContent}>
                 <Command>
                   <CommandInput placeholder="Search employee..." />
                   <CommandList>
@@ -458,19 +469,15 @@ export function ShiftEditDialog({
                           Unassigned
                           <Check
                             className={cn(
-                              "ml-auto",
+                              classes.checkIcon,
                               selectedEmployee === ""
-                                ? "opacity-100"
-                                : "opacity-0",
+                                ? classes.checkIconVisible
+                                : classes.checkIconHidden,
                             )}
                           />
                         </CommandItem>
                       )}
-                      {availableEmployees
-                        .toSorted((a, b) =>
-                          a.username.localeCompare(b.username),
-                        )
-                        .map((employee) => (
+                      {sortedAvailableEmployees.map((employee) => (
                           <CommandItem
                             key={employee.id}
                             value={employee.username}
@@ -482,10 +489,10 @@ export function ShiftEditDialog({
                             {employee.username}
                             <Check
                               className={cn(
-                                "ml-auto",
+                                classes.checkIcon,
                                 selectedEmployee === employee.id
-                                  ? "opacity-100"
-                                  : "opacity-0",
+                                  ? classes.checkIconVisible
+                                  : classes.checkIconHidden,
                               )}
                             />
                           </CommandItem>
@@ -512,7 +519,7 @@ export function ShiftEditDialog({
 
           {/* Tags Multi-Select Combobox */}
           {tags.length > 0 && (
-            <div className="grid gap-2">
+            <div className={classes.formRow}>
               <Label>Tags</Label>
               <Popover open={tagsOpen} onOpenChange={setTagsOpen}>
                 <PopoverTrigger asChild>
@@ -520,15 +527,15 @@ export function ShiftEditDialog({
                     variant="outline"
                     role="combobox"
                     aria-expanded={tagsOpen}
-                    className="justify-between"
+                    className={classes.comboboxTrigger}
                   >
                     {selectedTags.length > 0
                       ? `${selectedTags.length} tag${selectedTags.length > 1 ? "s" : ""} selected`
                       : "Select tags..."}
-                    <ChevronsUpDown className="opacity-50" />
+                    <ChevronsUpDown className={classes.comboboxIcon} />
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="p-0">
+                <PopoverContent className={classes.popoverContent}>
                   <Command>
                     <CommandInput placeholder="Search tags..." />
                     <CommandList>
@@ -549,10 +556,10 @@ export function ShiftEditDialog({
                             {tag.value}
                             <Check
                               className={cn(
-                                "ml-auto",
+                                classes.checkIcon,
                                 selectedTags.includes(tag.id)
-                                  ? "opacity-100"
-                                  : "opacity-0",
+                                  ? classes.checkIconVisible
+                                  : classes.checkIconHidden,
                               )}
                             />
                           </CommandItem>
@@ -570,7 +577,7 @@ export function ShiftEditDialog({
           {!isAddMode && !isUnassigned && (
             <Button
               variant="destructive"
-              className="mr-auto"
+              className={classes.unassignButton}
               onClick={handleUnassign}
             >
               Unassign
@@ -581,7 +588,7 @@ export function ShiftEditDialog({
           </DialogClose>
           <Button
             onClick={handleSave}
-            disabled={isAddMode && !selectedDepartment}
+            disabled={(isAddMode && !selectedDepartment) || !isTimeRangeValid}
           >
             {getSubmitLabel()}
           </Button>

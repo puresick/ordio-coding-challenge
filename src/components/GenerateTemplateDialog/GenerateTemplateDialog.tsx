@@ -38,6 +38,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useShifts } from "@/context/ShiftsContext";
 import type { BranchWorkingArea, Shift } from "@/context/ShiftsContext";
+import classes from "./GenerateTemplateDialog.module.css";
 
 const WEEKDAYS = [
   { id: "monday", label: "Mon" },
@@ -152,7 +153,7 @@ export function GenerateTemplateDialog({
       <DialogTrigger asChild>
         {children ?? (
           <Button variant="outline">
-            <Wand2 className="h-4 w-4" />
+            <Wand2 className={classes.triggerIcon} />
             Generate Template
           </Button>
         )}
@@ -162,9 +163,9 @@ export function GenerateTemplateDialog({
           <DialogTitle>Generate Template Shift Plan</DialogTitle>
         </DialogHeader>
 
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="shiftsPerDay" className="text-right">
+        <div className={classes.formGrid}>
+          <div className={classes.formRow}>
+            <Label htmlFor="shiftsPerDay" className={classes.labelRight}>
               Shifts per day
             </Label>
             <Input
@@ -174,12 +175,12 @@ export function GenerateTemplateDialog({
               max={20}
               value={shiftsPerDay}
               onChange={(e) => setShiftsPerDay(Number(e.target.value))}
-              className="col-span-3"
+              className={classes.inputFull}
             />
           </div>
 
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="shiftLength" className="text-right">
+          <div className={classes.formRow}>
+            <Label htmlFor="shiftLength" className={classes.labelRight}>
               Shift length (hours)
             </Label>
             <Input
@@ -189,29 +190,29 @@ export function GenerateTemplateDialog({
               max={24}
               value={shiftLengthHours}
               onChange={(e) => setShiftLengthHours(Number(e.target.value))}
-              className="col-span-3"
+              className={classes.inputFull}
             />
           </div>
 
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label className="text-right">Department</Label>
+          <div className={classes.formRow}>
+            <Label className={classes.labelRight}>Department</Label>
             <Popover open={departmentOpen} onOpenChange={setDepartmentOpen}>
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
                   role="combobox"
                   aria-expanded={departmentOpen}
-                  className="col-span-3 justify-between"
+                  className={classes.comboboxTrigger}
                   disabled={loadingDepartments}
                 >
                   {loadingDepartments
                     ? "Loading..."
                     : (selectedDepartment?.working_area.name ??
                       "Select department...")}
-                  <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                  <ChevronsUpDown className={classes.comboboxIcon} />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="p-0">
+              <PopoverContent className={classes.popoverContent}>
                 <Command>
                   <CommandInput placeholder="Search department..." />
                   <CommandList>
@@ -228,10 +229,10 @@ export function GenerateTemplateDialog({
                         >
                           <Check
                             className={cn(
-                              "mr-2 h-4 w-4",
+                              classes.checkIcon,
                               selectedDepartment?.id === dept.id
-                                ? "opacity-100"
-                                : "opacity-0",
+                                ? classes.checkIconVisible
+                                : classes.checkIconHidden,
                             )}
                           />
                           {dept.working_area.name}
@@ -244,39 +245,39 @@ export function GenerateTemplateDialog({
             </Popover>
           </div>
 
-          <div className="grid grid-cols-4 items-start gap-4">
-            <Label className="text-right pt-2">Days</Label>
-            <div className="col-span-3 space-y-2">
-              <div className="flex flex-wrap gap-3">
+          <div className={classes.formRowStart}>
+            <Label className={classes.labelRightPadded}>Days</Label>
+            <div className={classes.daysColumn}>
+              <div className={classes.daysContainer}>
                 {WEEKDAYS.map((day) => (
-                  <div key={day.id} className="flex items-center space-x-2">
+                  <div key={day.id} className={classes.dayCheckbox}>
                     <Checkbox
                       id={day.id}
                       checked={selectedDays.includes(day.id)}
                       onCheckedChange={() => toggleDay(day.id)}
                     />
-                    <Label htmlFor={day.id} className="font-normal">
+                    <Label htmlFor={day.id} className={classes.dayLabel}>
                       {day.label}
                     </Label>
                   </div>
                 ))}
               </div>
-              <div className="flex gap-2">
+              <div className={classes.linkButtons}>
                 <Button
                   type="button"
                   variant="link"
                   size="sm"
-                  className="h-auto p-0"
+                  className={classes.linkButton}
                   onClick={() => setSelectedDays(WEEKDAYS.map((d) => d.id))}
                 >
                   Select all
                 </Button>
-                <span className="text-muted-foreground">·</span>
+                <span className={classes.separator}>·</span>
                 <Button
                   type="button"
                   variant="link"
                   size="sm"
-                  className="h-auto p-0"
+                  className={classes.linkButton}
                   onClick={() => setSelectedDays([])}
                 >
                   Deselect all

@@ -77,7 +77,10 @@
   --sidebar-ring: oklch(0.708 0 0);
   --unassigned-foreground: oklch(0.5 0 0);
   --department-header: oklch(0.45 0 0);
-  --ring: purple;
+  --color-gray-100: oklch(0.967 0 0);
+  --color-gray-300: oklch(0.872 0 0);
+  --color-gray-500: oklch(0.708 0 0);
+  --color-gray-600: oklch(0.553 0 0);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -115,7 +118,10 @@
     --sidebar-ring: oklch(0.556 0 0);
     --unassigned-foreground: oklch(0.7 0 0);
     --department-header: oklch(0.75 0 0);
-    --ring: pink;
+    --color-gray-100: oklch(0.274 0 0);
+    --color-gray-300: oklch(0.373 0 0);
+    --color-gray-500: oklch(0.553 0 0);
+    --color-gray-600: oklch(0.708 0 0);
   }
 }
 

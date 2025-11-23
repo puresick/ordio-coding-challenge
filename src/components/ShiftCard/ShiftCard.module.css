@@ -52,3 +52,11 @@
   font-weight: 600;
   color: var(--color-gray-600);
 }
+
+.title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: 2lh;
+}

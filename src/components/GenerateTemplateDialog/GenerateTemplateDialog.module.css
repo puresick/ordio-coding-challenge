@@ -1,0 +1,105 @@
+.formGrid {
+  display: grid;
+  gap: calc(var(--token-base-scale) * 4);
+  padding-block: calc(var(--token-base-scale) * 4);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  gap: calc(var(--token-base-scale) * 4);
+}
+
+.formRowStart {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: start;
+  gap: calc(var(--token-base-scale) * 4);
+}
+
+.labelRight {
+  text-align: right;
+}
+
+.labelRightPadded {
+  text-align: right;
+  padding-top: calc(var(--token-base-scale) * 2);
+}
+
+.inputFull {
+  grid-column: span 3;
+}
+
+.comboboxTrigger {
+  grid-column: span 3;
+  justify-content: space-between;
+}
+
+.comboboxIcon {
+  margin-left: calc(var(--token-base-scale) * 2);
+  height: calc(var(--token-base-scale) * 4);
+  width: calc(var(--token-base-scale) * 4);
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.popoverContent {
+  padding: 0;
+}
+
+.checkIcon {
+  margin-right: calc(var(--token-base-scale) * 2);
+  height: calc(var(--token-base-scale) * 4);
+  width: calc(var(--token-base-scale) * 4);
+}
+
+.checkIconVisible {
+  opacity: 1;
+}
+
+.checkIconHidden {
+  opacity: 0;
+}
+
+.daysColumn {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--token-base-scale) * 2);
+}
+
+.daysContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--token-base-scale) * 3);
+}
+
+.dayCheckbox {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--token-base-scale) * 2);
+}
+
+.dayLabel {
+  font-weight: normal;
+}
+
+.linkButtons {
+  display: flex;
+  gap: calc(var(--token-base-scale) * 2);
+}
+
+.linkButton {
+  height: auto;
+  padding: 0;
+}
+
+.separator {
+  color: var(--muted-foreground);
+}
+
+.triggerIcon {
+  height: calc(var(--token-base-scale) * 4);
+  width: calc(var(--token-base-scale) * 4);
+}

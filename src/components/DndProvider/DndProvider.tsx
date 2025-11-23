@@ -5,11 +5,15 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import type { DragEndEvent } from "@dnd-kit/core";
+import type { DragEndEvent, UniqueIdentifier } from "@dnd-kit/core";
 import { useShifts } from "@/context/ShiftsContext";
 
 interface DndProviderProps {
   children: ReactNode;
+}
+
+function isStringId(id: UniqueIdentifier): id is string {
+  return typeof id === "string";
 }
 
 export function DndProvider({ children }: DndProviderProps) {
@@ -27,9 +31,10 @@ export function DndProvider({ children }: DndProviderProps) {
     const { active, over } = event;
 
     if (!over || active.id === over.id) return;
+    if (!isStringId(active.id) || !isStringId(over.id)) return;
 
-    const sourceShiftId = active.id as string;
-    const targetShiftId = over.id as string;
+    const sourceShiftId = active.id;
+    const targetShiftId = over.id;
 
     const targetShift = shifts.find((s) => s.id === targetShiftId);
 

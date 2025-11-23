@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useDraggable, useDroppable } from "@dnd-kit/core";
 import type { Shift } from "@/context/ShiftsContext";
 import classes from "./ShiftCard.module.css";
@@ -35,12 +36,17 @@ export function DraggableShiftCard({
       : undefined,
   };
 
+  const setRefs = useCallback(
+    (node: HTMLDivElement | null) => {
+      setDraggableRef(node);
+      setDroppableRef(node);
+    },
+    [setDraggableRef, setDroppableRef],
+  );
+
   return (
     <div
-      ref={(node) => {
-        setDraggableRef(node);
-        setDroppableRef(node);
-      }}
+      ref={setRefs}
       className={cn(classes.block, {
         [classes.isOver]: isOver && !isDragging,
         [classes.isDragging]: isDragging,

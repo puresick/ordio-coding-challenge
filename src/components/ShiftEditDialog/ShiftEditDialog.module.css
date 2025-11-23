@@ -1,0 +1,67 @@
+.dialogContent {
+  max-width: 425px;
+}
+
+@media (min-width: 640px) {
+  .dialogContent {
+    max-width: 425px;
+  }
+}
+
+.formGrid {
+  display: grid;
+  gap: calc(var(--token-base-scale) * 4);
+}
+
+.formRow {
+  display: grid;
+  gap: calc(var(--token-base-scale) * 2);
+}
+
+.timeRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--token-base-scale) * 4);
+}
+
+.comboboxTrigger {
+  justify-content: space-between;
+}
+
+.comboboxTriggerCapitalize {
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+
+.comboboxIcon {
+  opacity: 0.5;
+}
+
+.popoverContent {
+  padding: 0;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.checkIcon {
+  margin-left: auto;
+}
+
+.checkIconVisible {
+  opacity: 1;
+}
+
+.checkIconHidden {
+  opacity: 0;
+}
+
+.errorText {
+  font-size: 0.875rem;
+  color: var(--destructive);
+}
+
+.unassignButton {
+  margin-right: auto;
+}

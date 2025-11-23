@@ -17,3 +17,25 @@
 .right {
   justify-content: flex-end;
 }
+
+.icon {
+  height: calc(var(--token-base-scale) * 4);
+  width: calc(var(--token-base-scale) * 4);
+}
+
+.popoverContent {
+  width: auto;
+  padding: 0;
+}
+
+.calendarFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: calc(var(--token-base-scale) * 2);
+  padding: calc(var(--token-base-scale) * 3);
+  border-top: 1px solid var(--border);
+}
+
+.destructiveItem {
+  color: var(--destructive);
+}

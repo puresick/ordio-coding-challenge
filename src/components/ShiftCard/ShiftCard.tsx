@@ -26,8 +26,7 @@ function formatTime(dateString: string): string {
 
 export const ShiftCard = forwardRef<HTMLDivElement, ShiftCardProps>(
   ({ shift, className, ...props }, ref) => {
-    const isUnassigned =
-      !shift.candidates[0] || !shift.candidates[0]?.employee.username;
+    const isUnassigned = !shift.candidates[0]?.employee.username;
 
     return (
       <Card
@@ -39,7 +38,7 @@ export const ShiftCard = forwardRef<HTMLDivElement, ShiftCardProps>(
           <CardDescription>
             {formatTime(shift.start_tz)} - {formatTime(shift.end_tz)}
           </CardDescription>
-          <CardTitle className="line-clamp-2 min-h-[2lh]">
+          <CardTitle className={classes.title}>
             {isUnassigned
               ? "Unassigned"
               : shift.candidates[0]?.employee.username}

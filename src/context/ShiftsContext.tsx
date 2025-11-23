@@ -28,7 +28,7 @@ export interface Employee {
   email: string;
   employment: number;
   phone: string | null;
-  company: unknown;
+  company: null;
   username: string;
   is_underage?: boolean;
 }
@@ -90,10 +90,10 @@ export interface Shift {
   status: boolean;
   publish: boolean;
   branch_working_area: BranchWorkingArea;
-  company_cost_centre: unknown;
-  company_event: unknown;
-  multi_checks: unknown;
-  multi_check: unknown;
+  company_cost_centre: null;
+  company_event: null;
+  multi_checks: null;
+  multi_check: null;
   candidates: Candidate[];
   shift_tags?: ShiftTag[];
 }

@@ -36,8 +36,6 @@ import classes from "./ToolBar.module.css";
 function ToolBar() {
   const {
     shifts,
-    employees,
-    departments,
     loadShifts,
     purgeShifts,
     goToPreviousWeek,
@@ -66,27 +64,27 @@ function ToolBar() {
     <nav className={classes.block}>
       <div className={classes.left}>
         <Button variant="outline" size="icon" onClick={goToPreviousWeek}>
-          <ChevronLeft className="h-4 w-4" />
+          <ChevronLeft className={classes.icon} />
         </Button>
         <Button variant="outline" onClick={goToCurrentWeek}>
           Today
         </Button>
         <Button variant="outline" size="icon" onClick={goToNextWeek}>
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className={classes.icon} />
         </Button>
         <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
           <PopoverTrigger asChild>
             <Button variant="outline" size="icon">
-              <CalendarDays className="h-4 w-4" />
+              <CalendarDays className={classes.icon} />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0" align="start">
+          <PopoverContent className={classes.popoverContent} align="start">
             <Calendar
               mode="single"
               selected={selectedDate}
               onSelect={setSelectedDate}
             />
-            <div className="flex justify-end gap-2 p-3 border-t">
+            <div className={classes.calendarFooter}>
               <Button
                 variant="outline"
                 size="sm"
@@ -110,7 +108,7 @@ function ToolBar() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">
-              <MoreHorizontal className="h-4 w-4" />
+              <MoreHorizontal className={classes.icon} />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -119,7 +117,7 @@ function ToolBar() {
             </DropdownMenuItem>
             {shifts.length > 0 && (
               <DropdownMenuItem
-                className="text-destructive"
+                className={classes.destructiveItem}
                 onClick={() => setPurgeDialogOpen(true)}
               >
                 Purge Plan
@@ -143,7 +141,7 @@ function ToolBar() {
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
-        <ShiftEditDialog departments={departments} employees={employees} />
+        <ShiftEditDialog />
       </div>
     </nav>
   );

@@ -121,7 +121,3 @@
   display: grid;
   place-content: center;
 }
-
-.progress {
-  width: 240px;
-}

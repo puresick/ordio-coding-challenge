@@ -1,22 +1,14 @@
+import { useMemo } from "react";
+import { Plus } from "lucide-react";
 import { useShifts } from "@/context/ShiftsContext";
 import type { Shift } from "@/context/ShiftsContext";
+import { WEEKDAYS } from "@/lib/constants";
 import { ShiftEditDialog } from "@/components/ShiftEditDialog";
 import { ShiftCard, DraggableShiftCard } from "@/components/ShiftCard";
 import { DndProvider } from "@/components/DndProvider";
 import { Spinner } from "@/components/ui/spinner";
-import classes from "./CalendarView.module.css";
 import { Button } from "../ui/button";
-import { Plus } from "lucide-react";
-
-const WEEKDAYS = [
-  "monday",
-  "tuesday",
-  "wednesday",
-  "thursday",
-  "friday",
-  "saturday",
-  "sunday",
-];
+import classes from "./CalendarView.module.css";
 
 function getWeekdayFromDateString(dateString: string): string {
   const date = new Date(dateString);
@@ -26,8 +18,17 @@ function getWeekdayFromDateString(dateString: string): string {
 }
 
 function CalendarView() {
-  const { shifts, employees, departments, referenceDate, loading, error } =
-    useShifts();
+  const { shifts, departments, referenceDate, loading, error } = useShifts();
+
+  // Get sorted department names for display (from departments, not shifts)
+  // Must be called before early returns to satisfy rules of hooks
+  const departmentNames = useMemo(
+    () =>
+      departments
+        .map((d) => d.working_area.name)
+        .toSorted((a, b) => a.localeCompare(b)),
+    [departments],
+  );
 
   if (loading)
     return (
@@ -36,11 +37,6 @@ function CalendarView() {
       </div>
     );
   if (error) return <div>Error: {error}</div>;
-
-  // Get sorted department names for display (from departments, not shifts)
-  const departmentNames = departments
-    .map((d) => d.working_area.name)
-    .toSorted((a, b) => a.localeCompare(b));
 
   // Calculate week boundaries from referenceDate
   const datesByWeekday: Record<string, Date> = {};
@@ -113,7 +109,7 @@ function CalendarView() {
     <DndProvider>
       <section className={classes.block}>
         <div className={classes.weekdays}>
-          <div></div>
+          <div aria-hidden="true"></div>
           {WEEKDAYS.map((day) => (
             <h2 key={day}>
               {day}
@@ -142,19 +138,13 @@ function CalendarView() {
                       {shiftsByDepartmentAndDay[deptName]?.[day]?.map(
                         (shift: Shift) => (
                           <DraggableShiftCard key={shift.id} shift={shift}>
-                            <ShiftEditDialog
-                              shift={shift}
-                              employees={employees}
-                              departments={departments}
-                            >
+                            <ShiftEditDialog shift={shift}>
                               <ShiftCard shift={shift} />
                             </ShiftEditDialog>
                           </DraggableShiftCard>
                         ),
                       )}
                       <ShiftEditDialog
-                        employees={employees}
-                        departments={departments}
                         defaultDay={day}
                         defaultDepartment={departmentForDay}
                       >

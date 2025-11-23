@@ -1,0 +1,15 @@
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--token-base-scale) * 2);
+}
+
+@media (min-width: 640px) {
+  .actions {
+    flex-direction: row;
+  }
+}
+
+.hiddenInput {
+  display: none;
+}
