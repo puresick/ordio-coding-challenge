@@ -1,13 +1,7 @@
 import { useShifts } from "@/context/ShiftsContext";
 import type { Shift, Employee } from "@/context/ShiftsContext";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { ShiftEditDialog } from "@/components/ShiftEditDialog";
+import { ShiftCard } from "@/components/ShiftCard";
 import classes from "./CalendarView.module.css";
 
 const WEEKDAYS = [
@@ -25,16 +19,6 @@ function getWeekdayFromDateString(dateString: string): string {
   const weekday = date.toLocaleDateString("en-US", { weekday: "long" });
 
   return weekday.toLowerCase();
-}
-
-function formatTime(dateString: string): string {
-  const date = new Date(dateString);
-
-  return date.toLocaleTimeString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  });
 }
 
 function CalendarView() {
@@ -95,42 +79,16 @@ function CalendarView() {
           <div key={dept} className={classes.department}>
             {WEEKDAYS.map((day) => (
               <div key={day} className={classes.dayColumn}>
-                {shiftsByDepartmentAndDay[dept]?.[day]?.map((shift: Shift) => {
-                  const isUnassigned =
-                    !shift.candidates[0] ||
-                    !shift.candidates[0]?.employee.username;
-
-                  return (
-                    <ShiftEditDialog
-                      key={shift.id}
-                      shift={shift}
-                      employees={employees}
-                      departments={departments}
-                    >
-                      <Card
-                        className={`cursor-pointer ${isUnassigned ? "border-dashed shadow-none bg-gray-100" : ""}`}
-                      >
-                        <CardHeader>
-                          <CardDescription>
-                            {new Date(shift.start_tz).toLocaleDateString()}
-                          </CardDescription>
-                          <CardTitle className="line-clamp-2 min-h-[2lh]">
-                            {isUnassigned
-                              ? "Unassigned"
-                              : shift.candidates[0]?.employee.username}
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p>
-                            {formatTime(shift.start_tz)} -{" "}
-                            {formatTime(shift.end_tz)}
-                          </p>
-                          <p>{shift.branch_working_area.working_area.name}</p>
-                        </CardContent>
-                      </Card>
-                    </ShiftEditDialog>
-                  );
-                })}
+                {shiftsByDepartmentAndDay[dept]?.[day]?.map((shift: Shift) => (
+                  <ShiftEditDialog
+                    key={shift.id}
+                    shift={shift}
+                    employees={employees}
+                    departments={departments}
+                  >
+                    <ShiftCard shift={shift} />
+                  </ShiftEditDialog>
+                ))}
               </div>
             ))}
           </div>
