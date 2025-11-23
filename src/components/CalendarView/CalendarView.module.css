@@ -5,9 +5,9 @@
   display: grid;
   grid-template-columns: repeat(
     7,
-    minmax(calc(var(--token-base-scale) * 50), 1fr)
+    minmax(calc(var(--token-base-scale) * 50), auto)
   );
-  grid-template-rows: calc(var(--token-base-scale) * 20) 1fr;
+  grid-template-rows: calc(var(--token-base-scale) * 20) auto;
   grid-template-areas:
     "weekdays weekdays weekdays weekdays weekdays weekdays weekdays"
     "shifts shifts shifts shifts shifts shifts shifts";
@@ -84,6 +84,23 @@
 
 .dayColumn {
   display: grid;
-  grid-auto-rows: calc(var(--token-base-scale) * 50);
+  grid-auto-rows: auto;
   gap: calc(var(--token-base-scale) * 2);
+
+  & .addShift {
+    opacity: 0;
+    pointer-events: none;
+
+    &:focus-visible {
+      opacity: 1;
+    }
+  }
+
+  &:hover,
+  &:focus-within {
+    & .addShift {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
 }

@@ -44,6 +44,8 @@ interface ShiftEditDialogProps {
   shift?: Shift;
   employees: Employee[];
   departments: BranchWorkingArea[];
+  defaultDay?: string;
+  defaultDepartment?: BranchWorkingArea;
   children?: React.ReactNode;
 }
 
@@ -66,6 +68,8 @@ export function ShiftEditDialog({
   shift,
   employees,
   departments,
+  defaultDay,
+  defaultDepartment,
   children,
 }: ShiftEditDialogProps) {
   const { shifts, referenceDate, assignEmployee, unassignEmployee, updateShift, addShift } = useShifts();
@@ -73,7 +77,7 @@ export function ShiftEditDialog({
   const isAddMode = !shift;
   const currentEmployee = shift?.candidates[0]?.employee;
   const currentDepartment = shift?.branch_working_area;
-  const currentDay = shift ? getWeekdayFromDateString(shift.start_tz) : "monday";
+  const currentDay = shift ? getWeekdayFromDateString(shift.start_tz) : (defaultDay ?? "monday");
   const isUnassigned = !currentEmployee?.username;
 
   const [open, setOpen] = useState(false);
@@ -85,7 +89,7 @@ export function ShiftEditDialog({
 
   const [departmentOpen, setDepartmentOpen] = useState(false);
   const [selectedDepartment, setSelectedDepartment] =
-    useState<BranchWorkingArea | null>(currentDepartment ?? null);
+    useState<BranchWorkingArea | null>(currentDepartment ?? defaultDepartment ?? null);
 
   const [dayOpen, setDayOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState<string>(currentDay);
