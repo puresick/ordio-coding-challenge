@@ -37,6 +37,14 @@ export interface Candidate {
   employee: Employee
 }
 
+export interface TemplateConfig {
+  shiftsPerDay: number
+  shiftLengthHours: number
+  selectedDays: string[]
+  department: BranchWorkingArea
+  employees: Employee[]
+}
+
 export interface TimeFrame {
   gte: string
   lte: string
@@ -70,11 +78,13 @@ export interface Shift {
 // Context
 interface ShiftsContextValue {
   shifts: Shift[]
+  employees: Employee[]
   loading: boolean
   error: string | null
   initialized: boolean
   loadShifts: () => void
   initializeEmpty: () => void
+  generateTemplate: (config: TemplateConfig) => void
   updateShift: (shiftId: string, updates: Partial<Shift>) => void
   assignEmployee: (shiftId: string, employee: Employee) => void
   unassignEmployee: (shiftId: string) => void
@@ -98,6 +108,7 @@ interface ShiftsProviderProps {
 
 export function ShiftsProvider({ children }: ShiftsProviderProps) {
   const [shifts, setShifts] = useState<Shift[]>([])
+  const [employees, setEmployees] = useState<Employee[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [initialized, setInitialized] = useState(false)
@@ -114,6 +125,16 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
       })
       .then((data: Shift[]) => {
         setShifts(data)
+        // Extract unique employees from shifts
+        const uniqueEmployees = [
+          ...new Map(
+            data
+              .flatMap((s) => s.candidates.map((c) => c.employee))
+              .filter((e) => e?.username)
+              .map((e) => [e.id, e])
+          ).values(),
+        ]
+        setEmployees(uniqueEmployees)
         setLoading(false)
         setInitialized(true)
       })
@@ -125,6 +146,92 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
 
   const initializeEmpty = () => {
     setShifts([])
+    setInitialized(true)
+  }
+
+  const generateTemplate = (config: TemplateConfig) => {
+    const { shiftsPerDay, shiftLengthHours, selectedDays, department, employees: configEmployees } = config
+
+    // Map day names to day indices (0 = Sunday, 1 = Monday, etc.)
+    const dayIndices: Record<string, number> = {
+      sunday: 0,
+      monday: 1,
+      tuesday: 2,
+      wednesday: 3,
+      thursday: 4,
+      friday: 5,
+      saturday: 6,
+    }
+
+    // Get next Monday as the base date
+    const today = new Date()
+    const dayOfWeek = today.getDay()
+    const daysUntilMonday = dayOfWeek === 0 ? 1 : 8 - dayOfWeek
+    const nextMonday = new Date(today)
+    nextMonday.setDate(today.getDate() + daysUntilMonday)
+    nextMonday.setHours(0, 0, 0, 0)
+
+    const newShifts: Shift[] = []
+
+    for (const dayName of selectedDays) {
+      const dayIndex = dayIndices[dayName]
+      if (dayIndex === undefined) continue
+
+      // Calculate the date for this day
+      const shiftDate = new Date(nextMonday)
+      const daysFromMonday = dayIndex === 0 ? 6 : dayIndex - 1
+      shiftDate.setDate(nextMonday.getDate() + daysFromMonday)
+
+      // Create shifts for this day
+      const startHour = 8 // Start at 8:00 AM
+      for (let i = 0; i < shiftsPerDay; i++) {
+        const shiftStartHour = startHour + i * shiftLengthHours
+        const shiftEndHour = shiftStartHour + shiftLengthHours
+
+        const startTime = new Date(shiftDate)
+        startTime.setHours(shiftStartHour, 0, 0, 0)
+
+        const endTime = new Date(shiftDate)
+        endTime.setHours(shiftEndHour, 0, 0, 0)
+
+        const formatDate = (date: Date) => {
+          return date.toUTCString().replace('GMT', '+0100')
+        }
+
+        const shift: Shift = {
+          id: crypto.randomUUID(),
+          type: 'shift',
+          start_tz: formatDate(startTime),
+          end_tz: formatDate(endTime),
+          working_time_in_minutes: shiftLengthHours * 60,
+          time_frame: {
+            gte: formatDate(startTime),
+            lte: formatDate(endTime),
+          },
+          timezone: 'Europe/Berlin',
+          employee_count: 1,
+          note: '',
+          automatically_accept: false,
+          canditature_system: false,
+          pause: '00:00',
+          pause_paid: false,
+          auto_break_rule: true,
+          status: true,
+          publish: true,
+          branch_working_area: department,
+          company_cost_centre: null,
+          company_event: null,
+          multi_checks: null,
+          multi_check: null,
+          candidates: [],
+        }
+
+        newShifts.push(shift)
+      }
+    }
+
+    setShifts(newShifts)
+    setEmployees(configEmployees)
     setInitialized(true)
   }
 
@@ -223,7 +330,7 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
 
   return (
     <ShiftsContext.Provider
-      value={{ shifts, loading, error, initialized, loadShifts, initializeEmpty, updateShift, assignEmployee, unassignEmployee, swapShifts, moveShiftTo }}
+      value={{ shifts, employees, loading, error, initialized, loadShifts, initializeEmpty, generateTemplate, updateShift, assignEmployee, unassignEmployee, swapShifts, moveShiftTo }}
     >
       {children}
     </ShiftsContext.Provider>

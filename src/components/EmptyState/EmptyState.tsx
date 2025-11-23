@@ -1,7 +1,15 @@
-import { useRef, useState } from "react";
-import { CalendarDays, Upload, FileSpreadsheet, Wand2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { CalendarDays, Upload, FileSpreadsheet, Wand2, Check, ChevronsUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
 import {
   Dialog,
   DialogContent,
@@ -19,7 +27,14 @@ import {
 } from "@/components/ui/empty";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 import { useShifts } from "@/context/ShiftsContext";
+import type { BranchWorkingArea, Employee, Shift } from "@/context/ShiftsContext";
 
 const WEEKDAYS = [
   { id: "monday", label: "Mon" },
@@ -32,7 +47,7 @@ const WEEKDAYS = [
 ];
 
 export function EmptyState() {
-  const { loadShifts, initializeEmpty } = useShifts();
+  const { loadShifts, initializeEmpty, generateTemplate } = useShifts();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [wizardOpen, setWizardOpen] = useState(false);
 
@@ -47,6 +62,46 @@ export function EmptyState() {
     "friday",
   ]);
 
+  // Department and employees selection state
+  const [departments, setDepartments] = useState<BranchWorkingArea[]>([]);
+  const [availableEmployees, setAvailableEmployees] = useState<Employee[]>([]);
+  const [selectedDepartment, setSelectedDepartment] = useState<BranchWorkingArea | null>(null);
+  const [departmentOpen, setDepartmentOpen] = useState(false);
+  const [loadingDepartments, setLoadingDepartments] = useState(false);
+
+  // Fetch departments and employees when wizard opens
+  useEffect(() => {
+    if (wizardOpen && departments.length === 0) {
+      setLoadingDepartments(true);
+      fetch("/shifts.json")
+        .then((res) => res.json())
+        .then((data: Shift[]) => {
+          // Extract unique departments
+          const uniqueDepartments = [
+            ...new Map(
+              data.map((s) => [s.branch_working_area.id, s.branch_working_area])
+            ).values(),
+          ].toSorted((a, b) => a.working_area.name.localeCompare(b.working_area.name));
+          setDepartments(uniqueDepartments);
+          if (uniqueDepartments.length > 0) {
+            setSelectedDepartment(uniqueDepartments[0]);
+          }
+
+          // Extract unique employees
+          const uniqueEmployees = [
+            ...new Map(
+              data
+                .flatMap((s) => s.candidates.map((c) => c.employee))
+                .filter((e) => e?.username)
+                .map((e) => [e.id, e])
+            ).values(),
+          ].toSorted((a, b) => a.username.localeCompare(b.username));
+          setAvailableEmployees(uniqueEmployees);
+        })
+        .finally(() => setLoadingDepartments(false));
+    }
+  }, [wizardOpen, departments.length]);
+
   const toggleDay = (dayId: string) => {
     setSelectedDays((prev) =>
       prev.includes(dayId)
@@ -56,7 +111,15 @@ export function EmptyState() {
   };
 
   const handleGenerate = () => {
-    // TODO: Implement template generation logic
+    if (!selectedDepartment || selectedDays.length === 0) return;
+
+    generateTemplate({
+      shiftsPerDay,
+      shiftLengthHours,
+      selectedDays,
+      department: selectedDepartment,
+      employees: availableEmployees,
+    });
     setWizardOpen(false);
   };
 
@@ -142,6 +205,56 @@ export function EmptyState() {
                 onChange={(e) => setShiftLengthHours(Number(e.target.value))}
                 className="col-span-3"
               />
+            </div>
+
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label className="text-right">Department</Label>
+              <Popover open={departmentOpen} onOpenChange={setDepartmentOpen}>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    role="combobox"
+                    aria-expanded={departmentOpen}
+                    className="col-span-3 justify-between"
+                    disabled={loadingDepartments}
+                  >
+                    {loadingDepartments
+                      ? "Loading..."
+                      : selectedDepartment?.working_area.name ?? "Select department..."}
+                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="p-0">
+                  <Command>
+                    <CommandInput placeholder="Search department..." />
+                    <CommandList>
+                      <CommandEmpty>No department found.</CommandEmpty>
+                      <CommandGroup>
+                        {departments.map((dept) => (
+                          <CommandItem
+                            key={dept.id}
+                            value={dept.working_area.name}
+                            onSelect={() => {
+                              setSelectedDepartment(dept);
+                              setDepartmentOpen(false);
+                            }}
+                          >
+                            <Check
+                              className={cn(
+                                "mr-2 h-4 w-4",
+                                selectedDepartment?.id === dept.id
+                                  ? "opacity-100"
+                                  : "opacity-0"
+                              )}
+                            />
+                            {dept.working_area.name}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </PopoverContent>
+              </Popover>
             </div>
 
             <div className="grid grid-cols-4 items-start gap-4">

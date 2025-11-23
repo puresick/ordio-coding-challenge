@@ -1,9 +1,8 @@
 import { useShifts } from "@/context/ShiftsContext";
-import type { Shift, Employee } from "@/context/ShiftsContext";
+import type { Shift } from "@/context/ShiftsContext";
 import { ShiftEditDialog } from "@/components/ShiftEditDialog";
 import { ShiftCard, DraggableShiftCard } from "@/components/ShiftCard";
 import { DndProvider } from "@/components/DndProvider";
-import { EmptyState } from "@/components/EmptyState";
 import classes from "./CalendarView.module.css";
 
 const WEEKDAYS = [
@@ -24,24 +23,14 @@ function getWeekdayFromDateString(dateString: string): string {
 }
 
 function CalendarView() {
-  const { shifts, loading, error, initialized } = useShifts();
+  const { shifts, employees, loading, error } = useShifts();
 
-  if (!initialized) return <EmptyState />;
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   const departments = [
     ...new Set(shifts.map((s) => s.branch_working_area.working_area.name)),
   ].toSorted((a, b) => a.localeCompare(b));
-
-  const employees: Employee[] = [
-    ...new Map(
-      shifts
-        .flatMap((s) => s.candidates.map((c) => c.employee))
-        .filter((e) => e?.username)
-        .map((e) => [e.id, e]),
-    ).values(),
-  ].toSorted((a, b) => a.username.localeCompare(b.username));
 
   const shiftsByDepartmentAndDay = shifts.reduce<
     Record<string, Record<string, Shift[]>>
@@ -72,11 +61,43 @@ function CalendarView() {
     }
   }
 
+  // Extract date for each weekday from shifts, inferring missing dates
+  const datesByWeekday: Record<string, Date> = {};
+
+  // First, get any date from shifts to use as reference
+  if (shifts.length > 0) {
+    const referenceDate = new Date(shifts[0].start_tz);
+    const dayOfWeek = referenceDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
+
+    // Calculate Monday of this week
+    const monday = new Date(referenceDate);
+    const daysFromMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+    monday.setDate(referenceDate.getDate() + daysFromMonday);
+    monday.setHours(0, 0, 0, 0);
+
+    // Generate dates for all weekdays
+    WEEKDAYS.forEach((day, index) => {
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + index);
+      datesByWeekday[day] = date;
+    });
+  }
+
   return (
     <DndProvider>
       <section className={classes.block}>
         {WEEKDAYS.map((day) => (
-          <h2 key={day}>{day}</h2>
+          <h2 key={day}>
+            {day}
+            {datesByWeekday[day] && (
+              <span className={classes.date}>
+                {datesByWeekday[day].toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                })}
+              </span>
+            )}
+          </h2>
         ))}
         <div className={classes.shifts}>
           {departments.map((dept: string) => (

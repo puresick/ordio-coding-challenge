@@ -2,8 +2,6 @@
   height: 100%;
   width: 100%;
 
-  border: 1px solid black;
-
   display: grid;
   grid-template-columns: repeat(
     7,
@@ -15,6 +13,22 @@
   overflow: auto;
 
   user-select: none;
+
+  & h2 {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--token-base-scale) * 2);
+
+    padding: calc(var(--token-base-scale) * 2);
+
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+}
+
+.date {
+  font-weight: normal;
+  color: var(--color-gray-500);
 }
 
 .shifts {

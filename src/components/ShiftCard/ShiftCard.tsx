@@ -30,7 +30,7 @@ export const ShiftCard = forwardRef<HTMLDivElement, ShiftCardProps>(
     return (
       <Card
         ref={ref}
-        className={`cursor-pointer ${isUnassigned ? "border-dashed shadow-none bg-gray-100" : ""} ${className ?? ""}`}
+        className={`cursor-pointer ${isUnassigned ? "border-dashed border-gray-500 shadow-none bg-gray-100" : ""} ${className ?? ""}`}
         {...props}
       >
       <CardHeader>
