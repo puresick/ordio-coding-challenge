@@ -1,0 +1,6158 @@
+[
+  {
+    "id": "019a97b1-9501-7ef7-92b9-a26d688c080a",
+    "type": "shift",
+    "start_tz": "Sat, 22 Nov 2025 19:00:00 +0100",
+    "end_tz": "Sat, 22 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 270,
+    "time_frame": {
+      "gte": "Sat, 22 Nov 2025 19:00:00 +0100",
+      "lte": "Sat, 22 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": false,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-9501-7ef7-92b9-a26d67dddaf4",
+        "employee": {
+          "id": "1ef2e110-9f57-64e8-af50-a97f84166058",
+          "user_id": null,
+          "email": "john+anna@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Anna Müller",
+          "first_name": "Anna",
+          "second_name": "Müller",
+          "pin": "111111",
+          "employee_number": "1",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-9501-7ef7-92b9-a26d688c080a",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 270,
+        "price": {
+          "status": false,
+          "quality": 0,
+          "price": 0,
+          "hours_wage": 0,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+        "value": "Springer"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-94d2-744d-b57a-d4318e323735",
+        "status": true,
+        "tag": {
+          "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+          "value": "Springer",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_can_apply"
+  },
+  {
+    "id": "019a97b1-93d5-7a0a-ab14-710ae8d063dd",
+    "type": "shift",
+    "start_tz": "Sat, 22 Nov 2025 15:00:00 +0100",
+    "end_tz": "Sat, 22 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Sat, 22 Nov 2025 15:00:00 +0100",
+      "lte": "Sat, 22 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-93d5-7a0a-ab14-710ae8aad1b0",
+        "employee": {
+          "id": "1ef2e115-d776-6c48-939c-97d707ed9230",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Charlotte Becker",
+          "first_name": "Charlotte",
+          "second_name": "Becker",
+          "pin": "222222",
+          "employee_number": "2",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-93d5-7a0a-ab14-710ae8d063dd",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [
+            {
+              "minutes": 197,
+              "name": "Nachtzuschlag bis 25%",
+              "id": "1f003e44-ef5d-6412-8173-e98883b55365",
+              "wage": 12.3
+            }
+          ],
+          "price": 120,
+          "hours_wage": 15,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+        "value": "Patisserie"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-9399-7126-91ed-06fe60cc87a1",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+          "value": "Patisserie",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-9469-7563-9b96-c8a5bd8243f5",
+    "type": "shift",
+    "start_tz": "Sat, 22 Nov 2025 15:00:00 +0100",
+    "end_tz": "Sat, 22 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Sat, 22 Nov 2025 15:00:00 +0100",
+      "lte": "Sat, 22 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-9469-7563-9b96-c8a5bd7016b0",
+        "employee": {
+          "id": "1ef2e16b-4f35-6342-a97a-d116a71fa2d3",
+          "user_id": null,
+          "email": null,
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Martin Wagner",
+          "first_name": "Martin",
+          "second_name": "Wagner",
+          "pin": "101010",
+          "employee_number": "10",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-9469-7563-9b96-c8a5bd8243f5",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 102.56,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+        "value": "Spüler"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-941f-7b63-97e1-00fabbea4338",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+          "value": "Spüler",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-94cc-73f9-aa63-d631f919beec",
+    "type": "shift",
+    "start_tz": "Sat, 22 Nov 2025 12:00:00 +0100",
+    "end_tz": "Sat, 22 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Sat, 22 Nov 2025 12:00:00 +0100",
+      "lte": "Sat, 22 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 2,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+        "value": "Runner"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-94ca-7758-a765-598045f4d01a",
+        "status": true,
+        "tag": {
+          "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+          "value": "Runner",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-94c1-7dda-b860-7b715d0c2acb",
+    "type": "shift",
+    "start_tz": "Sat, 22 Nov 2025 12:00:00 +0100",
+    "end_tz": "Sat, 22 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Sat, 22 Nov 2025 12:00:00 +0100",
+      "lte": "Sat, 22 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18976,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17074,
+        "name": "Service",
+        "status": true
+      },
+      "sort": 1,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-94c1-7dda-b860-7b715c63dbc3",
+        "employee": {
+          "id": "1ef32c2d-84f9-6372-b8ff-578491bc5f58",
+          "user_id": null,
+          "email": "john+norbert@ordio.com",
+          "employment": null,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Norbert Klein",
+          "first_name": "Norbert",
+          "second_name": "Klein",
+          "pin": "796490",
+          "employee_number": "16",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-94c1-7dda-b860-7b715d0c2acb",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": true,
+        "working_time": 555,
+        "price": {
+          "status": true,
+          "quality": 1,
+          "price": 118.59,
+          "hours_wage": 12.82,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [
+      {
+        "id": "019a97b1-9472-7b9b-86f9-0598629f8100",
+        "status": true,
+        "skill": {
+          "id": "1ef2e17b-d2d0-6bc4-814a-5d0a59eb6577",
+          "name": "Theke",
+          "status": true
+        }
+      }
+    ],
+    "tags": [
+      {
+        "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+        "value": "Frühdienst"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-9472-7b9b-86f9-05986279481e",
+        "status": true,
+        "tag": {
+          "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+          "value": "Frühdienst",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-9391-7576-ae59-1eb110e898b9",
+    "type": "shift",
+    "start_tz": "Sat, 22 Nov 2025 08:00:00 +0100",
+    "end_tz": "Sat, 22 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Sat, 22 Nov 2025 08:00:00 +0100",
+      "lte": "Sat, 22 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-9391-7576-ae59-1eb1102adbdd",
+        "employee": {
+          "id": "1ef3240e-36f7-67f4-9a64-11cc28ab54a7",
+          "user_id": null,
+          "email": "john+melanie@ordio.com",
+          "employment": 32563,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Melanie Braun",
+          "first_name": "Melanie",
+          "second_name": "Braun",
+          "pin": "803760",
+          "employee_number": "11",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-9391-7576-ae59-1eb110e898b9",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 102.56,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+        "value": "Küchenleitung"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-9361-7a0d-9a65-9d7af48a0bd7",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+          "value": "Küchenleitung",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-9416-73b5-b2ed-94d0a7a06947",
+    "type": "shift",
+    "start_tz": "Sat, 22 Nov 2025 08:00:00 +0100",
+    "end_tz": "Sat, 22 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Sat, 22 Nov 2025 08:00:00 +0100",
+      "lte": "Sat, 22 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-9416-73b5-b2ed-94d0a7318848",
+        "employee": {
+          "id": "1ef2e12b-72bf-68b6-baaf-59960b482360",
+          "user_id": null,
+          "email": null,
+          "employment": 32558,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Julia Richter",
+          "first_name": "Julia",
+          "second_name": "Richter",
+          "pin": "777777",
+          "employee_number": "7",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-9416-73b5-b2ed-94d0a7a06947",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 102.56,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+        "value": "Pass"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-93e1-763b-a669-71c562a9619c",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+          "value": "Pass",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-935c-7003-ba94-1d04414deb1f",
+    "type": "shift",
+    "start_tz": "Fri, 21 Nov 2025 19:00:00 +0100",
+    "end_tz": "Fri, 21 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 270,
+    "time_frame": {
+      "gte": "Fri, 21 Nov 2025 19:00:00 +0100",
+      "lte": "Fri, 21 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": false,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+        "value": "Springer"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-935a-7668-80a0-dfc30670c35f",
+        "status": true,
+        "tag": {
+          "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+          "value": "Springer",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_can_apply"
+  },
+  {
+    "id": "019a97b1-9272-7377-9ab0-0665f5a68485",
+    "type": "shift",
+    "start_tz": "Fri, 21 Nov 2025 15:00:00 +0100",
+    "end_tz": "Fri, 21 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Fri, 21 Nov 2025 15:00:00 +0100",
+      "lte": "Fri, 21 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-9272-7377-9ab0-0665f4dedbae",
+        "employee": {
+          "id": "1ef32be2-c25e-60e6-ad9f-977608d9fdf0",
+          "user_id": null,
+          "email": "john+michael@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Michael Hoffmann",
+          "first_name": "Michael",
+          "second_name": "Hoffmann",
+          "pin": "298773",
+          "employee_number": "12",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-9272-7377-9ab0-0665f5a68485",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 102.56,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+        "value": "Patisserie"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-9251-731f-b107-4c9763b8a209",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+          "value": "Patisserie",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-92a2-7b8d-a2f2-a92c3204374f",
+    "type": "shift",
+    "start_tz": "Fri, 21 Nov 2025 15:00:00 +0100",
+    "end_tz": "Fri, 21 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Fri, 21 Nov 2025 15:00:00 +0100",
+      "lte": "Fri, 21 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-92a2-7b8d-a2f2-a92c315b70ba",
+        "employee": {
+          "id": "1ef2e16b-4f35-6342-a97a-d116a71fa2d3",
+          "user_id": null,
+          "email": null,
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Martin Wagner",
+          "first_name": "Martin",
+          "second_name": "Wagner",
+          "pin": "101010",
+          "employee_number": "10",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-92a2-7b8d-a2f2-a92c3204374f",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 102.56,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+        "value": "Spüler"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-9282-7bce-9b07-7b99c7d988b2",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+          "value": "Spüler",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-625b-75c3-b9ed-41697e682247",
+    "type": "shift",
+    "start_tz": "Fri, 21 Nov 2025 14:00:00 +0100",
+    "end_tz": "Fri, 21 Nov 2025 19:00:00 +0100",
+    "working_time_in_minutes": 300,
+    "time_frame": {
+      "gte": "Fri, 21 Nov 2025 14:00:00 +0100",
+      "lte": "Fri, 21 Nov 2025 19:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26758,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24122,
+        "name": "Blauer Raum",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb707d-67b9-654a-9789-fbd953d5980c",
+        "value": "Spät"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-6259-7e65-83d8-727a384b3ad9",
+        "status": true,
+        "tag": {
+          "id": "1efb707d-67b9-654a-9789-fbd953d5980c",
+          "value": "Spät",
+          "status": true,
+          "sort": 132
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-9349-7395-8bb6-6c4db8cc0430",
+    "type": "shift",
+    "start_tz": "Fri, 21 Nov 2025 12:00:00 +0100",
+    "end_tz": "Fri, 21 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Fri, 21 Nov 2025 12:00:00 +0100",
+      "lte": "Fri, 21 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18976,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17074,
+        "name": "Service",
+        "status": true
+      },
+      "sort": 1,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-9349-7395-8bb6-6c4db86bc1e3",
+        "employee": {
+          "id": "1ef2e166-d29b-6402-9a23-43fdf866aa6b",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Leopold von Strauss",
+          "first_name": "Leopold",
+          "second_name": "von Strauss",
+          "pin": "999999",
+          "employee_number": "9",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-9349-7395-8bb6-6c4db8cc0430",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 555,
+        "price": {
+          "status": true,
+          "quality": 1,
+          "price": 133.02,
+          "hours_wage": 14.38,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [
+      {
+        "id": "019a97b1-92aa-74dc-bd77-d686ce35753c",
+        "status": true,
+        "skill": {
+          "id": "1ef2e17b-d2d0-6bc4-814a-5d0a59eb6577",
+          "name": "Theke",
+          "status": true
+        }
+      }
+    ],
+    "tags": [
+      {
+        "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+        "value": "Frühdienst"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-92aa-74dc-bd77-d686cd810a33",
+        "status": true,
+        "tag": {
+          "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+          "value": "Frühdienst",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-9354-7c79-b422-bea2f7b3f5d9",
+    "type": "shift",
+    "start_tz": "Fri, 21 Nov 2025 12:00:00 +0100",
+    "end_tz": "Fri, 21 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Fri, 21 Nov 2025 12:00:00 +0100",
+      "lte": "Fri, 21 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 2,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+        "value": "Runner"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-9352-7abd-81a2-f937f5722008",
+        "status": true,
+        "tag": {
+          "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+          "value": "Runner",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-6410-7cb6-9414-db5d4ab77059",
+    "type": "shift",
+    "start_tz": "Fri, 21 Nov 2025 08:30:00 +0100",
+    "end_tz": "Fri, 21 Nov 2025 18:00:00 +0100",
+    "working_time_in_minutes": 540,
+    "time_frame": {
+      "gte": "Fri, 21 Nov 2025 08:30:00 +0100",
+      "lte": "Fri, 21 Nov 2025 18:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26759,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24123,
+        "name": "Gelber Raum",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-6410-7cb6-9414-db5d4aa8d967",
+        "employee": {
+          "id": "1ef2e110-9f57-64e8-af50-a97f84166058",
+          "user_id": null,
+          "email": "john+anna@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Anna Müller",
+          "first_name": "Anna",
+          "second_name": "Müller",
+          "pin": "111111",
+          "employee_number": "1",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-6410-7cb6-9414-db5d4ab77059",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 540,
+        "price": {
+          "grants": [],
+          "price": 0,
+          "hours_wage": 0,
+          "status": false,
+          "quality": 0
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [],
+    "shift_tags": [],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-927d-7099-b3cf-ad5dd5e56954",
+    "type": "shift",
+    "start_tz": "Fri, 21 Nov 2025 08:00:00 +0100",
+    "end_tz": "Fri, 21 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Fri, 21 Nov 2025 08:00:00 +0100",
+      "lte": "Fri, 21 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+        "value": "Pass"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-927a-7ad8-a328-2fa0e96c8eb5",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+          "value": "Pass",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-9249-76ac-b6e9-7ecaca1608eb",
+    "type": "shift",
+    "start_tz": "Fri, 21 Nov 2025 08:00:00 +0100",
+    "end_tz": "Fri, 21 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Fri, 21 Nov 2025 08:00:00 +0100",
+      "lte": "Fri, 21 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-9248-77dc-8de3-033c41855fec",
+        "employee": {
+          "id": "1ef2e120-cdc8-6362-ba34-8b434e3659bf",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Eleonore von Walden",
+          "first_name": "Eleonore",
+          "second_name": "von Walden",
+          "pin": "444444",
+          "employee_number": "4",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-9249-76ac-b6e9-7ecaca1608eb",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 115.04,
+          "hours_wage": 14.38,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+        "value": "Küchenleitung"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-9224-7511-b241-440fa0fbffc1",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+          "value": "Küchenleitung",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-61e0-7b89-ae4e-d098d8381142",
+    "type": "shift",
+    "start_tz": "Fri, 21 Nov 2025 07:30:00 +0100",
+    "end_tz": "Fri, 21 Nov 2025 13:00:00 +0100",
+    "working_time_in_minutes": 330,
+    "time_frame": {
+      "gte": "Fri, 21 Nov 2025 07:30:00 +0100",
+      "lte": "Fri, 21 Nov 2025 13:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26758,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24122,
+        "name": "Blauer Raum",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-61df-7c8e-a6e6-3fdce66fbb1a",
+        "employee": {
+          "id": "1ef2e115-d776-6c48-939c-97d707ed9230",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Charlotte Becker",
+          "first_name": "Charlotte",
+          "second_name": "Becker",
+          "pin": "222222",
+          "employee_number": "2",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-61e0-7b89-ae4e-d098d8381142",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 330,
+        "price": {
+          "grants": [],
+          "price": 82.5,
+          "hours_wage": 15,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb1696-bbe9-61f6-a574-af57cd5e7080",
+        "value": "Früh"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-6193-7131-8d98-cf5d400101ca",
+        "status": true,
+        "tag": {
+          "id": "1efb1696-bbe9-61f6-a574-af57cd5e7080",
+          "value": "Früh",
+          "status": true,
+          "sort": 129
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-6133-76ea-b79b-b108767e78ec",
+    "type": "shift",
+    "start_tz": "Fri, 21 Nov 2025 07:30:00 +0100",
+    "end_tz": "Fri, 21 Nov 2025 17:00:00 +0100",
+    "working_time_in_minutes": 540,
+    "time_frame": {
+      "gte": "Fri, 21 Nov 2025 07:30:00 +0100",
+      "lte": "Fri, 21 Nov 2025 17:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26757,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24121,
+        "name": "Grüner Raum",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-6133-76ea-b79b-b108759f05df",
+        "employee": {
+          "id": "1ef2e129-b0d0-6f30-8311-637e82bdf584",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Jonas Bauer",
+          "first_name": "Jonas",
+          "second_name": "Bauer",
+          "pin": "666666",
+          "employee_number": "6",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-6133-76ea-b79b-b108767e78ec",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 540,
+        "price": {
+          "grants": [],
+          "price": 135,
+          "hours_wage": 15,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb707a-52db-6b76-96a2-8d3613357fe1",
+        "value": "Manuelle Therapie"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-6118-76e1-abce-734bec8a6386",
+        "status": true,
+        "tag": {
+          "id": "1efb707a-52db-6b76-96a2-8d3613357fe1",
+          "value": "Manuelle Therapie",
+          "status": true,
+          "sort": 131
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-921c-79f3-b32e-afaf1c36c83f",
+    "type": "shift",
+    "start_tz": "Thu, 20 Nov 2025 19:00:00 +0100",
+    "end_tz": "Thu, 20 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 270,
+    "time_frame": {
+      "gte": "Thu, 20 Nov 2025 19:00:00 +0100",
+      "lte": "Thu, 20 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": false,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-921c-79f3-b32e-afaf1c048638",
+        "employee": {
+          "id": "1ef2e110-9f57-64e8-af50-a97f84166058",
+          "user_id": null,
+          "email": "john+anna@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Anna Müller",
+          "first_name": "Anna",
+          "second_name": "Müller",
+          "pin": "111111",
+          "employee_number": "1",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-921c-79f3-b32e-afaf1c36c83f",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 270,
+        "price": {
+          "status": true,
+          "quality": 1,
+          "price": 0,
+          "hours_wage": 0,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+        "value": "Springer"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-91f6-7c86-aa63-67d06b0c533c",
+        "status": true,
+        "tag": {
+          "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+          "value": "Springer",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_can_apply"
+  },
+  {
+    "id": "019a97b1-91a3-7dd8-97c2-f2ddc165b3c3",
+    "type": "shift",
+    "start_tz": "Thu, 20 Nov 2025 15:00:00 +0100",
+    "end_tz": "Thu, 20 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Thu, 20 Nov 2025 15:00:00 +0100",
+      "lte": "Thu, 20 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-91a3-7dd8-97c2-f2ddc10f45b4",
+        "employee": {
+          "id": "1ef2e16b-4f35-6342-a97a-d116a71fa2d3",
+          "user_id": null,
+          "email": null,
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Martin Wagner",
+          "first_name": "Martin",
+          "second_name": "Wagner",
+          "pin": "101010",
+          "employee_number": "10",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-91a3-7dd8-97c2-f2ddc165b3c3",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 102.56,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+        "value": "Spüler"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-915a-7751-a18c-4fd7ff96bf5a",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+          "value": "Spüler",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-9103-7693-b532-5eff4945ddba",
+    "type": "shift",
+    "start_tz": "Thu, 20 Nov 2025 15:00:00 +0100",
+    "end_tz": "Thu, 20 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Thu, 20 Nov 2025 15:00:00 +0100",
+      "lte": "Thu, 20 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-9103-7693-b532-5eff48909c1d",
+        "employee": {
+          "id": "1ef2e115-d776-6c48-939c-97d707ed9230",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Charlotte Becker",
+          "first_name": "Charlotte",
+          "second_name": "Becker",
+          "pin": "222222",
+          "employee_number": "2",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-9103-7693-b532-5eff4945ddba",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [
+            {
+              "minutes": 197,
+              "name": "Nachtzuschlag bis 25%",
+              "id": "1f003e44-ef5d-6412-8173-e98883b55365",
+              "wage": 12.3
+            }
+          ],
+          "price": 120,
+          "hours_wage": 15,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+        "value": "Patisserie"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-90e4-7c0c-99f2-f40f4926bcd8",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+          "value": "Patisserie",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-6252-77f7-a08f-cf52de29a62e",
+    "type": "shift",
+    "start_tz": "Thu, 20 Nov 2025 14:00:00 +0100",
+    "end_tz": "Thu, 20 Nov 2025 19:00:00 +0100",
+    "working_time_in_minutes": 300,
+    "time_frame": {
+      "gte": "Thu, 20 Nov 2025 14:00:00 +0100",
+      "lte": "Thu, 20 Nov 2025 19:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26758,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24122,
+        "name": "Blauer Raum",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-6252-77f7-a08f-cf52dda8a90c",
+        "employee": {
+          "id": "1ef2e166-d29b-6402-9a23-43fdf866aa6b",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Leopold von Strauss",
+          "first_name": "Leopold",
+          "second_name": "von Strauss",
+          "pin": "999999",
+          "employee_number": "9",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-6252-77f7-a08f-cf52de29a62e",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 300,
+        "price": {
+          "grants": [],
+          "price": 71.9,
+          "hours_wage": 14.38,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb707d-67b9-654a-9789-fbd953d5980c",
+        "value": "Spät"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-621e-7dfa-a4b7-a72b5f7ed9d3",
+        "status": true,
+        "tag": {
+          "id": "1efb707d-67b9-654a-9789-fbd953d5980c",
+          "value": "Spät",
+          "status": true,
+          "sort": 132
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-91af-77a9-ad25-af3b45600b9e",
+    "type": "shift",
+    "start_tz": "Thu, 20 Nov 2025 12:00:00 +0100",
+    "end_tz": "Thu, 20 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Thu, 20 Nov 2025 12:00:00 +0100",
+      "lte": "Thu, 20 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18976,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17074,
+        "name": "Service",
+        "status": true
+      },
+      "sort": 1,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [
+      {
+        "id": "019a97b1-91ac-7bf1-86d4-f1acd41968e5",
+        "status": true,
+        "skill": {
+          "id": "1ef2e17b-d2d0-6bc4-814a-5d0a59eb6577",
+          "name": "Theke",
+          "status": true
+        }
+      }
+    ],
+    "tags": [
+      {
+        "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+        "value": "Frühdienst"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-91ac-7bf1-86d4-f1acd4154e5d",
+        "status": true,
+        "tag": {
+          "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+          "value": "Frühdienst",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-91ed-7192-aaa0-3ceb3b66f382",
+    "type": "shift",
+    "start_tz": "Thu, 20 Nov 2025 12:00:00 +0100",
+    "end_tz": "Thu, 20 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Thu, 20 Nov 2025 12:00:00 +0100",
+      "lte": "Thu, 20 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 2,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-91ed-7192-aaa0-3ceb3a7873a0",
+        "employee": {
+          "id": "1ef2e164-ef36-67da-9cef-41db99e655a2",
+          "user_id": null,
+          "email": null,
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Laura Weber",
+          "first_name": "Laura",
+          "second_name": "Weber",
+          "pin": "888888",
+          "employee_number": "8",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-91ed-7192-aaa0-3ceb3b66f382",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 555,
+        "price": {
+          "status": true,
+          "quality": 1,
+          "price": 118.59,
+          "hours_wage": 12.82,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+        "value": "Runner"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-91b4-7152-8e0c-b6f2ee717b12",
+        "status": true,
+        "tag": {
+          "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+          "value": "Runner",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-63d6-702c-af1b-a59928e9f565",
+    "type": "shift",
+    "start_tz": "Thu, 20 Nov 2025 08:30:00 +0100",
+    "end_tz": "Thu, 20 Nov 2025 18:00:00 +0100",
+    "working_time_in_minutes": 540,
+    "time_frame": {
+      "gte": "Thu, 20 Nov 2025 08:30:00 +0100",
+      "lte": "Thu, 20 Nov 2025 18:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26759,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24123,
+        "name": "Gelber Raum",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-63d6-702c-af1b-a5992821640f",
+        "employee": {
+          "id": "1ef2e110-9f57-64e8-af50-a97f84166058",
+          "user_id": null,
+          "email": "john+anna@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Anna Müller",
+          "first_name": "Anna",
+          "second_name": "Müller",
+          "pin": "111111",
+          "employee_number": "1",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-63d6-702c-af1b-a59928e9f565",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 540,
+        "price": {
+          "grants": [],
+          "price": 0,
+          "hours_wage": 0,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [],
+    "shift_tags": [],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-90db-7b5a-9e6d-343eedbbbd68",
+    "type": "shift",
+    "start_tz": "Thu, 20 Nov 2025 08:00:00 +0100",
+    "end_tz": "Thu, 20 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Thu, 20 Nov 2025 08:00:00 +0100",
+      "lte": "Thu, 20 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-90db-7b5a-9e6d-343eecf307e4",
+        "employee": {
+          "id": "1ef2e120-cdc8-6362-ba34-8b434e3659bf",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Eleonore von Walden",
+          "first_name": "Eleonore",
+          "second_name": "von Walden",
+          "pin": "444444",
+          "employee_number": "4",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-90db-7b5a-9e6d-343eedbbbd68",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 115.04,
+          "hours_wage": 14.38,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+        "value": "Küchenleitung"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-90ba-78c9-a2a3-af8f2f701d30",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+          "value": "Küchenleitung",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-9151-7278-a151-9cdbdd4aa008",
+    "type": "shift",
+    "start_tz": "Thu, 20 Nov 2025 08:00:00 +0100",
+    "end_tz": "Thu, 20 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Thu, 20 Nov 2025 08:00:00 +0100",
+      "lte": "Thu, 20 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-9151-7278-a151-9cdbdc8e9c12",
+        "employee": {
+          "id": "1ef32c1d-4bd9-6886-b1fe-1b1e58572d94",
+          "user_id": null,
+          "email": "john+nathalie@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Nathalie Frank",
+          "first_name": "Nathalie",
+          "second_name": "Frank",
+          "pin": "111112",
+          "employee_number": "15",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-9151-7278-a151-9cdbdd4aa008",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": true,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 102.56,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+        "value": "Pass"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-910c-735a-a14a-79171048018b",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+          "value": "Pass",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-618e-7c99-b91a-f01c83efa68a",
+    "type": "shift",
+    "start_tz": "Thu, 20 Nov 2025 07:30:00 +0100",
+    "end_tz": "Thu, 20 Nov 2025 13:00:00 +0100",
+    "working_time_in_minutes": 330,
+    "time_frame": {
+      "gte": "Thu, 20 Nov 2025 07:30:00 +0100",
+      "lte": "Thu, 20 Nov 2025 13:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26758,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24122,
+        "name": "Blauer Raum",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb1696-bbe9-61f6-a574-af57cd5e7080",
+        "value": "Früh"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-618c-78ae-ba23-1657c6156c3d",
+        "status": true,
+        "tag": {
+          "id": "1efb1696-bbe9-61f6-a574-af57cd5e7080",
+          "value": "Früh",
+          "status": true,
+          "sort": 129
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-6110-7cba-a061-ad7c066239fa",
+    "type": "shift",
+    "start_tz": "Thu, 20 Nov 2025 07:30:00 +0100",
+    "end_tz": "Thu, 20 Nov 2025 17:00:00 +0100",
+    "working_time_in_minutes": 540,
+    "time_frame": {
+      "gte": "Thu, 20 Nov 2025 07:30:00 +0100",
+      "lte": "Thu, 20 Nov 2025 17:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26757,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24121,
+        "name": "Grüner Raum",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-6110-7cba-a061-ad7c064c1bce",
+        "employee": {
+          "id": "1ef2e129-b0d0-6f30-8311-637e82bdf584",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Jonas Bauer",
+          "first_name": "Jonas",
+          "second_name": "Bauer",
+          "pin": "666666",
+          "employee_number": "6",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-6110-7cba-a061-ad7c066239fa",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 540,
+        "price": {
+          "grants": [],
+          "price": 135,
+          "hours_wage": 15,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb707a-52db-6b76-96a2-8d3613357fe1",
+        "value": "Manuelle Therapie"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-60d8-7965-9e00-782ffeaec275",
+        "status": true,
+        "tag": {
+          "id": "1efb707a-52db-6b76-96a2-8d3613357fe1",
+          "value": "Manuelle Therapie",
+          "status": true,
+          "sort": 131
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-90b2-79f4-8c14-c6c526e90a8d",
+    "type": "shift",
+    "start_tz": "Wed, 19 Nov 2025 19:00:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 270,
+    "time_frame": {
+      "gte": "Wed, 19 Nov 2025 19:00:00 +0100",
+      "lte": "Wed, 19 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": false,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-90b2-79f4-8c14-c6c526027afa",
+        "employee": {
+          "id": "1ef2e110-9f57-64e8-af50-a97f84166058",
+          "user_id": null,
+          "email": "john+anna@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Anna Müller",
+          "first_name": "Anna",
+          "second_name": "Müller",
+          "pin": "111111",
+          "employee_number": "1",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-90b2-79f4-8c14-c6c526e90a8d",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 270,
+        "price": {
+          "status": true,
+          "quality": 1,
+          "price": 0,
+          "hours_wage": 0,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+        "value": "Springer"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-908f-77d0-b47a-74fe651fa971",
+        "status": true,
+        "tag": {
+          "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+          "value": "Springer",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_can_apply"
+  },
+  {
+    "id": "019a97b1-8f9e-767f-8f55-c556ec8e773a",
+    "type": "shift",
+    "start_tz": "Wed, 19 Nov 2025 15:00:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Wed, 19 Nov 2025 15:00:00 +0100",
+      "lte": "Wed, 19 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8f9e-767f-8f55-c556eba29140",
+        "employee": {
+          "id": "1ef2e164-ef36-67da-9cef-41db99e655a2",
+          "user_id": null,
+          "email": null,
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Laura Weber",
+          "first_name": "Laura",
+          "second_name": "Weber",
+          "pin": "888888",
+          "employee_number": "8",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8f9e-767f-8f55-c556ec8e773a",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 102.56,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+        "value": "Patisserie"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8f7d-7f05-939a-5eb2436179a0",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+          "value": "Patisserie",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-9052-7b32-83d0-288b1f1d42df",
+    "type": "shift",
+    "start_tz": "Wed, 19 Nov 2025 15:00:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Wed, 19 Nov 2025 15:00:00 +0100",
+      "lte": "Wed, 19 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-9052-7b32-83d0-288b1f1a9676",
+        "employee": {
+          "id": "1ef2e16b-4f35-6342-a97a-d116a71fa2d3",
+          "user_id": null,
+          "email": null,
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Martin Wagner",
+          "first_name": "Martin",
+          "second_name": "Wagner",
+          "pin": "101010",
+          "employee_number": "10",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-9052-7b32-83d0-288b1f1d42df",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 102.56,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+        "value": "Spüler"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-9008-7b6b-81f8-c274935dddc0",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+          "value": "Spüler",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-6216-7a0b-9d31-d93d28fa09b1",
+    "type": "shift",
+    "start_tz": "Wed, 19 Nov 2025 14:00:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 19:00:00 +0100",
+    "working_time_in_minutes": 300,
+    "time_frame": {
+      "gte": "Wed, 19 Nov 2025 14:00:00 +0100",
+      "lte": "Wed, 19 Nov 2025 19:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26758,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24122,
+        "name": "Blauer Raum",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-6216-7a0b-9d31-d93d28d1b062",
+        "employee": {
+          "id": "1ef2e166-d29b-6402-9a23-43fdf866aa6b",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Leopold von Strauss",
+          "first_name": "Leopold",
+          "second_name": "von Strauss",
+          "pin": "999999",
+          "employee_number": "9",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-6216-7a0b-9d31-d93d28fa09b1",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 300,
+        "price": {
+          "grants": [],
+          "price": 71.9,
+          "hours_wage": 14.38,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb707d-67b9-654a-9789-fbd953d5980c",
+        "value": "Spät"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-61f3-76ae-9a6f-1a944aeb74b0",
+        "status": true,
+        "tag": {
+          "id": "1efb707d-67b9-654a-9789-fbd953d5980c",
+          "value": "Spät",
+          "status": true,
+          "sort": 132
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-9089-7662-a1e4-b125691e30fa",
+    "type": "shift",
+    "start_tz": "Wed, 19 Nov 2025 12:00:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Wed, 19 Nov 2025 12:00:00 +0100",
+      "lte": "Wed, 19 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 2,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+        "value": "Runner"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-9086-747a-a4e4-b38170efcd1e",
+        "status": true,
+        "tag": {
+          "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+          "value": "Runner",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-907e-7ea8-85de-4826774c585a",
+    "type": "shift",
+    "start_tz": "Wed, 19 Nov 2025 12:00:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Wed, 19 Nov 2025 12:00:00 +0100",
+      "lte": "Wed, 19 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18976,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17074,
+        "name": "Service",
+        "status": true
+      },
+      "sort": 1,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-907e-7ea8-85de-48267725b826",
+        "employee": {
+          "id": "1ef32c3a-9a92-6e38-8ea7-717bd5e445ef",
+          "user_id": null,
+          "email": "john+oliver@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Oliver Vogel",
+          "first_name": "Oliver",
+          "second_name": "Vogel",
+          "pin": "872631",
+          "employee_number": "17",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-907e-7ea8-85de-4826774c585a",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": true,
+        "working_time": 555,
+        "price": {
+          "status": true,
+          "quality": 1,
+          "price": 118.59,
+          "hours_wage": 12.82,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [
+      {
+        "id": "019a97b1-905a-71ff-ae3a-28b712d70ce9",
+        "status": true,
+        "skill": {
+          "id": "1ef2e17b-d2d0-6bc4-814a-5d0a59eb6577",
+          "name": "Theke",
+          "status": true
+        }
+      }
+    ],
+    "tags": [
+      {
+        "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+        "value": "Frühdienst"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-905a-71ff-ae3a-28b712506f5f",
+        "status": true,
+        "tag": {
+          "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+          "value": "Frühdienst",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-6337-7b00-b5b9-5371ac26a373",
+    "type": "shift",
+    "start_tz": "Wed, 19 Nov 2025 08:30:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 18:00:00 +0100",
+    "working_time_in_minutes": 540,
+    "time_frame": {
+      "gte": "Wed, 19 Nov 2025 08:30:00 +0100",
+      "lte": "Wed, 19 Nov 2025 18:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26759,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24123,
+        "name": "Gelber Raum",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-6336-7fd6-9fac-f14f301640a8",
+        "employee": {
+          "id": "1ef2e110-9f57-64e8-af50-a97f84166058",
+          "user_id": null,
+          "email": "john+anna@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Anna Müller",
+          "first_name": "Anna",
+          "second_name": "Müller",
+          "pin": "111111",
+          "employee_number": "1",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-6337-7b00-b5b9-5371ac26a373",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 540,
+        "price": {
+          "grants": [],
+          "price": 0,
+          "hours_wage": 0,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [],
+    "shift_tags": [],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8f78-74fd-930e-cfe229a939ee",
+    "type": "shift",
+    "start_tz": "Wed, 19 Nov 2025 08:00:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Wed, 19 Nov 2025 08:00:00 +0100",
+      "lte": "Wed, 19 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+        "value": "Küchenleitung"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8f6d-791e-9842-2fbb9ab5134b",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+          "value": "Küchenleitung",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8fff-72a4-8564-ef2f3b9ad222",
+    "type": "shift",
+    "start_tz": "Wed, 19 Nov 2025 08:00:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Wed, 19 Nov 2025 08:00:00 +0100",
+      "lte": "Wed, 19 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8fff-72a4-8564-ef2f3b3bc40d",
+        "employee": {
+          "id": "1ef2e115-d776-6c48-939c-97d707ed9230",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Charlotte Becker",
+          "first_name": "Charlotte",
+          "second_name": "Becker",
+          "pin": "222222",
+          "employee_number": "2",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8fff-72a4-8564-ef2f3b9ad222",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 120,
+          "hours_wage": 15,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+        "value": "Pass"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8fa6-76e7-902c-0444e191520b",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+          "value": "Pass",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-60cc-7f43-be3d-4b526393f05f",
+    "type": "shift",
+    "start_tz": "Wed, 19 Nov 2025 07:30:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 17:00:00 +0100",
+    "working_time_in_minutes": 540,
+    "time_frame": {
+      "gte": "Wed, 19 Nov 2025 07:30:00 +0100",
+      "lte": "Wed, 19 Nov 2025 17:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26757,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24121,
+        "name": "Grüner Raum",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-60cc-7f43-be3d-4b5262d99e02",
+        "employee": {
+          "id": "1ef2e129-b0d0-6f30-8311-637e82bdf584",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Jonas Bauer",
+          "first_name": "Jonas",
+          "second_name": "Bauer",
+          "pin": "666666",
+          "employee_number": "6",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-60cc-7f43-be3d-4b526393f05f",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 540,
+        "price": {
+          "grants": [],
+          "price": 135,
+          "hours_wage": 15,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb707a-52db-6b76-96a2-8d3613357fe1",
+        "value": "Manuelle Therapie"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-60a5-7ab4-814d-c8884a39a42a",
+        "status": true,
+        "tag": {
+          "id": "1efb707a-52db-6b76-96a2-8d3613357fe1",
+          "value": "Manuelle Therapie",
+          "status": true,
+          "sort": 131
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-6188-7d6c-a3ff-10b5e0c04567",
+    "type": "shift",
+    "start_tz": "Wed, 19 Nov 2025 07:30:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 13:00:00 +0100",
+    "working_time_in_minutes": 330,
+    "time_frame": {
+      "gte": "Wed, 19 Nov 2025 07:30:00 +0100",
+      "lte": "Wed, 19 Nov 2025 13:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26758,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24122,
+        "name": "Blauer Raum",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb1696-bbe9-61f6-a574-af57cd5e7080",
+        "value": "Früh"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-6186-7b3f-a2f0-3e74edf91f47",
+        "status": true,
+        "tag": {
+          "id": "1efb1696-bbe9-61f6-a574-af57cd5e7080",
+          "value": "Früh",
+          "status": true,
+          "sort": 129
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8f63-7547-9f6e-ab2c3f0af1d8",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 19:00:00 +0100",
+    "end_tz": "Tue, 18 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 270,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 19:00:00 +0100",
+      "lte": "Tue, 18 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": false,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8f63-7547-9f6e-ab2c3ea82c37",
+        "employee": {
+          "id": "1ef2e110-9f57-64e8-af50-a97f84166058",
+          "user_id": null,
+          "email": "john+anna@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Anna Müller",
+          "first_name": "Anna",
+          "second_name": "Müller",
+          "pin": "111111",
+          "employee_number": "1",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8f63-7547-9f6e-ab2c3f0af1d8",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 270,
+        "price": {
+          "grants": [],
+          "price": 0,
+          "hours_wage": 0,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": {
+          "id": "019a9917-5458-74aa-ac39-d51f6dfd569c",
+          "entry_date": "Tue, 18 Nov 2025 19:00:00 +0100",
+          "finish_date": "Tue, 18 Nov 2025 23:30:00 +0100",
+          "valid": 1,
+          "status": 6
+        },
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+        "value": "Springer"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8f42-7fa7-9cac-1a6578add5c8",
+        "status": true,
+        "tag": {
+          "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+          "value": "Springer",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_can_apply"
+  },
+  {
+    "id": "019a97c3-6b6f-7293-9f46-9a31dcb7c888",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 17:19:00 +0100",
+    "end_tz": "Wed, 19 Nov 2025 01:19:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 17:19:00 +0100",
+      "lte": "Wed, 19 Nov 2025 01:19:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": false,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": false,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18976,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17074,
+        "name": "Service",
+        "status": true
+      },
+      "sort": 1,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97c3-6b70-7dad-96b2-130b577dca3a",
+        "employee": {
+          "id": "1ef2e120-cdc8-6362-ba34-8b434e3659bf",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Eleonore von Walden",
+          "first_name": "Eleonore",
+          "second_name": "von Walden",
+          "pin": "444444",
+          "employee_number": "4",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97c3-6b6f-7293-9f46-9a31dcb7c888",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": true,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 450,
+        "price": {
+          "grants": [
+            {
+              "minutes": 79,
+              "name": "Nachtzuschlag bis 40%",
+              "id": "1f003e09-5a47-6354-9b39-4fc3ab87da77",
+              "wage": 7.59
+            }
+          ],
+          "price": 107.85,
+          "hours_wage": 14.38,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": {
+          "id": "019a97c3-6b70-7dad-96b2-130b579b41a5",
+          "entry_date": "Tue, 18 Nov 2025 17:19:00 +0100",
+          "finish_date": "Wed, 19 Nov 2025 01:19:00 +0100",
+          "valid": 1,
+          "status": 7
+        },
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [],
+    "shift_tags": [],
+    "application_type": "employees_can_apply"
+  },
+  {
+    "id": "019a97b1-8e9a-7853-9c5a-6670ef1e702c",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 15:00:00 +0100",
+    "end_tz": "Tue, 18 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 15:00:00 +0100",
+      "lte": "Tue, 18 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+        "value": "Patisserie"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8e98-7497-b36d-3419e1459d6d",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+          "value": "Patisserie",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8ee3-7257-8a1f-9c95242d0ed4",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 15:00:00 +0100",
+    "end_tz": "Tue, 18 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 15:00:00 +0100",
+      "lte": "Tue, 18 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8ee3-7257-8a1f-9c9523c7ae5c",
+        "employee": {
+          "id": "1ef2e16b-4f35-6342-a97a-d116a71fa2d3",
+          "user_id": null,
+          "email": null,
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Martin Wagner",
+          "first_name": "Martin",
+          "second_name": "Wagner",
+          "pin": "101010",
+          "employee_number": "10",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8ee3-7257-8a1f-9c95242d0ed4",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 102.56,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+        "value": "Spüler"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8ea7-76d2-aa79-35a87bdb6d8b",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+          "value": "Spüler",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-61ee-7fbb-9e06-533fa6eecbe7",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 14:00:00 +0100",
+    "end_tz": "Tue, 18 Nov 2025 19:00:00 +0100",
+    "working_time_in_minutes": 300,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 14:00:00 +0100",
+      "lte": "Tue, 18 Nov 2025 19:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26758,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24122,
+        "name": "Blauer Raum",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb707d-67b9-654a-9789-fbd953d5980c",
+        "value": "Spät"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-61ec-7d9e-bd43-bc272e693172",
+        "status": true,
+        "tag": {
+          "id": "1efb707d-67b9-654a-9789-fbd953d5980c",
+          "value": "Spät",
+          "status": true,
+          "sort": 132
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8eef-7ff0-9446-5d0046ffe1bc",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 12:00:00 +0100",
+    "end_tz": "Tue, 18 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 12:00:00 +0100",
+      "lte": "Tue, 18 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": false,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18976,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17074,
+        "name": "Service",
+        "status": true
+      },
+      "sort": 1,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [
+      {
+        "id": "019a97b1-8eec-746e-a1cc-69bbd9a2a379",
+        "status": true,
+        "skill": {
+          "id": "1ef2e17b-d2d0-6bc4-814a-5d0a59eb6577",
+          "name": "Theke",
+          "status": true
+        }
+      }
+    ],
+    "tags": [
+      {
+        "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+        "value": "Frühdienst"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8eec-746e-a1cc-69bbd99cd31e",
+        "status": true,
+        "tag": {
+          "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+          "value": "Frühdienst",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_can_apply"
+  },
+  {
+    "id": "019a97b1-8f37-72b7-9e86-a28f3e0a4b09",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 12:00:00 +0100",
+    "end_tz": "Tue, 18 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 12:00:00 +0100",
+      "lte": "Tue, 18 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 2,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8f15-701e-9261-823238db34c7",
+        "employee": {
+          "id": "1ef2e164-ef36-67da-9cef-41db99e655a2",
+          "user_id": null,
+          "email": null,
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Laura Weber",
+          "first_name": "Laura",
+          "second_name": "Weber",
+          "pin": "888888",
+          "employee_number": "8",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8f37-72b7-9e86-a28f3e0a4b09",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 555,
+        "price": {
+          "status": true,
+          "quality": 1,
+          "price": 118.59,
+          "hours_wage": 12.82,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      },
+      {
+        "id": "019a97b1-8f37-72b7-9e86-a28f3d3f1f5a",
+        "employee": {
+          "id": "1ef32c12-fbe1-6158-86f2-2706b927fd75",
+          "user_id": null,
+          "email": "john+nadine@ordio.com",
+          "employment": 32563,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Nadine Zimmermann",
+          "first_name": "Nadine",
+          "second_name": "Zimmermann",
+          "pin": "222223",
+          "employee_number": "14",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8f37-72b7-9e86-a28f3e0a4b09",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": true,
+        "working_time": 555,
+        "price": {
+          "status": true,
+          "quality": 1,
+          "price": 118.59,
+          "hours_wage": 12.82,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+        "value": "Runner"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8ef5-79bd-9f9a-a2dce6913fc0",
+        "status": true,
+        "tag": {
+          "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+          "value": "Runner",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-6306-7e70-834d-428a78a5054d",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 08:30:00 +0100",
+    "end_tz": "Tue, 18 Nov 2025 18:00:00 +0100",
+    "working_time_in_minutes": 540,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 08:30:00 +0100",
+      "lte": "Tue, 18 Nov 2025 18:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26759,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24123,
+        "name": "Gelber Raum",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-6306-7e70-834d-428a78263739",
+        "employee": {
+          "id": "1ef2e110-9f57-64e8-af50-a97f84166058",
+          "user_id": null,
+          "email": "john+anna@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Anna Müller",
+          "first_name": "Anna",
+          "second_name": "Müller",
+          "pin": "111111",
+          "employee_number": "1",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-6306-7e70-834d-428a78a5054d",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 540,
+        "price": {
+          "grants": [],
+          "price": 0,
+          "hours_wage": 0,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": {
+          "id": "019a97e9-59aa-7ff0-a431-ad53e7406d43",
+          "entry_date": "Tue, 18 Nov 2025 08:30:00 +0100",
+          "finish_date": "Tue, 18 Nov 2025 18:00:00 +0100",
+          "valid": 1,
+          "status": 6
+        },
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [],
+    "shift_tags": [],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8ea2-7566-9843-d8f36222dfa5",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 08:00:00 +0100",
+    "end_tz": "Tue, 18 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 08:00:00 +0100",
+      "lte": "Tue, 18 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+        "value": "Pass"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8e9f-7758-a9cc-0804198d0c96",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+          "value": "Pass",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8e90-7ca0-9175-7d79f9d14ce0",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 08:00:00 +0100",
+    "end_tz": "Tue, 18 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 08:00:00 +0100",
+      "lte": "Tue, 18 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8e90-7ca0-9175-7d79f9175725",
+        "employee": {
+          "id": "1ef2e120-cdc8-6362-ba34-8b434e3659bf",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Eleonore von Walden",
+          "first_name": "Eleonore",
+          "second_name": "von Walden",
+          "pin": "444444",
+          "employee_number": "4",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8e90-7ca0-9175-7d79f9d14ce0",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 115.04,
+          "hours_wage": 14.38,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+        "value": "Küchenleitung"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8e5d-7003-8123-a44697222fbd",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+          "value": "Küchenleitung",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-609e-7e5e-972f-722893a1334a",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 07:30:00 +0100",
+    "end_tz": "Tue, 18 Nov 2025 17:00:00 +0100",
+    "working_time_in_minutes": 540,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 07:30:00 +0100",
+      "lte": "Tue, 18 Nov 2025 17:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26757,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24121,
+        "name": "Grüner Raum",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-609e-7e5e-972f-7228930ea1c5",
+        "employee": {
+          "id": "1ef2e129-b0d0-6f30-8311-637e82bdf584",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Jonas Bauer",
+          "first_name": "Jonas",
+          "second_name": "Bauer",
+          "pin": "666666",
+          "employee_number": "6",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-609e-7e5e-972f-722893a1334a",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 540,
+        "price": {
+          "grants": [],
+          "price": 135,
+          "hours_wage": 15,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": {
+          "id": "019a97b2-56e0-7ff2-8bb8-7edf13366ed6",
+          "entry_date": "Tue, 18 Nov 2025 07:30:00 +0100",
+          "finish_date": "Tue, 18 Nov 2025 17:00:00 +0100",
+          "valid": 1,
+          "status": 6
+        },
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb707a-52db-6b76-96a2-8d3613357fe1",
+        "value": "Manuelle Therapie"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-6067-7ffb-a038-21535e6012ba",
+        "status": true,
+        "tag": {
+          "id": "1efb707a-52db-6b76-96a2-8d3613357fe1",
+          "value": "Manuelle Therapie",
+          "status": true,
+          "sort": 131
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-617f-7744-9773-f7ad806ad306",
+    "type": "shift",
+    "start_tz": "Tue, 18 Nov 2025 07:30:00 +0100",
+    "end_tz": "Tue, 18 Nov 2025 13:00:00 +0100",
+    "working_time_in_minutes": 330,
+    "time_frame": {
+      "gte": "Tue, 18 Nov 2025 07:30:00 +0100",
+      "lte": "Tue, 18 Nov 2025 13:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26758,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24122,
+        "name": "Blauer Raum",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-617f-7744-9773-f7ad8057abd9",
+        "employee": {
+          "id": "1ef2e166-d29b-6402-9a23-43fdf866aa6b",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Leopold von Strauss",
+          "first_name": "Leopold",
+          "second_name": "von Strauss",
+          "pin": "999999",
+          "employee_number": "9",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-617f-7744-9773-f7ad806ad306",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 330,
+        "price": {
+          "grants": [],
+          "price": 79.09,
+          "hours_wage": 14.38,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": {
+          "id": "019a96d6-8d00-7601-b674-87ce5c794c46",
+          "entry_date": "Tue, 18 Nov 2025 07:30:00 +0100",
+          "finish_date": "Tue, 18 Nov 2025 13:00:00 +0100",
+          "valid": 1,
+          "status": 6
+        },
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      },
+      {
+        "id": "019a824a-d1cb-7f8f-b42e-a37187d4037e",
+        "employee": {
+          "id": "1ef3240e-36f7-67f4-9a64-11cc28ab54a7",
+          "user_id": null,
+          "email": "john+melanie@ordio.com",
+          "employment": 32563,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Melanie Braun",
+          "first_name": "Melanie",
+          "second_name": "Braun",
+          "pin": "803760",
+          "employee_number": "11",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-617f-7744-9773-f7ad806ad306",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 330,
+        "price": {
+          "grants": [],
+          "price": 70.51,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": {
+          "id": "019a96d6-8d07-7cb2-b6e7-9912bc3a8733",
+          "entry_date": "Tue, 18 Nov 2025 07:30:00 +0100",
+          "finish_date": "Tue, 18 Nov 2025 13:00:00 +0100",
+          "valid": 1,
+          "status": 6
+        },
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb1696-bbe9-61f6-a574-af57cd5e7080",
+        "value": "Früh"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-6161-706c-a299-f0283da1e85f",
+        "status": true,
+        "tag": {
+          "id": "1efb1696-bbe9-61f6-a574-af57cd5e7080",
+          "value": "Früh",
+          "status": true,
+          "sort": 129
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8e55-7f86-b5ba-2933ce7a68fa",
+    "type": "shift",
+    "start_tz": "Mon, 17 Nov 2025 19:00:00 +0100",
+    "end_tz": "Mon, 17 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 270,
+    "time_frame": {
+      "gte": "Mon, 17 Nov 2025 19:00:00 +0100",
+      "lte": "Mon, 17 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": false,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8e55-7f86-b5ba-2933ce2d9da9",
+        "employee": {
+          "id": "1ef2e110-9f57-64e8-af50-a97f84166058",
+          "user_id": null,
+          "email": "john+anna@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Anna Müller",
+          "first_name": "Anna",
+          "second_name": "Müller",
+          "pin": "111111",
+          "employee_number": "1",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8e55-7f86-b5ba-2933ce7a68fa",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 270,
+        "price": {
+          "status": true,
+          "quality": 1,
+          "price": 0,
+          "hours_wage": 0,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+        "value": "Springer"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8e30-72a5-9731-c24daf163527",
+        "status": true,
+        "tag": {
+          "id": "1ef33087-9b83-6788-adfe-4d6e0a851021",
+          "value": "Springer",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_can_apply"
+  },
+  {
+    "id": "019a97b1-8d6d-7100-be2c-23add6636786",
+    "type": "shift",
+    "start_tz": "Mon, 17 Nov 2025 15:00:00 +0100",
+    "end_tz": "Mon, 17 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Mon, 17 Nov 2025 15:00:00 +0100",
+      "lte": "Mon, 17 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8d6d-7100-be2c-23add5f393de",
+        "employee": {
+          "id": "1ef2e115-d776-6c48-939c-97d707ed9230",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Charlotte Becker",
+          "first_name": "Charlotte",
+          "second_name": "Becker",
+          "pin": "222222",
+          "employee_number": "2",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8d6d-7100-be2c-23add6636786",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [
+            {
+              "minutes": 197,
+              "name": "Nachtzuschlag bis 25%",
+              "id": "1f003e44-ef5d-6412-8173-e98883b55365",
+              "wage": 12.3
+            }
+          ],
+          "price": 120,
+          "hours_wage": 15,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+        "value": "Patisserie"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8cf0-7e62-8644-7d59a55b62e9",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-6850-6e8a-be60-bb447ec6241e",
+          "value": "Patisserie",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8dca-7502-976f-1e92e0524d4b",
+    "type": "shift",
+    "start_tz": "Mon, 17 Nov 2025 15:00:00 +0100",
+    "end_tz": "Mon, 17 Nov 2025 23:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Mon, 17 Nov 2025 15:00:00 +0100",
+      "lte": "Mon, 17 Nov 2025 23:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8dca-7502-976f-1e92e045f654",
+        "employee": {
+          "id": "1ef2e16b-4f35-6342-a97a-d116a71fa2d3",
+          "user_id": null,
+          "email": null,
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Martin Wagner",
+          "first_name": "Martin",
+          "second_name": "Wagner",
+          "pin": "101010",
+          "employee_number": "10",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8dca-7502-976f-1e92e0524d4b",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 102.56,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+        "value": "Spüler"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8da2-7d15-bfb9-d292e3fefe75",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-c7ae-6fc2-ac42-e30d5d5c7135",
+          "value": "Spüler",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-61e8-7485-abd8-5c4a83a91397",
+    "type": "shift",
+    "start_tz": "Mon, 17 Nov 2025 14:00:00 +0100",
+    "end_tz": "Mon, 17 Nov 2025 19:00:00 +0100",
+    "working_time_in_minutes": 300,
+    "time_frame": {
+      "gte": "Mon, 17 Nov 2025 14:00:00 +0100",
+      "lte": "Mon, 17 Nov 2025 19:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26758,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24122,
+        "name": "Blauer Raum",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb707d-67b9-654a-9789-fbd953d5980c",
+        "value": "Spät"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-61e6-7324-a92a-1ac12479dd14",
+        "status": true,
+        "tag": {
+          "id": "1efb707d-67b9-654a-9789-fbd953d5980c",
+          "value": "Spät",
+          "status": true,
+          "sort": 132
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8e26-7949-82b5-120472853374",
+    "type": "shift",
+    "start_tz": "Mon, 17 Nov 2025 12:00:00 +0100",
+    "end_tz": "Mon, 17 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Mon, 17 Nov 2025 12:00:00 +0100",
+      "lte": "Mon, 17 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 2,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18977,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17075,
+        "name": "Theke",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8e26-7949-82b5-12047257cd82",
+        "employee": {
+          "id": "1ef2e164-ef36-67da-9cef-41db99e655a2",
+          "user_id": null,
+          "email": null,
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Laura Weber",
+          "first_name": "Laura",
+          "second_name": "Weber",
+          "pin": "888888",
+          "employee_number": "8",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8e26-7949-82b5-120472853374",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 555,
+        "price": {
+          "status": true,
+          "quality": 1,
+          "price": 118.59,
+          "hours_wage": 12.82,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+        "value": "Runner"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8e01-7266-ade2-addb65ce6549",
+        "status": true,
+        "tag": {
+          "id": "1ef33083-9e34-654e-a0e9-5d2b4607a6f0",
+          "value": "Runner",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8df7-7e00-8ae1-8b1c63f61420",
+    "type": "shift",
+    "start_tz": "Mon, 17 Nov 2025 12:00:00 +0100",
+    "end_tz": "Mon, 17 Nov 2025 22:00:00 +0100",
+    "working_time_in_minutes": 555,
+    "time_frame": {
+      "gte": "Mon, 17 Nov 2025 12:00:00 +0100",
+      "lte": "Mon, 17 Nov 2025 22:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": false,
+    "pause": "00:45",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18976,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17074,
+        "name": "Service",
+        "status": true
+      },
+      "sort": 1,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8df7-7e00-8ae1-8b1c633e190a",
+        "employee": {
+          "id": "1ef2e166-d29b-6402-9a23-43fdf866aa6b",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Leopold von Strauss",
+          "first_name": "Leopold",
+          "second_name": "von Strauss",
+          "pin": "999999",
+          "employee_number": "9",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8df7-7e00-8ae1-8b1c63f61420",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 555,
+        "price": {
+          "status": true,
+          "quality": 1,
+          "price": 133.02,
+          "hours_wage": 14.38,
+          "grants": []
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [
+      {
+        "id": "019a97b1-8dd6-7a3c-b85d-472800fc9288",
+        "status": true,
+        "skill": {
+          "id": "1ef2e17b-d2d0-6bc4-814a-5d0a59eb6577",
+          "name": "Theke",
+          "status": true
+        }
+      }
+    ],
+    "tags": [
+      {
+        "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+        "value": "Frühdienst"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8dd3-7ef2-a499-3dcdcd758a77",
+        "status": true,
+        "tag": {
+          "id": "1ef33082-ce00-69f4-b722-01627c77cb3a",
+          "value": "Frühdienst",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_can_apply"
+  },
+  {
+    "id": "019a2f94-62a0-7d33-a707-0d2b83a00993",
+    "type": "shift",
+    "start_tz": "Mon, 17 Nov 2025 08:30:00 +0100",
+    "end_tz": "Mon, 17 Nov 2025 18:00:00 +0100",
+    "working_time_in_minutes": 540,
+    "time_frame": {
+      "gte": "Mon, 17 Nov 2025 08:30:00 +0100",
+      "lte": "Mon, 17 Nov 2025 18:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26759,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24123,
+        "name": "Gelber Raum",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-62a0-7d33-a707-0d2b82caf5d6",
+        "employee": {
+          "id": "1ef2e110-9f57-64e8-af50-a97f84166058",
+          "user_id": null,
+          "email": "john+anna@ordio.com",
+          "employment": 32557,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Anna Müller",
+          "first_name": "Anna",
+          "second_name": "Müller",
+          "pin": "111111",
+          "employee_number": "1",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-62a0-7d33-a707-0d2b83a00993",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 540,
+        "price": {
+          "grants": [],
+          "price": 0,
+          "hours_wage": 0,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": {
+          "id": "019a92c2-ef51-7c6d-9130-e54368541ffb",
+          "entry_date": "Mon, 17 Nov 2025 08:30:00 +0100",
+          "finish_date": "Mon, 17 Nov 2025 18:00:00 +0100",
+          "valid": 1,
+          "status": 6
+        },
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [],
+    "shift_tags": [],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8d9a-7aee-89d5-49109ce4429c",
+    "type": "shift",
+    "start_tz": "Mon, 17 Nov 2025 08:00:00 +0100",
+    "end_tz": "Mon, 17 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Mon, 17 Nov 2025 08:00:00 +0100",
+      "lte": "Mon, 17 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18975,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17073,
+        "name": "Küchenhilfe",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8d9a-7aee-89d5-49109cb1cf44",
+        "employee": {
+          "id": "1ef2e12b-72bf-68b6-baaf-59960b482360",
+          "user_id": null,
+          "email": null,
+          "employment": 32558,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Julia Richter",
+          "first_name": "Julia",
+          "second_name": "Richter",
+          "pin": "777777",
+          "employee_number": "7",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8d9a-7aee-89d5-49109ce4429c",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 420,
+        "price": {
+          "grants": [],
+          "price": 89.74,
+          "hours_wage": 12.82,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": {
+          "id": "019a97c7-1b8d-7398-b8d8-49044c300891",
+          "entry_date": "Mon, 17 Nov 2025 08:00:00 +0100",
+          "finish_date": "Mon, 17 Nov 2025 15:30:00 +0100",
+          "valid": 1,
+          "status": 3
+        },
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+        "value": "Pass"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8d78-777a-8bea-df3b69fd9575",
+        "status": true,
+        "tag": {
+          "id": "1ef33085-ed52-65a2-84d6-61e6e4290282",
+          "value": "Pass",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a97b1-8ce7-7506-944f-db1d5e942daa",
+    "type": "shift",
+    "start_tz": "Mon, 17 Nov 2025 08:00:00 +0100",
+    "end_tz": "Mon, 17 Nov 2025 16:30:00 +0100",
+    "working_time_in_minutes": 480,
+    "time_frame": {
+      "gte": "Mon, 17 Nov 2025 08:00:00 +0100",
+      "lte": "Mon, 17 Nov 2025 16:30:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 18974,
+      "branch": {
+        "id": 5362,
+        "name": "John's",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 17072,
+        "name": "Küche",
+        "status": true
+      },
+      "sort": 3,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a97b1-8ce7-7506-944f-db1d5e68941d",
+        "employee": {
+          "id": "1ef2e120-cdc8-6362-ba34-8b434e3659bf",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Eleonore von Walden",
+          "first_name": "Eleonore",
+          "second_name": "von Walden",
+          "pin": "444444",
+          "employee_number": "4",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a97b1-8ce7-7506-944f-db1d5e942daa",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 480,
+        "price": {
+          "grants": [],
+          "price": 115.04,
+          "hours_wage": 14.38,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": null,
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+        "value": "Küchenleitung"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a97b1-8cb6-79ed-afb8-8c24d0b4b2d1",
+        "status": true,
+        "tag": {
+          "id": "1ef33084-61d0-6c64-8431-2fa79324deee",
+          "value": "Küchenleitung",
+          "status": true,
+          "sort": 99
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-615a-7168-b956-53a50d47f949",
+    "type": "shift",
+    "start_tz": "Mon, 17 Nov 2025 07:30:00 +0100",
+    "end_tz": "Mon, 17 Nov 2025 13:00:00 +0100",
+    "working_time_in_minutes": 330,
+    "time_frame": {
+      "gte": "Mon, 17 Nov 2025 07:30:00 +0100",
+      "lte": "Mon, 17 Nov 2025 13:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:00",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26758,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24122,
+        "name": "Blauer Raum",
+        "status": true
+      },
+      "sort": 2,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-615a-7168-b956-53a50d3f0e46",
+        "employee": {
+          "id": "1ef2e115-d776-6c48-939c-97d707ed9230",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Charlotte Becker",
+          "first_name": "Charlotte",
+          "second_name": "Becker",
+          "pin": "222222",
+          "employee_number": "2",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-615a-7168-b956-53a50d47f949",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 360,
+        "price": {
+          "grants": [],
+          "price": 90,
+          "hours_wage": 15,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": {
+          "id": "019a91b0-3d94-71ab-8f7a-7d21a77531e3",
+          "entry_date": "Mon, 17 Nov 2025 06:30:00 +0100",
+          "finish_date": "Mon, 17 Nov 2025 13:00:00 +0100",
+          "valid": 1,
+          "status": 3
+        },
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb1696-bbe9-61f6-a574-af57cd5e7080",
+        "value": "Früh"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-613b-7e5f-b6c6-b6efbf7c2a02",
+        "status": true,
+        "tag": {
+          "id": "1efb1696-bbe9-61f6-a574-af57cd5e7080",
+          "value": "Früh",
+          "status": true,
+          "sort": 129
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  },
+  {
+    "id": "019a2f94-6060-784a-8c39-571ca47859d0",
+    "type": "shift",
+    "start_tz": "Mon, 17 Nov 2025 07:30:00 +0100",
+    "end_tz": "Mon, 17 Nov 2025 17:00:00 +0100",
+    "working_time_in_minutes": 540,
+    "time_frame": {
+      "gte": "Mon, 17 Nov 2025 07:30:00 +0100",
+      "lte": "Mon, 17 Nov 2025 17:00:00 +0100"
+    },
+    "timezone": "Europe/Berlin",
+    "employee_count": 1,
+    "note": "",
+    "automatically_accept": false,
+    "canditature_system": true,
+    "pause": "00:30",
+    "pause_paid": false,
+    "auto_break_rule": true,
+    "status": true,
+    "publish": true,
+    "branch_working_area": {
+      "id": 26757,
+      "branch": {
+        "id": 5372,
+        "name": "Physio? Logisch!",
+        "enabled": true
+      },
+      "working_area": {
+        "id": 24121,
+        "name": "Grüner Raum",
+        "status": true
+      },
+      "sort": 4,
+      "status": true
+    },
+    "company_cost_centre": null,
+    "company_event": null,
+    "multi_checks": null,
+    "multi_check": null,
+    "candidates": [
+      {
+        "id": "019a2f94-6060-784a-8c39-571ca4280aaf",
+        "employee": {
+          "id": "1ef2e129-b0d0-6f30-8311-637e82bdf584",
+          "user_id": null,
+          "email": null,
+          "employment": 32561,
+          "phone": null,
+          "company": null,
+          "user": null,
+          "username": "Jonas Bauer",
+          "first_name": "Jonas",
+          "second_name": "Bauer",
+          "pin": "666666",
+          "employee_number": "6",
+          "employee_status": 1,
+          "enabled": true,
+          "join_date": null,
+          "role": null,
+          "employer": null
+        },
+        "item_id": "019a2f94-6060-784a-8c39-571ca47859d0",
+        "status": 2,
+        "applied": false,
+        "enabled": true,
+        "double_occupancy": false,
+        "is_confirmed": false,
+        "is_recorded": false,
+        "is_reserve": false,
+        "is_underage": false,
+        "working_time": 540,
+        "price": {
+          "grants": [],
+          "price": 135,
+          "hours_wage": 15,
+          "status": true,
+          "quality": 1
+        },
+        "time_clock": {
+          "id": "019a928b-f229-7e77-ba74-ba9762fc05c7",
+          "entry_date": "Mon, 17 Nov 2025 07:30:00 +0100",
+          "finish_date": "Mon, 17 Nov 2025 17:00:00 +0100",
+          "valid": 1,
+          "status": 6
+        },
+        "is_working_time_violation": false,
+        "is_working_time_violation_ignored": false,
+        "is_working_time_violation_ignored_reason": null
+      }
+    ],
+    "recruitments": [],
+    "skills": [],
+    "tags": [
+      {
+        "id": "1efb707a-52db-6b76-96a2-8d3613357fe1",
+        "value": "Manuelle Therapie"
+      }
+    ],
+    "shift_tags": [
+      {
+        "id": "019a2f94-5fb9-79ed-86cd-7ba16d73ccb3",
+        "status": true,
+        "tag": {
+          "id": "1efb707a-52db-6b76-96a2-8d3613357fe1",
+          "value": "Manuelle Therapie",
+          "status": true,
+          "sort": 131
+        }
+      }
+    ],
+    "application_type": "employees_are_assigned"
+  }
+]
