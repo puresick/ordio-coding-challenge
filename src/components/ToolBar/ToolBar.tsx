@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MoreHorizontal } from "lucide-react";
+import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
@@ -23,13 +23,30 @@ import { GenerateTemplateDialog } from "@/components/GenerateTemplateDialog";
 import classes from "./ToolBar.module.css";
 
 function ToolBar() {
-  const { shifts, employees, departments, loadShifts, purgeShifts } = useShifts();
+  const {
+    shifts,
+    employees,
+    departments,
+    loadShifts,
+    purgeShifts,
+    goToPreviousWeek,
+    goToNextWeek,
+    goToCurrentWeek,
+  } = useShifts();
   const [purgeDialogOpen, setPurgeDialogOpen] = useState(false);
 
   return (
     <nav className={classes.block}>
       <div className={classes.left}>
-        <ShiftEditDialog departments={departments} employees={employees} />
+        <Button variant="outline" size="icon" onClick={goToPreviousWeek}>
+          <ChevronLeft className="h-4 w-4" />
+        </Button>
+        <Button variant="outline" onClick={goToCurrentWeek}>
+          Today
+        </Button>
+        <Button variant="outline" size="icon" onClick={goToNextWeek}>
+          <ChevronRight className="h-4 w-4" />
+        </Button>
       </div>
       <div className={classes.right}>
         <GenerateTemplateDialog />
@@ -65,12 +82,11 @@ function ToolBar() {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction onClick={purgeShifts}>
-                Purge
-              </AlertDialogAction>
+              <AlertDialogAction onClick={purgeShifts}>Purge</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
+        <ShiftEditDialog departments={departments} employees={employees} />
       </div>
     </nav>
   );

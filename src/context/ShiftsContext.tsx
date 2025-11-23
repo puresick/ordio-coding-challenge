@@ -101,6 +101,9 @@ interface ShiftsContextValue {
   unassignEmployee: (shiftId: string) => void;
   swapShifts: (shiftId1: string, shiftId2: string) => void;
   moveShiftTo: (sourceShiftId: string, targetShiftId: string) => void;
+  goToPreviousWeek: () => void;
+  goToNextWeek: () => void;
+  goToCurrentWeek: () => void;
 }
 
 const ShiftsContext = createContext<ShiftsContextValue | null>(null);
@@ -449,6 +452,29 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
     });
   };
 
+  const goToPreviousWeek = () => {
+    setReferenceDate((prev) => {
+      if (!prev) return prev;
+      const date = new Date(prev);
+      date.setDate(date.getDate() - 7);
+      return date.toISOString();
+    });
+  };
+
+  const goToNextWeek = () => {
+    setReferenceDate((prev) => {
+      if (!prev) return prev;
+      const date = new Date(prev);
+      date.setDate(date.getDate() + 7);
+      return date.toISOString();
+    });
+  };
+
+  const goToCurrentWeek = () => {
+    // Hardcoded to week 17.11 - 23.11.2025 due to demo data only having data for that particular week
+    setReferenceDate(new Date("2025-11-17").toISOString());
+  };
+
   return (
     <ShiftsContext.Provider
       value={{
@@ -469,6 +495,9 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
         unassignEmployee,
         swapShifts,
         moveShiftTo,
+        goToPreviousWeek,
+        goToNextWeek,
+        goToCurrentWeek,
       }}
     >
       {children}

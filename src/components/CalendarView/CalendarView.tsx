@@ -36,7 +36,45 @@ function CalendarView() {
     .map((d) => d.working_area.name)
     .toSorted((a, b) => a.localeCompare(b));
 
-  const shiftsByDepartmentAndDay = shifts.reduce<
+  // Calculate week boundaries from referenceDate
+  const datesByWeekday: Record<string, Date> = {};
+  let weekStart: Date | null = null;
+  let weekEnd: Date | null = null;
+
+  if (referenceDate) {
+    const refDate = new Date(referenceDate);
+    const dayOfWeek = refDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
+
+    // Calculate Monday of this week
+    const monday = new Date(refDate);
+    const daysFromMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+    monday.setDate(refDate.getDate() + daysFromMonday);
+    monday.setHours(0, 0, 0, 0);
+
+    // Calculate Sunday (end of week)
+    const sunday = new Date(monday);
+    sunday.setDate(monday.getDate() + 6);
+    sunday.setHours(23, 59, 59, 999);
+
+    weekStart = monday;
+    weekEnd = sunday;
+
+    // Generate dates for all weekdays
+    WEEKDAYS.forEach((day, index) => {
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + index);
+      datesByWeekday[day] = date;
+    });
+  }
+
+  // Filter shifts to only show those in the current week
+  const shiftsInCurrentWeek = shifts.filter((shift) => {
+    if (!weekStart || !weekEnd) return true;
+    const shiftDate = new Date(shift.start_tz);
+    return shiftDate >= weekStart && shiftDate <= weekEnd;
+  });
+
+  const shiftsByDepartmentAndDay = shiftsInCurrentWeek.reduce<
     Record<string, Record<string, Shift[]>>
   >((acc, shift) => {
     const dept = shift.branch_working_area.working_area.name;
@@ -63,30 +101,6 @@ function CalendarView() {
           new Date(a.start_tz).getTime() - new Date(b.start_tz).getTime(),
       );
     }
-  }
-
-  // Extract date for each weekday from shifts or referenceDate
-  const datesByWeekday: Record<string, Date> = {};
-
-  // Use shifts[0] if available, otherwise fall back to referenceDate from context
-  const refDateString = shifts.length > 0 ? shifts[0].start_tz : referenceDate;
-
-  if (refDateString) {
-    const refDate = new Date(refDateString);
-    const dayOfWeek = refDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
-
-    // Calculate Monday of this week
-    const monday = new Date(refDate);
-    const daysFromMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
-    monday.setDate(refDate.getDate() + daysFromMonday);
-    monday.setHours(0, 0, 0, 0);
-
-    // Generate dates for all weekdays
-    WEEKDAYS.forEach((day, index) => {
-      const date = new Date(monday);
-      date.setDate(monday.getDate() + index);
-      datesByWeekday[day] = date;
-    });
   }
 
   return (
