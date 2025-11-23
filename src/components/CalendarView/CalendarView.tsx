@@ -1,5 +1,5 @@
 import { useShifts } from "@/context/ShiftsContext";
-import type { Shift } from "@/context/ShiftsContext";
+import type { Shift, Employee } from "@/context/ShiftsContext";
 import {
   Card,
   CardContent,
@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { ShiftEditDialog } from "@/components/ShiftEditDialog";
 import classes from "./CalendarView.module.css";
 
 const WEEKDAYS = [
@@ -45,6 +46,15 @@ function CalendarView() {
   const departments = [
     ...new Set(shifts.map((s) => s.branch_working_area.working_area.name)),
   ].toSorted((a, b) => a.localeCompare(b));
+
+  const employees: Employee[] = [
+    ...new Map(
+      shifts
+        .flatMap((s) => s.candidates.map((c) => c.employee))
+        .filter((e) => e?.username)
+        .map((e) => [e.id, e]),
+    ).values(),
+  ].toSorted((a, b) => a.username.localeCompare(b.username));
 
   const shiftsByDepartmentAndDay = shifts.reduce<
     Record<string, Record<string, Shift[]>>
@@ -91,28 +101,34 @@ function CalendarView() {
                     !shift.candidates[0]?.employee.username;
 
                   return (
-                    <Card
+                    <ShiftEditDialog
                       key={shift.id}
-                      className={isUnassigned ? "border-dashed shadow-none bg-gray-100" : ""}
+                      shift={shift}
+                      employees={employees}
+                      departments={departments}
                     >
-                      <CardHeader>
-                        <CardDescription>
-                          {new Date(shift.start_tz).toLocaleDateString()}
-                        </CardDescription>
-                        <CardTitle className="line-clamp-2 min-h-[2lh]">
-                          {isUnassigned
-                            ? "Unassigned"
-                            : shift.candidates[0]?.employee.username}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p>
-                          {formatTime(shift.start_tz)} -{" "}
-                          {formatTime(shift.end_tz)}
-                        </p>
-                        <p>{shift.branch_working_area.working_area.name}</p>
-                      </CardContent>
-                    </Card>
+                      <Card
+                        className={`cursor-pointer ${isUnassigned ? "border-dashed shadow-none bg-gray-100" : ""}`}
+                      >
+                        <CardHeader>
+                          <CardDescription>
+                            {new Date(shift.start_tz).toLocaleDateString()}
+                          </CardDescription>
+                          <CardTitle className="line-clamp-2 min-h-[2lh]">
+                            {isUnassigned
+                              ? "Unassigned"
+                              : shift.candidates[0]?.employee.username}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p>
+                            {formatTime(shift.start_tz)} -{" "}
+                            {formatTime(shift.end_tz)}
+                          </p>
+                          <p>{shift.branch_working_area.working_area.name}</p>
+                        </CardContent>
+                      </Card>
+                    </ShiftEditDialog>
                   );
                 })}
               </div>
