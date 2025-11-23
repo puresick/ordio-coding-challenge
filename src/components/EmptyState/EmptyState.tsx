@@ -43,7 +43,6 @@ import { cn } from "@/lib/utils";
 import { useShifts } from "@/context/ShiftsContext";
 import type {
   BranchWorkingArea,
-  Employee,
   Shift,
 } from "@/context/ShiftsContext";
 
@@ -75,7 +74,6 @@ export function EmptyState() {
 
   // Department and employees selection state
   const [departments, setDepartments] = useState<BranchWorkingArea[]>([]);
-  const [availableEmployees, setAvailableEmployees] = useState<Employee[]>([]);
   const [selectedDepartment, setSelectedDepartment] =
     useState<BranchWorkingArea | null>(null);
   const [departmentOpen, setDepartmentOpen] = useState(false);
@@ -103,17 +101,6 @@ export function EmptyState() {
           if (uniqueDepartments.length > 0) {
             setSelectedDepartment(uniqueDepartments[0]);
           }
-
-          // Extract unique employees
-          const uniqueEmployees = [
-            ...new Map(
-              data
-                .flatMap((s) => s.candidates.map((c) => c.employee))
-                .filter((e) => e?.username)
-                .map((e) => [e.id, e]),
-            ).values(),
-          ].toSorted((a, b) => a.username.localeCompare(b.username));
-          setAvailableEmployees(uniqueEmployees);
         })
         .finally(() => setLoadingDepartments(false));
     }

@@ -22,3 +22,19 @@
   background-color: var(--color-gray-100);
   color: var(--color-gray-600);
 }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  background-color: var(--color-gray-100);
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-gray-600);
+}

@@ -45,7 +45,17 @@ export const ShiftCard = forwardRef<HTMLDivElement, ShiftCardProps>(
               : shift.candidates[0]?.employee.username}
           </CardTitle>
         </CardHeader>
-        <CardContent></CardContent>
+        <CardContent>
+          {shift.shift_tags && shift.shift_tags.length > 0 && (
+            <div className={classes.tags}>
+              {shift.shift_tags.map((shiftTag) => (
+                <span key={shiftTag.id} className={classes.tag}>
+                  {shiftTag.tag.value}
+                </span>
+              ))}
+            </div>
+          )}
+        </CardContent>
       </Card>
     );
   },

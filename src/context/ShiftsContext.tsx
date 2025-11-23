@@ -57,6 +57,19 @@ export interface TimeFrame {
   lte: string;
 }
 
+export interface Tag {
+  id: string;
+  value: string;
+  status: boolean;
+  sort: number;
+}
+
+export interface ShiftTag {
+  id: string;
+  status: boolean;
+  tag: Tag;
+}
+
 export interface Shift {
   id: string;
   type: string;
@@ -80,6 +93,7 @@ export interface Shift {
   multi_checks: unknown;
   multi_check: unknown;
   candidates: Candidate[];
+  shift_tags?: ShiftTag[];
 }
 
 // Context
@@ -87,6 +101,7 @@ interface ShiftsContextValue {
   shifts: Shift[];
   employees: Employee[];
   departments: BranchWorkingArea[];
+  tags: Tag[];
   referenceDate: string | null;
   loading: boolean;
   error: string | null;
@@ -97,6 +112,7 @@ interface ShiftsContextValue {
   generateTemplate: (config: TemplateConfig) => void;
   addShift: (config: AddShiftConfig) => void;
   updateShift: (shiftId: string, updates: Partial<Shift>) => void;
+  updateShiftTags: (shiftId: string, tagIds: string[]) => void;
   assignEmployee: (shiftId: string, employee: Employee) => void;
   unassignEmployee: (shiftId: string) => void;
   swapShifts: (shiftId1: string, shiftId2: string) => void;
@@ -125,6 +141,7 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
   const [shifts, setShifts] = useState<Shift[]>([]);
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [departments, setDepartments] = useState<BranchWorkingArea[]>([]);
+  const [tags, setTags] = useState<Tag[]>([]);
   const [referenceDate, setReferenceDate] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -148,10 +165,19 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
       ).values(),
     ];
 
+    // Extract unique tags from shifts
+    const uniqueTags = [
+      ...new Map(
+        data
+          .flatMap((s) => s.shift_tags ?? [])
+          .map((st) => [st.tag.id, st.tag]),
+      ).values(),
+    ].toSorted((a, b) => a.value.localeCompare(b.value));
+
     // Get reference date from first shift
     const refDate = data.length > 0 ? data[0].start_tz : null;
 
-    return { uniqueEmployees, uniqueDepartments, refDate };
+    return { uniqueEmployees, uniqueDepartments, uniqueTags, refDate };
   };
 
   const loadShifts = () => {
@@ -165,11 +191,12 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
         return response.json();
       })
       .then((data: Shift[]) => {
-        const { uniqueEmployees, uniqueDepartments, refDate } =
+        const { uniqueEmployees, uniqueDepartments, uniqueTags, refDate } =
           extractMetadataFromShifts(data);
         setShifts(data);
         setEmployees(uniqueEmployees);
         setDepartments(uniqueDepartments);
+        setTags(uniqueTags);
         setReferenceDate(refDate);
         setLoading(false);
         setInitialized(true);
@@ -189,12 +216,13 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
         throw new Error(`Failed to fetch shifts: ${response.status}`);
       }
       const data: Shift[] = await response.json();
-      const { uniqueEmployees, uniqueDepartments, refDate } =
+      const { uniqueEmployees, uniqueDepartments, uniqueTags, refDate } =
         extractMetadataFromShifts(data);
 
       setShifts([]); // Empty shifts
       setEmployees(uniqueEmployees);
       setDepartments(uniqueDepartments);
+      setTags(uniqueTags);
       setReferenceDate(refDate);
       setLoading(false);
       setInitialized(true);
@@ -290,9 +318,10 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
       throw new Error(`Failed to fetch shifts: ${response.status}`);
     }
     const data: Shift[] = await response.json();
-    const { uniqueEmployees, uniqueDepartments } =
+    const { uniqueEmployees, uniqueDepartments, uniqueTags } =
       extractMetadataFromShifts(data);
     setDepartments(uniqueDepartments);
+    setTags(uniqueTags);
 
     setShifts((prev) => [
       // Keep shifts from other departments
@@ -362,6 +391,29 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
       prev.map((shift) =>
         shift.id === shiftId ? { ...shift, ...updates } : shift,
       ),
+    );
+  };
+
+  const updateShiftTags = (shiftId: string, tagIds: string[]) => {
+    setShifts((prev) =>
+      prev.map((shift) => {
+        if (shift.id !== shiftId) return shift;
+
+        const newShiftTags: ShiftTag[] = tagIds.map((tagId) => {
+          const tag = tags.find((t) => t.id === tagId);
+          if (!tag) throw new Error(`Tag with id ${tagId} not found`);
+          return {
+            id: crypto.randomUUID(),
+            status: true,
+            tag,
+          };
+        });
+
+        return {
+          ...shift,
+          shift_tags: newShiftTags,
+        };
+      }),
     );
   };
 
@@ -483,6 +535,7 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
         shifts,
         employees,
         departments,
+        tags,
         referenceDate,
         loading,
         error,
@@ -493,6 +546,7 @@ export function ShiftsProvider({ children }: ShiftsProviderProps) {
         generateTemplate,
         addShift,
         updateShift,
+        updateShiftTags,
         assignEmployee,
         unassignEmployee,
         swapShifts,

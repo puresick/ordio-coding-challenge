@@ -72,7 +72,7 @@ export function ShiftEditDialog({
   defaultDepartment,
   children,
 }: ShiftEditDialogProps) {
-  const { shifts, referenceDate, assignEmployee, unassignEmployee, updateShift, addShift } = useShifts();
+  const { shifts, referenceDate, tags, assignEmployee, unassignEmployee, updateShift, updateShiftTags, addShift } = useShifts();
 
   const isAddMode = !shift;
   const currentEmployee = shift?.candidates[0]?.employee;
@@ -99,6 +99,11 @@ export function ShiftEditDialog({
   );
   const [endTime, setEndTime] = useState(
     shift ? formatTimeForInput(shift.end_tz) : "17:00"
+  );
+
+  const [tagsOpen, setTagsOpen] = useState(false);
+  const [selectedTags, setSelectedTags] = useState<string[]>(
+    shift?.shift_tags?.map((st) => st.tag.id) ?? []
   );
 
   // Calculate date for selected day based on existing shifts or referenceDate
@@ -149,6 +154,7 @@ export function ShiftEditDialog({
       setSelectedDay("monday");
       setStartTime("09:00");
       setEndTime("17:00");
+      setSelectedTags([]);
     } else if (shift) {
       if (isUnassigned) {
         if (employee) {
@@ -175,6 +181,15 @@ export function ShiftEditDialog({
           start_tz: newStartDate.toString(),
           end_tz: newEndDate.toString(),
         });
+      }
+
+      // Update tags
+      const currentTagIds = shift.shift_tags?.map((st) => st.tag.id) ?? [];
+      const tagsChanged =
+        selectedTags.length !== currentTagIds.length ||
+        selectedTags.some((id) => !currentTagIds.includes(id));
+      if (tagsChanged) {
+        updateShiftTags(shift.id, selectedTags);
       }
     }
     setOpen(false);
@@ -412,6 +427,61 @@ export function ShiftEditDialog({
               </PopoverContent>
             </Popover>
           </div>
+
+          {/* Tags Multi-Select Combobox */}
+          {tags.length > 0 && (
+            <div className="grid gap-2">
+              <Label>Tags</Label>
+              <Popover open={tagsOpen} onOpenChange={setTagsOpen}>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    role="combobox"
+                    aria-expanded={tagsOpen}
+                    className="justify-between"
+                  >
+                    {selectedTags.length > 0
+                      ? `${selectedTags.length} tag${selectedTags.length > 1 ? "s" : ""} selected`
+                      : "Select tags..."}
+                    <ChevronsUpDown className="opacity-50" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="p-0">
+                  <Command>
+                    <CommandInput placeholder="Search tags..." />
+                    <CommandList>
+                      <CommandEmpty>No tags found.</CommandEmpty>
+                      <CommandGroup>
+                        {tags.map((tag) => (
+                          <CommandItem
+                            key={tag.id}
+                            value={tag.value}
+                            onSelect={() => {
+                              setSelectedTags((prev) =>
+                                prev.includes(tag.id)
+                                  ? prev.filter((id) => id !== tag.id)
+                                  : [...prev, tag.id]
+                              );
+                            }}
+                          >
+                            {tag.value}
+                            <Check
+                              className={cn(
+                                "ml-auto",
+                                selectedTags.includes(tag.id)
+                                  ? "opacity-100"
+                                  : "opacity-0",
+                              )}
+                            />
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </PopoverContent>
+              </Popover>
+            </div>
+          )}
         </div>
 
         <DialogFooter>
