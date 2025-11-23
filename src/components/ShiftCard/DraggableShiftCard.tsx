@@ -12,6 +12,8 @@ export function DraggableShiftCard({
   shift,
   children,
 }: DraggableShiftCardProps) {
+  const isUnassigned = shift.candidates.length === 0;
+
   const {
     attributes,
     listeners,
@@ -20,6 +22,7 @@ export function DraggableShiftCard({
     isDragging,
   } = useDraggable({
     id: shift.id,
+    disabled: isUnassigned,
   });
 
   const { setNodeRef: setDroppableRef, isOver } = useDroppable({
